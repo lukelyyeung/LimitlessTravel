@@ -1,0 +1,31 @@
+{
+  "name": "limitlesstravel",
+  "version": "0.0.5",
+  "description": "full stack travel application project",
+  "main": "ViewRouter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukelyyeung/LimitlessTravel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukelyyeung/LimitlessTravel/issues"
+  },
+  "homepage": "https://github.com/lukelyyeung/LimitlessTravel#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "knex": "^0.14.3",
+    "passport": "^0.4.0",
+    "passport-session": "^1.0.2",
+    "pg": "^7.4.1",
+    "redis": "^2.8.0"
+  }
+}
