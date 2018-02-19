@@ -1,10 +1,11 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('users', (table) => {
-        table.increments('userId');
-        table.string("userName");
-        table.string("facebookId"); 
-        table.string("googleId"); 
-        table.string("instagramId"); 
+        table.increments('id');
+        table.string("name");
+        table.string("email");
+        table.string("facebook"); 
+        table.string("google"); 
+        table.string("instagram"); 
         table.timestamps(false, true);
     });
 };

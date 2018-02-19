@@ -1,12 +1,14 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('packageinfo', (table) => {
-      table.increments('packageId');
-      table.integer('flightId');
-      table.integer('hotelId');
+  return knex.schema.createTable('packages', (table) => {
+      table.increments('id');
+      table.date('day_from');
+      table.date('day_to');
+      table.string('city_from');
+      table.string('city_to');
       table.timestamps(false, true);
   });
 };
 
 exports.down = function(knex, Promise) {
-    return knex.schema.dropTable('packageinfo');
+    return knex.schema.dropTable('packages');
 };

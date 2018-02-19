@@ -1,8 +1,8 @@
 exports.up = function (knex, Promise) {
     return knex.schema.createTable('userpackage', (table) => {
         table.increments('id');
-        table.integer('packageId');
-        table.integer('userId');
+        table.integer('package_id');
+        table.integer('user_id');
         table.timestamps(false, true);
     });
 };

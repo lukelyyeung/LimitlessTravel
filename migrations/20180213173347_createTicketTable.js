@@ -1,19 +1,18 @@
 exports.up = function (knex, Promise) {
-    return knex.schema.createTable('ticketinfo', (table => {
-        table.increments('ticketId');
-        table.string('vendor');
-        table.string('origin');
-        table.string('destination');
-        table.string('airportFrom');
-        table.string('airportTo');
-        table.date('dayFrom');
-        table.date('dayTo');
-        table.string('flightCode');
-        table.float('price');
+    return knex.schema.createTable('tickets', (table => {
+        table.increments('id');
+        table.integer('package_id');
+        table.integer('airline_id');
+        table.string('flight_code');
+        table.string('airport_from');
+        table.string('airport_to');
+        table.date('day_from');
+        table.date('day_to');
+        table.float('flight_price');
         table.timestamps(false, true);
     }))
 };
 
 exports.down = function (knex, Promise) {
-    return knex.schema.dropTable('ticketinfo');
+    return knex.schema.dropTable('tickets');
 };

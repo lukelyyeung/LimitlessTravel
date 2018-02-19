@@ -2,6 +2,21 @@
 require('dotenv').config();
 
 module.exports = {
+  testing: {
+    client: 'postgresql',
+    connection: {
+      database: 'limitlessTravel',
+      user: 'developer',
+      password: 'password'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
+    }
+  },
   development: {
     client: 'postgresql',
     connection: {
@@ -50,3 +65,5 @@ module.exports = {
     }
   }
 };
+
+// console.log(a['development'].connection);
