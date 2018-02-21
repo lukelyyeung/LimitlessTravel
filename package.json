@@ -24,6 +24,7 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "knex": "^0.14.3",
+    "lodash": "^4.17.5",
     "passport": "^0.4.0",
     "passport-session": "^1.0.2",
     "pg": "^7.4.1",
