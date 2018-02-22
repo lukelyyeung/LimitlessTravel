@@ -1,9 +1,9 @@
 exports.up = function (knex, Promise) {
     return knex.schema.createTable('hotels', (table) => {
-        table.increments('id');
+        table.increments('hotel_id').unique().unsigned();
         table.string('hotel_name');
         table.string('city');
-        table.json('location');
+        table.jsonb('location');
     });
 }
 

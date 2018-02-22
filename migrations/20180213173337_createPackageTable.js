@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('packages', (table) => {
-      table.increments('id');
+      table.increments('package_id').unique().unsigned();
       table.date('day_from');
       table.date('day_to');
       table.string('city_from');

@@ -1,8 +1,10 @@
 exports.up = function (knex, Promise) {
     return knex.schema.createTable('tickets', (table => {
-        table.increments('id');
+        table.string('id', 2);
+        
+        table.increments('ticket_id').unique().unsigned();
         table.integer('package_id');
-        table.integer('airline_id');
+        table.foreign('package_id').references('packages.package_id');
         table.string('flight_code');
         table.string('airport_from');
         table.string('airport_to');

@@ -1,6 +1,6 @@
 exports.up = function (knex, Promise) {
     return knex.schema.createTable('airlines', (table) => {
-        table.increments('primary_id').primary();
+        table.increments('primary_id').unsigned();
         table.string('id');
         table.integer('lcc');
         table.string('name');
