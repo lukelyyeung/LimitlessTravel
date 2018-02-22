@@ -29,7 +29,7 @@ describe('randomizeService', () => {
     it("should retrieve all destination from predinfined destination", (done) => {
         randomizeService.findAvailableDestination()
             .then(data => {
-                let availableDestination = data.map(x => x.airportCode)
+                let availableDestination = data;
                 expect(isArrayEqual(availableDestination, testingDestination)).toBe(true);
                 done();
             })
@@ -40,24 +40,17 @@ describe('randomizeService', () => {
         expect(randomizeService.pickDestination()).toBe(false);
     })
 
-    it("should remove the suggested destination when it's out of the buget", () => {
-        let destination = 'RGN', price = 4000, budget = 3000;
+    it('should remove the given destination', () => {
         randomizeService.availableDestination = ['KIX', 'RGN', 'BLR', 'HAM', 'SFO'];
-
-        expect(randomizeService.validateBudget(destination, price, budget)).toEqual(0);
+        randomizeService.removeDestination('RGN');
         expect(isArrayEqual(randomizeService.availableDestination, ['KIX', 'BLR', 'HAM', 'SFO'])).toBe(true);
     });
 
-    it("should pass the price validation when it's within the buget", () => {
-        let destination = 'RGN', price = 4000, budget = 5000;
+    it('should remove nothing and return false if the given destination is not on the available destination', () => {
         randomizeService.availableDestination = ['KIX', 'RGN', 'BLR', 'HAM', 'SFO'];
-
-        randomizeService.validateBudget(destination, price, budget);
-        expect(isArrayEqual(randomizeService.availableDestination, testingDestination)).toBe(true);
+        expect(randomizeService.removeDestination('PEK')).toBe(false);
+        expect(isArrayEqual(randomizeService.availableDestination, ['KIX', 'RGN', 'BLR', 'HAM', 'SFO'])).toBe(true);
     });
-
-    it('test', () => {
-    })
 })
 
 // Integration Test

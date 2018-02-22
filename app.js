@@ -18,9 +18,8 @@ let randomizeService = new RandomizeService(knex);
 
 const {app,server} = require('./utils/init-app')();
 
-
-
 app.use('/',new ViewRouter().router());
+app.use('/api/search', new GetPackageRouter(randomizeService).router())
 // app.use('/api/users',isLoggedIn,new UserRouter(getService, saveService).router());
 
 

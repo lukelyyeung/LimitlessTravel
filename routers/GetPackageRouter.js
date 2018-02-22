@@ -7,11 +7,11 @@ class GetPackageRouter {
         this.randomizeService = randomizeService;
     }
 
-    // router(){
-    //     let router = express.Router();
-    //     router.post("/abc",this.post.bind(this));
-    //     return router;
-    // }
+    router(){
+        let router = express.Router();
+        router.post("/",this.post.bind(this));
+        return router;
+    }
 
     post(req,res) {
         this.randomizeService.findAvailableDestination()
