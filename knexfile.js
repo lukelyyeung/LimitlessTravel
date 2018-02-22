@@ -65,5 +65,3 @@ module.exports = {
     }
   }
 };
-
-// console.log(a['development'].connection);
