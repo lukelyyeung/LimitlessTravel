@@ -1,4 +1,4 @@
-const RandomizeService = require('../../services/knexService/RandomizeService');
+const RandomizeService = require('../../services/RandomizeService');
 const knexFile = require('../../knexfile')['testing'];
 const knex = require('knex')(knexFile);
 const _ = require('lodash');

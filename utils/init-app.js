@@ -5,13 +5,14 @@ const hb = require('express-handlebars');
 
 module.exports = () =>{
     let app = express();
+    let server = require('http').Server(app);
     app.engine('handlebars', hb({ defaultLayout: 'main' }));
     app.set('view engine', 'handlebars');
     app.use(express.static("public"));
     app.use(bodyParser.json());
 
-    require('./init-sessions')(app);
-    require('./init-passport')(app);
-
-    return app;
+    return{
+        app : app,
+        server: server
+    }
 }
