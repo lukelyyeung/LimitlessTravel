@@ -1,12 +1,13 @@
-const UserService = require('../../service/userService/UserService');
-const knexFile = require('../../knexfile')['development'];
-const knex = require('knex')(knexFile);
+// const userService = require('../../services/UserService');
+// const knexFile = require('../../knexfile')['testing'];
+// const knex = require('knex')(knexFile);
 
 describe("userService ", () => {
 
     let userService;
     let userId = 15;
     let packageId = 30;
+    
     let example = {
         username: "JohnSo",
         email: [{ value: "john.doe@gmail.com" }],

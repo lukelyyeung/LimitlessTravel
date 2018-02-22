@@ -2,23 +2,25 @@
 require('dotenv').config();
 const NODE_ENV = process.env.NODE_ENV || 'development' 
 
-const knexFile = require('./knexfile')[NODE_ENV]
+const knexFile = require('./knexfile')['development']
 const knex = require('knex')(knexFile)
 
-const isLoggedIn = require('./utils/guard').isLoggedIn;
+// const isLoggedIn = require('./utils/guard').isLoggedIn;
 
 const ViewRouter = require('./ViewRouter');
 
-const UserRouter = require('./routers');
+const GetPackageRouter = require('./routers/GetPackageRouter');
+const RandomizeService = require('./services/RandomizeService');
 
-const { getService,
-        saveService} = require('./services/userService');
+let randomizeService = new RandomizeService(knex);
 
-const app = require('./utils/init-app');
+// let getPackageRouter = new GetPackageRouter(randomizeService);
 
+const {app,server} = require('./utils/init-app')();
 
 app.use('/',new ViewRouter().router());
-app.use('/api/users',isLoggedIn,new UserRouter(getService, saveService).router());
+app.use('/api/search', new GetPackageRouter(randomizeService).router())
+// app.use('/api/users',isLoggedIn,new UserRouter(getService, saveService).router());
 
 
 server.listen(8080,()=>{

@@ -8,8 +8,8 @@ const {
     hotels
 } = require('../table');
 
-const knexFile = require('../../knexfile')['development'];
-const knex = require('knex')(knexFile);
+// const knexFile = require('../../knexfile')['development'];
+// const knex = require('knex')(knexFile);
 
 class UserService {
     constructor(knex) {

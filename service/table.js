@@ -3,7 +3,7 @@ module.exports = {
     userPackage: 'userpackage',
     packages: 'packages',
     tickets: 'tickets',
-    bookings: 'bookingticket',
+    rooms: 'rooms',
     airlines: 'airlines',
     hotels: 'hotels'
 }
