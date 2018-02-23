@@ -11,15 +11,19 @@ const ViewRouter = require('./ViewRouter');
 
 const GetPackageRouter = require('./routers/GetPackageRouter');
 const RandomizeService = require('./services/RandomizeService');
+const FlightApiService = require('./services/FlightApiService');
+const GetPackageService = require('./services/GetPackageService');
 
 let randomizeService = new RandomizeService(knex);
+let flightApiService = new FlightApiService({});
+let getPackageService = new GetPackageService(randomizeService,flightApiService);
 
 // let getPackageRouter = new GetPackageRouter(randomizeService);
 
 const {app,server} = require('./utils/init-app')();
 
 app.use('/',new ViewRouter().router());
-app.use('/api/search', new GetPackageRouter(randomizeService).router())
+app.use('/api/search', new GetPackageRouter(getPackageService).router());
 // app.use('/api/users',isLoggedIn,new UserRouter(getService, saveService).router());
 
 

@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('travel_spots').insert([
         {airportCode: 'KIX', city: 'Osaka', country: 'Japan', region: 'East Asia'},
-        {airportCode: 'HND', city: 'Tokyo', country: 'Japan', region: 'East Asia'},
+        {airportCode: 'NRT', city: 'Tokyo', country: 'Japan', region: 'East Asia'},
         {airportCode: 'OKA', city: 'Okinawa', country: 'Japan', region: 'East Asia'},
         {airportCode: 'TPE', city: 'Taipei', country: 'Taiwan', region: 'East Asia'},
         {airportCode: 'KHH', city: 'Kaohsiung', country: 'Taiwan', region: 'East Asia'},
