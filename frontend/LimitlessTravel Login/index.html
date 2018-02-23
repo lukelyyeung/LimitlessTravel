@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
+    rel="stylesheet" type="text/css">
+   <link rel="stylesheet" href="style.css">
+   <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    
+    <title>Limitless Travel</title>
+    
+</head>
+<body>
+    <header class="v-header container">
+    <div class="fullscreen-video-wrap">
+    <video src="./travel.mov" autoplay="true" loop="true"></video>
+    </div>
+
+<div class="header-overlay"></div>
+<div class="header-content">
+    <h1><span>LIMITLESS</span> TRAVEL</h1>
+<p>We do offer travelling deals at any budget, sign in and book your first flight, stay wander</p>
+<a href="#" class="btn">Read More</a>
+<a class="google-btn" href="/auth/google">Google+</a>
+</div>
+</header>
+
+
+<script>
+    window.sr = ScrollReveal();
+    sr.reveal('h1', {
+      duration: 1000,
+      origin: 'top',
+      distance: '300px',
+    });
+
+   sr.reveal('p', {
+      duration: 1000,
+      origin: 'left',
+      distance: '300px',
+    });
+
+    sr.reveal('.btn', {
+      duration: 1000,
+      delay: 1000,
+      origin: 'left'
+    });
+
+    sr.reveal('.google-btn', {
+      duration: 1000,
+      delay: 1000,
+      origin: 'right'
+    });
+
+  </script>
+    
+</body>
+</html>
