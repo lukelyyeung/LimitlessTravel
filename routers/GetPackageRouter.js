@@ -15,7 +15,7 @@ class GetPackageRouter {
     post(req, res) {
         return this.getPackageService.list(req.body)
             .then((data) => res.json(data))
-            .catch((err) => res.status(500).json(err));
+            .catch((err) => res.json(err));
     }
 }
 

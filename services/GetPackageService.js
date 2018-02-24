@@ -20,11 +20,11 @@ class GetPackageService {
                 console.log(this.flightApiService.to);
                 return this.flightApiService.call();
             })
-            .then(apiData => this.recursiveCall(apiData))
+            .then((apiData => this.recursiveCall(apiData)))
     }
 
     recursiveCall(apiData) {
-        if (apiData == undefined) {
+        if (apiData.length == 0) {
             this.randomizeService.removeDestination(this.flightApiService.to);
 
             if (this.randomizeService.availableDestination.length == 0) {
@@ -34,9 +34,7 @@ class GetPackageService {
                 this.flightApiService.to = this.randomizeService.pickDestination();
                 console.log(this.flightApiService.to);
                 return this.flightApiService.call()
-                    .then(apiData => {
-                        this.getApiData(apiData);
-                    })
+                    .then(data => this.recursiveCall(data))
             }
         }
 

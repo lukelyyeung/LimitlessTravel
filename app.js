@@ -18,8 +18,6 @@ let randomizeService = new RandomizeService(knex);
 let flightApiService = new FlightApiService({});
 let getPackageService = new GetPackageService(randomizeService,flightApiService);
 
-// let getPackageRouter = new GetPackageRouter(randomizeService);
-
 const {app,server} = require('./utils/init-app')();
 
 app.use('/',new ViewRouter().router());
