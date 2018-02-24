@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Acme Web Design</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
+    rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="brand">
+      <span>Limitless</span> Travel</h1>
+    <div class="wrapper animated bounceInLeft">
+      <div class="personal-info">
+        <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="" class="rounded-circle" alt="Card image cap">
+            <div class="card-block">
+              <h3 class="card-title"><i class="material-icons">face</i>Hugo Cheng</h4>
+              
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><i class="material-icons">email</i>Email Address:</li>
+              <li class="list-group-item"><i class="material-icons">phone</i>Phone Number:</li>
+              <li class="list-group-item"><i class="material-icons">home</i>Home Address:</li>
+
+              
+            </ul>
+            <div class="card-block">
+                <h3><i class="material-icons">airplanemode_active</i>Your current package</h3>
+            </div>
+          </div>
+        
+    
+      </div>
+      <div class="travellist">
+        <div class="row no-gutters">
+
+        <div class="leftfade">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="img/image1.jpg" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title"> <i class="material-icons">location_city</i>New York</h4>
+            <ul>
+            <li><i class="material-icons">attach_money</i>Price</li>
+            </ul>
+             <a href="#" class="btn btn-primary"><i class="material-icons">airplanemode_active</i>Book Your Flight</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rightfade">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="img/image2.jpg" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title"> <i class="material-icons">location_city</i>London</h4>
+              <ul>
+                  <li><i class="material-icons">attach_money</i>Price</li>
+             </ul>
+              <a href="#" class="btn btn-primary"><i class="material-icons">airplanemode_active</i>Book Your Flight</a>
+            </div>
+          </div>
+          </div>
+
+          <div class="leftfade">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="img/image3.jpg" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title"> <i class="material-icons">location_city</i>Berlin</h4>
+              <ul>
+                  <li><i class="material-icons">attach_money</i>Price</li>
+              </ul>
+              <a href="#" class="btn btn-primary"><i class="material-icons">airplanemode_active</i>Book Your Flight</a>
+            </div>
+          </div>
+          </div>
+
+        <div class="rightfade">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="img/image4.jpg" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title"><i class="material-icons">location_city</i>Tokyo</h4>
+              <ul>
+                  <li><i class="material-icons">attach_money</i>Price</li>
+             </ul>
+              <a href="#" class="btn btn-primary"><i class="material-icons">airplanemode_active</i>Book Your Flight</a>
+            </div>
+          </div>
+          </div>
+
+          <div class="leftfade">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="img/image5.jpg" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title"><i class="material-icons">location_city</i>Paris</h4>
+              <ul>
+                <li><i class="material-icons">attach_money</i>Price</li>
+              </ul>
+              <a href="#" class="btn btn-primary"><i class="material-icons">airplanemode_active</i>Book Your Flight</a>
+            </div>
+          </div>
+          </div>
+
+          <div class="bottomfade">
+          <div class="card card-inverse card-primary p-3 text-center">
+              <blockquote class="card-blockquote">
+                <p>Want more than 5 options per hour and better perforamnce,<br>Subscribe Limitess Travel Pro for $99 per year</p>
+              
+                <footer>
+                    <a class="btn btn-default btn-lg showcase-btn">Subscribe Here</a>
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+     </div>
+  </div>
+
+  <script>
+      window.sr = ScrollReveal();
+      
+  
+      
+  
+      sr.reveal('.personal-info .card', {
+        duration: 1000,
+        origin: 'left',
+        distance: '300px',
+        viewFactor: 0.2,
+      });
+
+     sr.reveal('.rightfade', {
+        duration: 1000,
+        origin: 'right',
+        distance: '300px',
+        viewFactor: 0.2,
+      });
+
+      sr.reveal('.leftfade', {
+        duration: 1000,
+        origin: 'left',
+        distance: '300px',
+        viewFactor: 0.2,
+      });
+
+      sr.reveal('.bottomfade', {
+        duration: 1000,
+        origin: 'bottom',
+        distance: '300px',
+        viewFactor: 0.2,
+      })
+
+      sr.reveal('.btn', {
+      duration: 1500,
+      delay: 1500,
+      origin: 'bottom'
+    });
+      
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
