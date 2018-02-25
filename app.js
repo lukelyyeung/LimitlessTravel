@@ -12,11 +12,13 @@ const ViewRouter = require('./ViewRouter');
 const GetPackageRouter = require('./routers/GetPackageRouter');
 const RandomizeService = require('./services/RandomizeService');
 const FlightApiService = require('./services/FlightApiService');
+const HotelApiService = require('./services/HotelApiService');
 const GetPackageService = require('./services/GetPackageService');
 
 let randomizeService = new RandomizeService(knex);
 let flightApiService = new FlightApiService({});
-let getPackageService = new GetPackageService(randomizeService,flightApiService);
+let hotelApiService = new HotelApiService(knex);
+let getPackageService = new GetPackageService(randomizeService,flightApiService, hotelApiService);
 
 const {app,server} = require('./utils/init-app')();
 

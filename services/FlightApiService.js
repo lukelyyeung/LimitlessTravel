@@ -33,10 +33,10 @@ class FlightApiService {
     }
 
     getUrl() {
-        this.dateFrom = this.dateFrom.replace(/\//g, '%2F');
-        this.dateTo = this.dateTo.replace(/\//g, '%2F');
-        this.returnFrom = this.returnFrom.replace(/\//g, '%2F');
-        this.returnTo = this.returnTo.replace(/\//g, '%2F');
+        // this.dateFrom = this.dateFrom.replace(/\//g, '%2F');
+        // this.dateTo = this.dateTo.replace(/\//g, '%2F');
+        // this.returnFrom = this.returnFrom.replace(/\//g, '%2F');
+        // this.returnTo = this.returnTo.replace(/\//g, '%2F');
 
         if (this.price_to == 0)
             return `https://api.skypicker.com/flights?flyFrom=${this.flyFrom}&to=${this.to}&dateFrom=${this.dateFrom}&dateTo=${this.dateTo}&returnFrom=${this.returnFrom}&returnTo=${this.returnTo}&partner=${this.partner}&partner_market=${this.partner_market}&curr=${this.curr}&maxstopovers=${this.maxstopovers}&limit=${this.limit}&sort=${this.sort}`;
