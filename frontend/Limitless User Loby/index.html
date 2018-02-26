@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Acme Web Design</title>
+  <title>Limitless Travel Loby</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
@@ -13,8 +13,10 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
     rel="stylesheet" type="text/css">
   <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   
   <link rel="stylesheet" href="style.css">
+ 
 </head>
 
 <body>
@@ -24,7 +26,7 @@
     <div class="wrapper animated bounceInLeft">
       <div class="personal-info">
         <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="" class="rounded-circle" alt="Card image cap">
+          <img class="card-img-top" src="" alt="Card image cap">
             <div class="card-block">
               <h3 class="card-title"><i class="material-icons">face</i>Hugo Cheng</h4>
               
@@ -40,9 +42,26 @@
                 <h3><i class="material-icons">airplanemode_active</i>Your current package</h3>
             </div>
           </div>
-        
-    
-      </div>
+
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="img/image2.jpg" class="rounded-circle" alt="Card image cap">
+            <div class="card-block">
+              <h3 class="card-title"><i class="material-icons">filter_list</i>Filters</h4>
+              
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><i class="material-icons">attach_money</i>Budget</li>
+              <li class="list-group-item"><i class="material-icons">flight_takeoff</i>Depature Date</li>
+              <li class="list-group-item"><i class="material-icons">today</i>Night</li>
+
+              
+            </ul>
+            <div class="card-block">
+               
+            </div>
+          </div>
+    </div>
+
       <div class="travellist">
         <div class="row no-gutters">
 
@@ -50,11 +69,14 @@
           <div class="card" style="width: 20rem;">
             <img class="card-img-top" src="img/image1.jpg" alt="Card image cap">
             <div class="card-block">
-              <h4 class="card-title"> <i class="material-icons">location_city</i>New York</h4>
+              <h4 class="card-title"> <i class="material-icons">location_city</i>San Francisco</h4>
             <ul>
             <li><i class="material-icons">attach_money</i>Price</li>
             </ul>
              <a href="#" class="btn btn-primary"><i class="material-icons">airplanemode_active</i>Book Your Flight</a>
+            </div>
+            <div class="card-footer">
+              <small class="footertext">Last updated 3 mins ago</small>
             </div>
           </div>
         </div>
@@ -63,11 +85,14 @@
           <div class="card" style="width: 20rem;">
             <img class="card-img-top" src="img/image2.jpg" alt="Card image cap">
             <div class="card-block">
-              <h4 class="card-title"> <i class="material-icons">location_city</i>London</h4>
+              <h4 class="card-title"> <i class="material-icons">location_city</i>Chiang Mai</h4>
               <ul>
                   <li><i class="material-icons">attach_money</i>Price</li>
              </ul>
               <a href="#" class="btn btn-primary"><i class="material-icons">airplanemode_active</i>Book Your Flight</a>
+            </div>
+            <div class="card-footer">
+              <small class="footertext">Last updated 3 mins ago</small>
             </div>
           </div>
           </div>
@@ -76,11 +101,14 @@
           <div class="card" style="width: 20rem;">
             <img class="card-img-top" src="img/image3.jpg" alt="Card image cap">
             <div class="card-block">
-              <h4 class="card-title"> <i class="material-icons">location_city</i>Berlin</h4>
+              <h4 class="card-title"> <i class="material-icons">location_city</i>Hamburg</h4>
               <ul>
                   <li><i class="material-icons">attach_money</i>Price</li>
               </ul>
               <a href="#" class="btn btn-primary"><i class="material-icons">airplanemode_active</i>Book Your Flight</a>
+            </div>
+            <div class="card-footer">
+              <small class="footertext">Last updated 3 mins ago</small>
             </div>
           </div>
           </div>
@@ -95,6 +123,9 @@
              </ul>
               <a href="#" class="btn btn-primary"><i class="material-icons">airplanemode_active</i>Book Your Flight</a>
             </div>
+            <div class="card-footer">
+              <small class="footertext">Last updated 3 mins ago</small>
+            </div>
           </div>
           </div>
 
@@ -102,23 +133,50 @@
           <div class="card" style="width: 20rem;">
             <img class="card-img-top" src="img/image5.jpg" alt="Card image cap">
             <div class="card-block">
-                <h4 class="card-title"><i class="material-icons">location_city</i>Paris</h4>
+                <h4 class="card-title"><i class="material-icons">location_city</i>Seoul</h4>
               <ul>
                 <li><i class="material-icons">attach_money</i>Price</li>
               </ul>
               <a href="#" class="btn btn-primary"><i class="material-icons">airplanemode_active</i>Book Your Flight</a>
             </div>
+            <div class="card-footer">
+              <small class="footertext">Last updated 3 mins ago</small>
+            </div>
           </div>
           </div>
 
+          <div class="card text-center">
+            <div class="card-header">
+              HK$5,500
+            </div>
+            <div class="card-block">
+              <h4 class="card-title"><i class="material-icons">airplanemode_active</i>Flight Info</h4>
+              <p class="card-text"><i class="material-icons">flight_takeoff</i> Tue 6 March</p>
+              <p class="card-text"><i class="material-icons">access_time</i>2:40-07:40  (4h) </p>
+              <small class="text-muted" "text-center"><i class="material-icons">flight_takeoff</i>Hong Kong(HKG)<i class="material-icons">trending_flat</i>Tokyo(NRT)</small>
+              <hr>
+              <p class="card-text"> Mon: 06:35-10:05 (4h)</p>
+              <small class="footertext"><i class="material-icons">flight_takeoff</i>Tokyo(NRT)<i class="material-icons">trending_flat</i>Hong Kong(HKG)</small>
+              <hr>
+              <h4 class="card-title"><i class="material-icons">hotel</i>Hotel Info</h4>
+              <p class="card-text"><i class="material-icons">assignment</i>Hotal Name:</p>
+              <p class="card-text"><i class="material-icons">attach_money</i>Hotel Price: </p>
+            </div>
+            <div class="card-footer text-muted">
+             Last updated 2 days ago
+            </div>
+          </div>
+
           <div class="bottomfade">
-          <div class="card card-inverse card-primary p-3 text-center">
-              <blockquote class="card-blockquote">
-                <p>Want more than 5 options per hour and better perforamnce,<br>Subscribe Limitess Travel Pro for $99 per year</p>
-              
-                <footer>
-                    <a class="btn btn-default btn-lg showcase-btn">Subscribe Here</a>
-                </footer>
+          
+            <div class="card p-3 text-center">
+              <h3 class="card-header">Limitless Travel Pro </h3>
+              <div class="card-block">
+                <h4 class="card-title"></h4>
+                <p class="card-text">With better service and supporting, unlimted options per day, staring from $99 per year</p>
+                <a href="#" class="btn btn-primary">Subscribe now</a>
+              </div>
+            </div>
               </blockquote>
             </div>
           </div>
@@ -163,10 +221,23 @@
       })
 
       sr.reveal('.btn', {
-      duration: 1500,
-      delay: 1500,
+      duration: 1300,
+      delay: 1300,
       origin: 'bottom'
     });
+
+    sr.reveal('small.text-muted',{
+      duration: 1200,
+      delay: 1200,
+      origin: 'bottom'
+    });
+
+    sr.reveal('h4',{
+      duration: 1200,
+      delay:1200,
+      origin:'bottom'
+    });
+
       
     </script>
 

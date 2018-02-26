@@ -15,6 +15,8 @@ body{
   
 }
 
+
+
 .container{
   max-width:1500px;
   
@@ -46,6 +48,7 @@ body{
 
 .personal-info{
   background:#e8d9c5;
+  margin: 0 auto;
 }
 
 h3 {
@@ -95,6 +98,7 @@ border-color: #485e74;
 margin: 0 auto;
 display: flex;
 justify-content: center;
+color: #f2f2f2;
 }
 
 .card-block ul {
@@ -120,5 +124,22 @@ text-align: center;
   }
 }
 
+small.text-muted {
+text-align: center;
+color: white;
+
+}
+
+.card-footer {
 
 
+}
+
+footertext {
+  color: #f2f2f2;
+}
+
+.card-header {
+background-color: #485e74;
+color: #f2f2f2
+}
