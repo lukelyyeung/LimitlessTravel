@@ -1,0 +1,712 @@
+{
+    "search_params": {
+        "to_type": "airport",
+        "flyFrom_type": "airport",
+        "seats": {
+            "infants": 0,
+            "passengers": 1,
+            "adults": 1,
+            "children": 0
+        }
+    },
+    "_results": 5,
+    "connections": [],
+    "currency": "HKD",
+    "currency_rate": 0.10347,
+    "all_stopover_airports": [
+        "TPE",
+        "KOJ",
+        "HND",
+        "ICN",
+        "TAE",
+        "PVG",
+        "PEK",
+        "FUK",
+        "PUS"
+    ],
+    "data": [
+        {
+            "mapIdfrom": "hong-kong",
+            "duration": {
+                "total": 28500,
+                "return": 15900,
+                "departure": 12600
+            },
+            "return_duration": "4h 25m",
+            "quality": 287.333175,
+            "flyTo": "KIX",
+            "conversion": {
+                "HKD": 2164,
+                "EUR": 224
+            },
+            "deep_link": "https://www.kiwi.com/deep?from=HKG&to=KIX&departure=01-03-2018&return=05-03-2018&flightsId=343324717%7C337311461&price=224&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCcGaSZq9jLysnDHPYVuu7VjWQUXhDm1vNhxBcIykkXH2fzU4jdEivjaRe2po/I8MdUZMbW84zahBeAVd/fqqPAG9NRgwOcsKEPwd+mxOFU2PLl/bZF5DyXCl8xgmwTBnBuTvvIEGghw0GNdkRd/V8iQVSIhHdfKQmmyvs9NaZq4bVL13zxr41HTnwYOCdXl5Nvhkq0CsJO/XfwY1Mqh42IXOffBqgvJBxU8NcjCIv+GL83JnuavmGJk0lwXxO+HfnVQxeiQ7LnVBEjapSA6aErEFhqAlvqWxtQF+Nn0eZMGFyBV6RjTJyNGbq1+FMIb0gDKY0Act+uogYCmbAyFjdWyJnrfyQO1y6e4Y+zQt1+nhHxKH/UwGkGW0UNNh80W2qhuDtSSv5inwE7TRUilCPZ2JGFtp+HVN2l/4KPSTNidToaSrk8HFWFleKsVqg8DGdtFhQqdbu+mvi/zNn1pNOCIGR+0C7xUNPb9QUDYiTq1OuQHPkPTwbciO4JINYSnGQ56CmDMLCYsSYFPGnaXE4HwvTDYzkWy8kW1uAt5+mWJJiR5JulJwnG6hyWv7tm9wlRP2HDm85EDtE9Q+AjCt9D0gqLkSdi0JfitMY36MIOjeh3ytvbkGjaJOkAZLcBbdFitESNjYE7c2I6MIe1KM7MLVqmdGRVPIvlpNbZhSwHWMWDAMj4Ge/Assz/OLxzbmbLsiax0GTeKzn4REWWYTj6pqhYkccvADQ2BXMLddpJkkE=",
+            "mapIdto": "kyoto",
+            "nightsInDest": 3,
+            "airlines": [
+                "MM",
+                "GK"
+            ],
+            "id": "343324717|337311461",
+            "facilitated_booking_available": false,
+            "pnr_count": 2,
+            "fly_duration": "3h 30m",
+            "countryTo": {
+                "code": "JP",
+                "name": "Japan"
+            },
+            "baglimit": {
+                "hand_width": 34,
+                "hand_length": 48,
+                "hold_weight": 15,
+                "hand_height": 23,
+                "hand_weight": 7
+            },
+            "aTimeUTC": 1519920900,
+            "p3": 1,
+            "price": 2164,
+            "type_flights": [
+                "lcc"
+            ],
+            "bags_price": {
+                "1": 30.0
+            },
+            "cityTo": "Osaka",
+            "transfers": [],
+            "flyFrom": "HKG",
+            "dTimeUTC": 1519908300,
+            "p2": 1,
+            "countryFrom": {
+                "code": "HK",
+                "name": "Hong Kong"
+            },
+            "p1": 1,
+            "dTime": 1519937100,
+            "found_on": [
+                "deprecated"
+            ],
+            "booking_token": "DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCcGaSZq9jLysnDHPYVuu7VjWQUXhDm1vNhxBcIykkXH2fzU4jdEivjaRe2po/I8MdUZMbW84zahBeAVd/fqqPAG9NRgwOcsKEPwd+mxOFU2PLl/bZF5DyXCl8xgmwTBnBuTvvIEGghw0GNdkRd/V8iQVSIhHdfKQmmyvs9NaZq4bVL13zxr41HTnwYOCdXl5Nvhkq0CsJO/XfwY1Mqh42IXOffBqgvJBxU8NcjCIv+GL83JnuavmGJk0lwXxO+HfnVQxeiQ7LnVBEjapSA6aErEFhqAlvqWxtQF+Nn0eZMGFyBV6RjTJyNGbq1+FMIb0gDKY0Act+uogYCmbAyFjdWyJnrfyQO1y6e4Y+zQt1+nhHxKH/UwGkGW0UNNh80W2qhuDtSSv5inwE7TRUilCPZ2JGFtp+HVN2l/4KPSTNidToaSrk8HFWFleKsVqg8DGdtFhQqdbu+mvi/zNn1pNOCIGR+0C7xUNPb9QUDYiTq1OuQHPkPTwbciO4JINYSnGQ56CmDMLCYsSYFPGnaXE4HwvTDYzkWy8kW1uAt5+mWJJiR5JulJwnG6hyWv7tm9wlRP2HDm85EDtE9Q+AjCt9D0gqLkSdi0JfitMY36MIOjeh3ytvbkGjaJOkAZLcBbdFitESNjYE7c2I6MIe1KM7MLVqmdGRVPIvlpNbZhSwHWMWDAMj4Ge/Assz/OLxzbmbLsiax0GTeKzn4REWWYTj6pqhYkccvADQ2BXMLddpJkkE=",
+            "routes": [
+                [
+                    "HKG",
+                    "KIX"
+                ],
+                [
+                    "KIX",
+                    "HKG"
+                ]
+            ],
+            "cityFrom": "Hong Kong",
+            "aTime": 1519953300,
+            "route": [
+                {
+                    "bags_recheck_required": false,
+                    "mapIdfrom": "hong-kong",
+                    "flight_no": 64,
+                    "original_return": 0,
+                    "lngFrom": 113.914722,
+                    "flyTo": "KIX",
+                    "guarantee": false,
+                    "latTo": 34.427222,
+                    "source": "deprecated",
+                    "combination_id": "343324717",
+                    "id": "343324717",
+                    "latFrom": 22.308889,
+                    "lngTo": 135.244167,
+                    "dTimeUTC": 1519908300,
+                    "aTimeUTC": 1519920900,
+                    "return": 0,
+                    "price": 1,
+                    "cityTo": "Osaka",
+                    "vehicle_type": "aircraft",
+                    "flyFrom": "HKG",
+                    "mapIdto": "kyoto",
+                    "dTime": 1519937100,
+                    "found_on": "deprecated",
+                    "airline": "GK",
+                    "cityFrom": "Hong Kong",
+                    "aTime": 1519953300
+                },
+                {
+                    "bags_recheck_required": false,
+                    "mapIdfrom": "kyoto",
+                    "flight_no": 65,
+                    "original_return": 1,
+                    "lngFrom": 135.244167,
+                    "flyTo": "HKG",
+                    "guarantee": false,
+                    "latTo": 22.308889,
+                    "source": "deprecated",
+                    "combination_id": "337311461",
+                    "id": "337311461",
+                    "latFrom": 34.427222,
+                    "lngTo": 113.914722,
+                    "dTimeUTC": 1520225100,
+                    "aTimeUTC": 1520241000,
+                    "return": 1,
+                    "price": 1,
+                    "cityTo": "Hong Kong",
+                    "vehicle_type": "aircraft",
+                    "flyFrom": "KIX",
+                    "mapIdto": "hong-kong",
+                    "dTime": 1520257500,
+                    "found_on": "deprecated",
+                    "airline": "MM",
+                    "cityFrom": "Osaka",
+                    "aTime": 1520269800
+                }
+            ],
+            "distance": 2478.38
+        },
+        {
+            "mapIdfrom": "hong-kong",
+            "duration": {
+                "total": 28200,
+                "return": 15900,
+                "departure": 12300
+            },
+            "return_duration": "4h 25m",
+            "quality": 311.66651,
+            "flyTo": "KIX",
+            "conversion": {
+                "HKD": 2410,
+                "EUR": 249
+            },
+            "deep_link": "https://www.kiwi.com/deep?from=HKG&to=KIX&departure=01-03-2018&return=05-03-2018&flightsId=337312478%7C337311461&price=249&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCcGaSZq9jLysnDHPYVuu7VjWQUXhDm1vNhxBcIykkXH2fzU4jdEivjaRe2po/I8MdUZMbW84zahBeAVd/fqqPAG9NRgwOcsKEPwd+mxOFU2PLl/bZF5DyXCl8xgmwTBnBuJJWlzKiVe3iIBBlJlO2qxhiPA+VgyAHHJ5/8l01Sqenscvcduvx4cF6UrFmh2nlcQsRzywa1QIjq72k3p0Cv3zLxxywU9e5mEeo6WgbwNuYlrqSSvBOUJyRv69dtBQ6VSnXdxT2C0J3cERCnxizpxt2+tezlE6X3FvLWXijCfid4LykMWPlr/80pz704s2ZqQzKqePd0dwmNYygKo9eG8OnjHLae+1i3JP5mJklBiaWF3Dir9DX2wDwqOQ4yxC0wilpn4coMSwv3vzMgCMVQ1JRVpnxMRYEbD0NRMrUGAP3zLZN0whD6hO/1o29FH9hTkZXSvSDsPcLZXvYj+KGoke++TazKmx48AOKT5aw97iUROf1yyXaVgw9UB0gIp9+HlwujaZsbb8kMHcnZ4V35AfHI8py3liju02n/3DzLLJi8/rs16W9h76NrkYLC0j+xGdu0M9qhcziY3W6dSone/9eMe1AOh7xUA42jitr88LqkoiL3dDkNjg5OjvLiL9MF/P9se1/hRjd77GK0qra+U9kxTC7TOM5rj7/Dc0dDCFOc1K1pkK9CBpCbH4zYqV78LY/+rNkCNzXqJJ9lnDWY6rnsnoTTtNVAa6SrsVUour8=",
+            "mapIdto": "kyoto",
+            "nightsInDest": 4,
+            "airlines": [
+                "MM"
+            ],
+            "id": "337312478|337311461",
+            "facilitated_booking_available": true,
+            "pnr_count": 2,
+            "fly_duration": "3h 25m",
+            "countryTo": {
+                "code": "JP",
+                "name": "Japan"
+            },
+            "baglimit": {
+                "hand_width": 45,
+                "hand_length": 55,
+                "hold_weight": 20,
+                "hand_height": 25,
+                "hand_weight": 10
+            },
+            "aTimeUTC": 1519890900,
+            "p3": 1,
+            "price": 2410,
+            "type_flights": [
+                "lcc"
+            ],
+            "bags_price": {
+                "1": 40.0
+            },
+            "cityTo": "Osaka",
+            "transfers": [],
+            "flyFrom": "HKG",
+            "dTimeUTC": 1519878600,
+            "p2": 1,
+            "countryFrom": {
+                "code": "HK",
+                "name": "Hong Kong"
+            },
+            "p1": 1,
+            "dTime": 1519907400,
+            "found_on": [
+                "deprecated"
+            ],
+            "booking_token": "DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCcGaSZq9jLysnDHPYVuu7VjWQUXhDm1vNhxBcIykkXH2fzU4jdEivjaRe2po/I8MdUZMbW84zahBeAVd/fqqPAG9NRgwOcsKEPwd+mxOFU2PLl/bZF5DyXCl8xgmwTBnBuJJWlzKiVe3iIBBlJlO2qxhiPA+VgyAHHJ5/8l01Sqenscvcduvx4cF6UrFmh2nlcQsRzywa1QIjq72k3p0Cv3zLxxywU9e5mEeo6WgbwNuYlrqSSvBOUJyRv69dtBQ6VSnXdxT2C0J3cERCnxizpxt2+tezlE6X3FvLWXijCfid4LykMWPlr/80pz704s2ZqQzKqePd0dwmNYygKo9eG8OnjHLae+1i3JP5mJklBiaWF3Dir9DX2wDwqOQ4yxC0wilpn4coMSwv3vzMgCMVQ1JRVpnxMRYEbD0NRMrUGAP3zLZN0whD6hO/1o29FH9hTkZXSvSDsPcLZXvYj+KGoke++TazKmx48AOKT5aw97iUROf1yyXaVgw9UB0gIp9+HlwujaZsbb8kMHcnZ4V35AfHI8py3liju02n/3DzLLJi8/rs16W9h76NrkYLC0j+xGdu0M9qhcziY3W6dSone/9eMe1AOh7xUA42jitr88LqkoiL3dDkNjg5OjvLiL9MF/P9se1/hRjd77GK0qra+U9kxTC7TOM5rj7/Dc0dDCFOc1K1pkK9CBpCbH4zYqV78LY/+rNkCNzXqJJ9lnDWY6rnsnoTTtNVAa6SrsVUour8=",
+            "routes": [
+                [
+                    "HKG",
+                    "KIX"
+                ],
+                [
+                    "KIX",
+                    "HKG"
+                ]
+            ],
+            "cityFrom": "Hong Kong",
+            "aTime": 1519923300,
+            "route": [
+                {
+                    "bags_recheck_required": false,
+                    "mapIdfrom": "hong-kong",
+                    "flight_no": 64,
+                    "original_return": 0,
+                    "lngFrom": 113.914722,
+                    "flyTo": "KIX",
+                    "guarantee": false,
+                    "latTo": 34.427222,
+                    "source": "deprecated",
+                    "combination_id": "337312478",
+                    "id": "337312478",
+                    "latFrom": 22.308889,
+                    "lngTo": 135.244167,
+                    "dTimeUTC": 1519878600,
+                    "aTimeUTC": 1519890900,
+                    "return": 0,
+                    "price": 1,
+                    "cityTo": "Osaka",
+                    "vehicle_type": "aircraft",
+                    "flyFrom": "HKG",
+                    "mapIdto": "kyoto",
+                    "dTime": 1519907400,
+                    "found_on": "deprecated",
+                    "airline": "MM",
+                    "cityFrom": "Hong Kong",
+                    "aTime": 1519923300
+                },
+                {
+                    "bags_recheck_required": false,
+                    "mapIdfrom": "kyoto",
+                    "flight_no": 65,
+                    "original_return": 1,
+                    "lngFrom": 135.244167,
+                    "flyTo": "HKG",
+                    "guarantee": false,
+                    "latTo": 22.308889,
+                    "source": "deprecated",
+                    "combination_id": "337311461",
+                    "id": "337311461",
+                    "latFrom": 34.427222,
+                    "lngTo": 113.914722,
+                    "dTimeUTC": 1520225100,
+                    "aTimeUTC": 1520241000,
+                    "return": 1,
+                    "price": 1,
+                    "cityTo": "Hong Kong",
+                    "vehicle_type": "aircraft",
+                    "flyFrom": "KIX",
+                    "mapIdto": "hong-kong",
+                    "dTime": 1520257500,
+                    "found_on": "deprecated",
+                    "airline": "MM",
+                    "cityFrom": "Osaka",
+                    "aTime": 1520269800
+                }
+            ],
+            "distance": 2478.38
+        },
+        {
+            "mapIdfrom": "hong-kong",
+            "duration": {
+                "total": 27900,
+                "return": 15900,
+                "departure": 12000
+            },
+            "return_duration": "4h 25m",
+            "quality": 324.999845,
+            "flyTo": "KIX",
+            "conversion": {
+                "HKD": 2548,
+                "EUR": 263
+            },
+            "deep_link": "https://www.kiwi.com/deep?from=HKG&to=KIX&departure=01-03-2018&return=05-03-2018&flightsId=3464562119366938_0%7C337311461&price=263&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCcGaSZq9jLysnDHPYVuu7VjWQUXhDm1vNhxBcIykkXH2fzU4jdEivjaRe2po/I8MdUZMbW84zahBeAVd/fqqPAG9NRgwOcsKEPwd+mxOFU2PLl/bZF5DyXCl8xgmwTBnBuejI4WDmbLle12TMXh4HU4gPaJBKTfu11O7isycgETJdkTiAHanPLcQfY2+uLJY4g43cb7MwT1YEcPRUEaZxyG0uy894SrwDBqgKRaxT/wvmGop6hEL5Gx9o8crx6ImqOa8hJHilnUuFxi6Na3OyfcC+yGM/RgcHsg7Wp4y9x1dMUppWZBFl4x0uojTnKhDISmxksFHoaPTucN0MLPgk+fT2S57iyBB1HUMsupsWhPwDfoEVusE9NDY9W4ZaShf9ymoPLMGRZ7gQyeYP9YVK5KFJ/P7Ie0fHEYLONpCr2u0oRTREQz0xSPAKFr7rpf2CHScPCGGKowPaPOPgismVkVugguLZ+uKibkapYEZkBk1buxm7nSvGDKgziSfr1NDfViI+m/qKyyCih4jOWA1ploxLA1ThSGYLCzHOX6HAunCKdz06aEYLWKzV45mWBVqiXKeMsCVtADP8lj0MeINnds3HmCkrD0XsrK2zdS5rLZPZIgvc+9itNJJ7HiKivoQpZkuyRl7QXrUYub0LzXnSf64Sqq6Kc+NPw0T+8cVut0+okb9ufDMDxuTLNML+FCHmecwHa+pyXOS/+ldQTWjL0Uv5NYSPFB1j4bd8Owm/2QrCcVZCzWtdfyUOO2AgbaLUSj4UJNcj7NftN5bx48itdhQ==",
+            "mapIdto": "kyoto",
+            "nightsInDest": 4,
+            "airlines": [
+                "AI",
+                "MM"
+            ],
+            "id": "3464562119366938_0|337311461",
+            "facilitated_booking_available": true,
+            "pnr_count": 2,
+            "fly_duration": "3h 20m",
+            "countryTo": {
+                "code": "JP",
+                "name": "Japan"
+            },
+            "baglimit": {
+                "hand_width": 44,
+                "hand_length": 55,
+                "hold_weight": 15,
+                "hand_height": 20,
+                "hand_weight": 7
+            },
+            "aTimeUTC": 1519873500,
+            "p3": 1,
+            "price": 2548,
+            "type_flights": [
+                "GDS-r",
+                "lcc"
+            ],
+            "bags_price": {
+                "1": 20.0
+            },
+            "cityTo": "Osaka",
+            "transfers": [],
+            "flyFrom": "HKG",
+            "dTimeUTC": 1519861500,
+            "p2": 1,
+            "countryFrom": {
+                "code": "HK",
+                "name": "Hong Kong"
+            },
+            "p1": 1,
+            "dTime": 1519890300,
+            "found_on": [
+                "deprecated"
+            ],
+            "booking_token": "DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCcGaSZq9jLysnDHPYVuu7VjWQUXhDm1vNhxBcIykkXH2fzU4jdEivjaRe2po/I8MdUZMbW84zahBeAVd/fqqPAG9NRgwOcsKEPwd+mxOFU2PLl/bZF5DyXCl8xgmwTBnBuejI4WDmbLle12TMXh4HU4gPaJBKTfu11O7isycgETJdkTiAHanPLcQfY2+uLJY4g43cb7MwT1YEcPRUEaZxyG0uy894SrwDBqgKRaxT/wvmGop6hEL5Gx9o8crx6ImqOa8hJHilnUuFxi6Na3OyfcC+yGM/RgcHsg7Wp4y9x1dMUppWZBFl4x0uojTnKhDISmxksFHoaPTucN0MLPgk+fT2S57iyBB1HUMsupsWhPwDfoEVusE9NDY9W4ZaShf9ymoPLMGRZ7gQyeYP9YVK5KFJ/P7Ie0fHEYLONpCr2u0oRTREQz0xSPAKFr7rpf2CHScPCGGKowPaPOPgismVkVugguLZ+uKibkapYEZkBk1buxm7nSvGDKgziSfr1NDfViI+m/qKyyCih4jOWA1ploxLA1ThSGYLCzHOX6HAunCKdz06aEYLWKzV45mWBVqiXKeMsCVtADP8lj0MeINnds3HmCkrD0XsrK2zdS5rLZPZIgvc+9itNJJ7HiKivoQpZkuyRl7QXrUYub0LzXnSf64Sqq6Kc+NPw0T+8cVut0+okb9ufDMDxuTLNML+FCHmecwHa+pyXOS/+ldQTWjL0Uv5NYSPFB1j4bd8Owm/2QrCcVZCzWtdfyUOO2AgbaLUSj4UJNcj7NftN5bx48itdhQ==",
+            "routes": [
+                [
+                    "HKG",
+                    "KIX"
+                ],
+                [
+                    "KIX",
+                    "HKG"
+                ]
+            ],
+            "cityFrom": "Hong Kong",
+            "aTime": 1519905900,
+            "route": [
+                {
+                    "bags_recheck_required": false,
+                    "mapIdfrom": "hong-kong",
+                    "flight_no": 314,
+                    "original_return": 0,
+                    "lngFrom": 113.914722,
+                    "flyTo": "KIX",
+                    "guarantee": false,
+                    "latTo": 34.427222,
+                    "source": "deprecated",
+                    "combination_id": "3464562119366938",
+                    "id": "3464562119366938_0",
+                    "latFrom": 22.308889,
+                    "lngTo": 135.244167,
+                    "dTimeUTC": 1519861500,
+                    "aTimeUTC": 1519873500,
+                    "return": 0,
+                    "price": 1,
+                    "cityTo": "Osaka",
+                    "vehicle_type": "aircraft",
+                    "flyFrom": "HKG",
+                    "mapIdto": "kyoto",
+                    "dTime": 1519890300,
+                    "found_on": "deprecated",
+                    "airline": "AI",
+                    "cityFrom": "Hong Kong",
+                    "aTime": 1519905900
+                },
+                {
+                    "bags_recheck_required": false,
+                    "mapIdfrom": "kyoto",
+                    "flight_no": 65,
+                    "original_return": 1,
+                    "lngFrom": 135.244167,
+                    "flyTo": "HKG",
+                    "guarantee": false,
+                    "latTo": 22.308889,
+                    "source": "deprecated",
+                    "combination_id": "337311461",
+                    "id": "337311461",
+                    "latFrom": 34.427222,
+                    "lngTo": 113.914722,
+                    "dTimeUTC": 1520225100,
+                    "aTimeUTC": 1520241000,
+                    "return": 1,
+                    "price": 1,
+                    "cityTo": "Hong Kong",
+                    "vehicle_type": "aircraft",
+                    "flyFrom": "KIX",
+                    "mapIdto": "hong-kong",
+                    "dTime": 1520257500,
+                    "found_on": "deprecated",
+                    "airline": "MM",
+                    "cityFrom": "Osaka",
+                    "aTime": 1520269800
+                }
+            ],
+            "distance": 2478.38
+        },
+        {
+            "mapIdfrom": "hong-kong",
+            "duration": {
+                "total": 28500,
+                "return": 15900,
+                "departure": 12600
+            },
+            "return_duration": "4h 25m",
+            "quality": 327.333175,
+            "flyTo": "KIX",
+            "conversion": {
+                "HKD": 2554,
+                "EUR": 264
+            },
+            "deep_link": "https://www.kiwi.com/deep?from=HKG&to=KIX&departure=01-03-2018&return=05-03-2018&flightsId=343324717%7C337311460&price=264&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCcGaSZq9jLysnDHPYVuu7VjWQUXhDm1vNhxBcIykkXH2fzU4jdEivjaRe2po/I8MdUZMbW84zahBeAVd/fqqPAG9NRgwOcsKEPwd+mxOFU2PLl/bZF5DyXCl8xgmwTBnBuTvvIEGghw0GNdkRd/V8iQQLXdb0SusMeR6pqQk2Jj7Y2KwtDUrJKwp6QqEZDOyRYXxqCZVmkUjRKXxXx7am6Y1rdT1QzBoX5DMtsB1/XdH6+k6OP5Zb3nalYBjzOj6+jbcFm/4+OUmkEHPKp0VqXBJxms6Xxo8HzWC+QEpJyZHDeuaHvMmEF3BATKUa4Cdzyb5BxiMVgN11y9SOGAZ9AcmbaOUqfw2EuyaPV4Eww1bgefOJaaMSVuGbpcrnfE8PP8IqcWKHhhKEnKm8NvDkPK13lo7o65EJzcNGek4zR/YAHXTr+D0o+Qp0/Koo/Vu0V5eUG4Gn5aOUz5NGz45b1Fmw+KCsO6/XrSSAZpHc+qovyVIq7mqrWhGVKUXh15N3E0/H/cwMuAUha3vs2kcYO6M2jDYDnIENg4k3icHBB+dMP+Zcn0xBhZlPuEZbS0dkffcdHFTNMslyHU2W30cXKuC4Kiw7hAETqlg5mAZfq5i4DlG39oOaWsoQ/ceeo9g3LMvUAY32bE1kbpUGTfHnbquPoWXj3m2Vi1jIbJB5h/6gWy2ZPRAiDolVAHxP/5VkGb1wNL31ygCuQci4Xds6rNf0DDxIFiJHJg3dYcX6HarE=",
+            "mapIdto": "kyoto",
+            "nightsInDest": 3,
+            "airlines": [
+                "MM",
+                "GK"
+            ],
+            "id": "343324717|337311460",
+            "facilitated_booking_available": false,
+            "pnr_count": 2,
+            "fly_duration": "3h 30m",
+            "countryTo": {
+                "code": "JP",
+                "name": "Japan"
+            },
+            "baglimit": {
+                "hand_width": 34,
+                "hand_length": 48,
+                "hold_weight": 15,
+                "hand_height": 23,
+                "hand_weight": 7
+            },
+            "aTimeUTC": 1519920900,
+            "p3": 1,
+            "price": 2554,
+            "type_flights": [
+                "lcc"
+            ],
+            "bags_price": {
+                "1": 30.0
+            },
+            "cityTo": "Osaka",
+            "transfers": [],
+            "flyFrom": "HKG",
+            "dTimeUTC": 1519908300,
+            "p2": 1,
+            "countryFrom": {
+                "code": "HK",
+                "name": "Hong Kong"
+            },
+            "p1": 1,
+            "dTime": 1519937100,
+            "found_on": [
+                "deprecated"
+            ],
+            "booking_token": "DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCcGaSZq9jLysnDHPYVuu7VjWQUXhDm1vNhxBcIykkXH2fzU4jdEivjaRe2po/I8MdUZMbW84zahBeAVd/fqqPAG9NRgwOcsKEPwd+mxOFU2PLl/bZF5DyXCl8xgmwTBnBuTvvIEGghw0GNdkRd/V8iQQLXdb0SusMeR6pqQk2Jj7Y2KwtDUrJKwp6QqEZDOyRYXxqCZVmkUjRKXxXx7am6Y1rdT1QzBoX5DMtsB1/XdH6+k6OP5Zb3nalYBjzOj6+jbcFm/4+OUmkEHPKp0VqXBJxms6Xxo8HzWC+QEpJyZHDeuaHvMmEF3BATKUa4Cdzyb5BxiMVgN11y9SOGAZ9AcmbaOUqfw2EuyaPV4Eww1bgefOJaaMSVuGbpcrnfE8PP8IqcWKHhhKEnKm8NvDkPK13lo7o65EJzcNGek4zR/YAHXTr+D0o+Qp0/Koo/Vu0V5eUG4Gn5aOUz5NGz45b1Fmw+KCsO6/XrSSAZpHc+qovyVIq7mqrWhGVKUXh15N3E0/H/cwMuAUha3vs2kcYO6M2jDYDnIENg4k3icHBB+dMP+Zcn0xBhZlPuEZbS0dkffcdHFTNMslyHU2W30cXKuC4Kiw7hAETqlg5mAZfq5i4DlG39oOaWsoQ/ceeo9g3LMvUAY32bE1kbpUGTfHnbquPoWXj3m2Vi1jIbJB5h/6gWy2ZPRAiDolVAHxP/5VkGb1wNL31ygCuQci4Xds6rNf0DDxIFiJHJg3dYcX6HarE=",
+            "routes": [
+                [
+                    "HKG",
+                    "KIX"
+                ],
+                [
+                    "KIX",
+                    "HKG"
+                ]
+            ],
+            "cityFrom": "Hong Kong",
+            "aTime": 1519953300,
+            "route": [
+                {
+                    "bags_recheck_required": false,
+                    "mapIdfrom": "hong-kong",
+                    "flight_no": 64,
+                    "original_return": 0,
+                    "lngFrom": 113.914722,
+                    "flyTo": "KIX",
+                    "guarantee": false,
+                    "latTo": 34.427222,
+                    "source": "deprecated",
+                    "combination_id": "343324717",
+                    "id": "343324717",
+                    "latFrom": 22.308889,
+                    "lngTo": 135.244167,
+                    "dTimeUTC": 1519908300,
+                    "aTimeUTC": 1519920900,
+                    "return": 0,
+                    "price": 1,
+                    "cityTo": "Osaka",
+                    "vehicle_type": "aircraft",
+                    "flyFrom": "HKG",
+                    "mapIdto": "kyoto",
+                    "dTime": 1519937100,
+                    "found_on": "deprecated",
+                    "airline": "GK",
+                    "cityFrom": "Hong Kong",
+                    "aTime": 1519953300
+                },
+                {
+                    "bags_recheck_required": false,
+                    "mapIdfrom": "kyoto",
+                    "flight_no": 63,
+                    "original_return": 1,
+                    "lngFrom": 135.244167,
+                    "flyTo": "HKG",
+                    "guarantee": false,
+                    "latTo": 22.308889,
+                    "source": "deprecated",
+                    "combination_id": "337311460",
+                    "id": "337311460",
+                    "latFrom": 34.427222,
+                    "lngTo": 113.914722,
+                    "dTimeUTC": 1520205600,
+                    "aTimeUTC": 1520221500,
+                    "return": 1,
+                    "price": 1,
+                    "cityTo": "Hong Kong",
+                    "vehicle_type": "aircraft",
+                    "flyFrom": "KIX",
+                    "mapIdto": "hong-kong",
+                    "dTime": 1520238000,
+                    "found_on": "deprecated",
+                    "airline": "MM",
+                    "cityFrom": "Osaka",
+                    "aTime": 1520250300
+                }
+            ],
+            "distance": 2478.38
+        },
+        {
+            "mapIdfrom": "hong-kong",
+            "duration": {
+                "total": 27900,
+                "return": 15300,
+                "departure": 12600
+            },
+            "return_duration": "4h 15m",
+            "quality": 344.999845,
+            "flyTo": "KIX",
+            "conversion": {
+                "HKD": 2743,
+                "EUR": 283
+            },
+            "deep_link": "https://www.kiwi.com/deep?from=HKG&to=KIX&departure=01-03-2018&return=05-03-2018&flightsId=343324717%7C343650993&price=283&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCcGaSZq9jLysnDHPYVuu7VjWQUXhDm1vNhxBcIykkXH2fzU4jdEivjaRe2po/I8MdUZMbW84zahBeAVd/fqqPAG9NRgwOcsKEPwd+mxOFU2PLl/bZF5DyXCl8xgmwTBnBu+eiFdSZRPkPXmSMa/BaVm4MQ+bP4FcwrWhHmvA+FTud2uF8Vz3rpnmVsM8KAuzWbdrOaGU/few7b4+Csevy54yeU28Qn+646ROQtB/j7hFVRntJgP2BU/QtVWvWYsHFowNKpPpo1JxBVpv0yqvmPkFOnFK8+Ybs19bKCH5C7mINRXk/WgNFcXSmIcAH8iAD6fUTFWl4CGDy75+/0udnqOKX608ouuAJxX2z+kKzff54LTjjwtIQP2ms+IKaQjUqKnmRZDt0ww2oupwZEwqvhh+zjG3wquttkLe8XQyVBa5j7KGIB6yB/1K3/63jlRgjNhcI6FuuPKwhqaHXFvoAQMH2scMfw3gvAr6Mciyeh92T8tVdGWhQj/3o8HNPIC26lztzRaDE3OF2WgwR8zaOTD2C+25nHYrP8+jrZsBy7z69iSywxAx2YnYDZjVxqfrjxIJ4hYz1urB+yY1AGRotAfR6Cv9I62t6Y9IJqeHIduTlnv/uQ8iStc1fsekmSCPAFX30RDMPlXlM8AFeS6Pa9w1wyWL+2KSsLoWc3dZyjFGdS4Gv4sOkyUKVtxRXLpgSdz176VDenxhzWxIA+tzkThRzvknKi1ri4KFTrsnz3YUU=",
+            "mapIdto": "kyoto",
+            "nightsInDest": 3,
+            "airlines": [
+                "UO",
+                "GK"
+            ],
+            "id": "343324717|343650993",
+            "facilitated_booking_available": false,
+            "pnr_count": 2,
+            "fly_duration": "3h 30m",
+            "countryTo": {
+                "code": "JP",
+                "name": "Japan"
+            },
+            "baglimit": {
+                "hand_width": 34,
+                "hand_length": 48,
+                "hold_weight": 15,
+                "hand_height": 23,
+                "hand_weight": 7
+            },
+            "aTimeUTC": 1519920900,
+            "p3": 1,
+            "price": 2743,
+            "type_flights": [
+                "lcc"
+            ],
+            "bags_price": {
+                "1": 35.0
+            },
+            "cityTo": "Osaka",
+            "transfers": [],
+            "flyFrom": "HKG",
+            "dTimeUTC": 1519908300,
+            "p2": 1,
+            "countryFrom": {
+                "code": "HK",
+                "name": "Hong Kong"
+            },
+            "p1": 1,
+            "dTime": 1519937100,
+            "found_on": [
+                "deprecated"
+            ],
+            "booking_token": "DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCcGaSZq9jLysnDHPYVuu7VjWQUXhDm1vNhxBcIykkXH2fzU4jdEivjaRe2po/I8MdUZMbW84zahBeAVd/fqqPAG9NRgwOcsKEPwd+mxOFU2PLl/bZF5DyXCl8xgmwTBnBu+eiFdSZRPkPXmSMa/BaVm4MQ+bP4FcwrWhHmvA+FTud2uF8Vz3rpnmVsM8KAuzWbdrOaGU/few7b4+Csevy54yeU28Qn+646ROQtB/j7hFVRntJgP2BU/QtVWvWYsHFowNKpPpo1JxBVpv0yqvmPkFOnFK8+Ybs19bKCH5C7mINRXk/WgNFcXSmIcAH8iAD6fUTFWl4CGDy75+/0udnqOKX608ouuAJxX2z+kKzff54LTjjwtIQP2ms+IKaQjUqKnmRZDt0ww2oupwZEwqvhh+zjG3wquttkLe8XQyVBa5j7KGIB6yB/1K3/63jlRgjNhcI6FuuPKwhqaHXFvoAQMH2scMfw3gvAr6Mciyeh92T8tVdGWhQj/3o8HNPIC26lztzRaDE3OF2WgwR8zaOTD2C+25nHYrP8+jrZsBy7z69iSywxAx2YnYDZjVxqfrjxIJ4hYz1urB+yY1AGRotAfR6Cv9I62t6Y9IJqeHIduTlnv/uQ8iStc1fsekmSCPAFX30RDMPlXlM8AFeS6Pa9w1wyWL+2KSsLoWc3dZyjFGdS4Gv4sOkyUKVtxRXLpgSdz176VDenxhzWxIA+tzkThRzvknKi1ri4KFTrsnz3YUU=",
+            "routes": [
+                [
+                    "HKG",
+                    "KIX"
+                ],
+                [
+                    "KIX",
+                    "HKG"
+                ]
+            ],
+            "cityFrom": "Hong Kong",
+            "aTime": 1519953300,
+            "route": [
+                {
+                    "bags_recheck_required": false,
+                    "mapIdfrom": "hong-kong",
+                    "flight_no": 64,
+                    "original_return": 0,
+                    "lngFrom": 113.914722,
+                    "flyTo": "KIX",
+                    "guarantee": false,
+                    "latTo": 34.427222,
+                    "source": "deprecated",
+                    "combination_id": "343324717",
+                    "id": "343324717",
+                    "latFrom": 22.308889,
+                    "lngTo": 135.244167,
+                    "dTimeUTC": 1519908300,
+                    "aTimeUTC": 1519920900,
+                    "return": 0,
+                    "price": 1,
+                    "cityTo": "Osaka",
+                    "vehicle_type": "aircraft",
+                    "flyFrom": "HKG",
+                    "mapIdto": "kyoto",
+                    "dTime": 1519937100,
+                    "found_on": "deprecated",
+                    "airline": "GK",
+                    "cityFrom": "Hong Kong",
+                    "aTime": 1519953300
+                },
+                {
+                    "bags_recheck_required": false,
+                    "mapIdfrom": "kyoto",
+                    "flight_no": 687,
+                    "original_return": 1,
+                    "lngFrom": 135.244167,
+                    "flyTo": "HKG",
+                    "guarantee": false,
+                    "latTo": 22.308889,
+                    "source": "deprecated",
+                    "combination_id": "343650993",
+                    "id": "343650993",
+                    "latFrom": 34.427222,
+                    "lngTo": 113.914722,
+                    "dTimeUTC": 1520228100,
+                    "aTimeUTC": 1520243400,
+                    "return": 1,
+                    "price": 1,
+                    "cityTo": "Hong Kong",
+                    "vehicle_type": "aircraft",
+                    "flyFrom": "KIX",
+                    "mapIdto": "hong-kong",
+                    "dTime": 1520260500,
+                    "found_on": "deprecated",
+                    "airline": "UO",
+                    "cityFrom": "Osaka",
+                    "aTime": 1520272200
+                }
+            ],
+            "distance": 2478.38
+        }
+    ],
+    "ref_tasks": [],
+    "refresh": [],
+    "del": null,
+    "all_airlines": [
+        "NH",
+        "JL",
+        "HX",
+        "RS",
+        "MM",
+        "ZE",
+        "CA",
+        "JW",
+        "CI",
+        "IT",
+        "MU",
+        "AI",
+        "UO",
+        "CX",
+        "TW",
+        "GK",
+        "BX"
+    ],
+    "time": 1
+}

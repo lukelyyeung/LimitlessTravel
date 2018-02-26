@@ -1,15 +1,10 @@
 const HotelApiService = require('../../services/HotelApiService');
 const knexFile = require('../../knexfile')['testing'];
 const knex = require('knex')(knexFile);
-const _ = require('lodash');
-
-function isArrayEqual(x, y) {
-    return _(x).differenceWith(y, _.isEqual).isEmpty();
-};
 
 describe('hotelApiService', () => {
     let hotelApiService;
-    let testingDestination = ['KIX', 'NRT', 'TPE', 'SFO'];
+    const testingData = require('./HotelApiTestingData.json');
 
     beforeEach((done) => {
         hotelApiService = new HotelApiService(knex);
@@ -33,4 +28,35 @@ describe('hotelApiService', () => {
                 done();
             })
     });
+
+    it('return correct date format for API and correct amount of max_rate', () => {
+        hotelApiService.update({
+            check_in: '20180301',
+            check_out: '20180305',
+            max_rate: 500
+        })
+        expect(hotelApiService.check_in).toEqual('2018-03-01');
+        expect(hotelApiService.check_out).toEqual('2018-03-05');
+        expect(hotelApiService.max_rate).toEqual(1000);
+    });
+
+    it('return correct url', () => {
+        hotelApiService.apiKey = 'KEY';
+        hotelApiService.radius = 10;
+        hotelApiService.check_in = '2018-03-01';
+        hotelApiService.check_out = '2018-03-05';
+        hotelApiService.max_rate = 500;
+        hotelApiService.lat = 34.6937398;
+        hotelApiService.long = 135.502182;
+
+        expect(hotelApiService.getUrl()).toEqual('https://api.sandbox.amadeus.com/v1.2/hotels/search-circle?apikey=KEY&latitude=34.6937398&longitude=135.502182&radius=10&check_in=2018-03-01&check_out=2018-03-05&lang=EN&currency=HKD&max_rate=500');
+    });
+
+    it('return formatted data for our further implementation', () => {
+        let formattedData = hotelApiService.mapData(testingData);
+        formattedData.forEach(element => {
+            expect(Object.getOwnPropertyNames(element)).toEqual(['property_name','address','price']);
+        });
+    })
+    
 })

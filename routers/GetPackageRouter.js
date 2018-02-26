@@ -13,7 +13,7 @@ class GetPackageRouter {
     }
 
     post(req, res) {
-        return this.getPackageService.list(req.body)
+        return this.getPackageService.generate(req.body)
             .then((data) => res.json(data))
             .catch((err) => res.json(err));
     }

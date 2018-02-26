@@ -1,48 +1,38 @@
+const moment = require('moment');
+
 class GetPackageService {
     constructor(randomizeService, flightApiService, hotelApiService) {
         this.randomizeService = randomizeService;
         this.flightApiService = flightApiService;
         this.hotelApiService = hotelApiService;
+        this.flightData = [];
+        this.hotelData = [];
     }
 
-    list(req) {
-        return this.getFlightData(this.flightApiService, this.randomizeService, req, {
-            flyFrom: 'HKG',
-            dateFrom: '01/03/2018',
-            dateTo: '01/03/2018',
-            returnFrom: '05/03/2018',
-            returnTo: '05/03/2018',
-            sort: 'quality'
-        })
-            .then((flightData) => this.flightData = this.flightApiService.mapData(flightData))
-            .then(() => this.getHotelData(this.hotelApiService, {
-                destination: this.flightApiService.to,
-                radius: 9,
-                check_in: '2018-03-01',
-                check_out: '2018-03-05',
-                max_rate: 500
-            }))
-            .then((hotelData) => this.hotelData = this.hotelApiService.mapData(hotelData))
-            .then(() => this.combinePackage(this.flightData, this.hotelData))
+    generate(criteria) {
+        return this.getFlightData(criteria)
+            .then(() => this.getHotelData(criteria))
+            .then(() => this.combinePackage(criteria))
     }
 
-    getFlightData(flightApiService, randomizeService, req, options) {
-        return randomizeService.findAvailableDestination()
+    getFlightData(criteria) {
+        return this.randomizeService.findAvailableDestination()
             .then(() => {
-                flightApiService.update({
-                    flyFrom: options.flyFrom,
-                    to: randomizeService.pickDestination(),
-                    dateFrom: options.dateFrom,
-                    dateTo: options.dateTo,
-                    returnFrom: options.returnFrom,
-                    returnTo: options.returnTo,
-                    price_to: req.budget,
-                    sort: options.sort
+                this.flightApiService.update({
+                    flyFrom: 'HKG',
+                    to: this.randomizeService.pickDestination(),
+                    dateFrom: criteria.dDate,
+                    dateTo: criteria.dDate,
+                    returnFrom: criteria.rDate,
+                    returnTo: criteria.rDate,
+                    price_to: criteria.budget * 0.7,
+                    sort: 'quality'
                 })
-                console.log(flightApiService.to);
-                return flightApiService.call();
+                console.log(this.flightApiService.to);
+                return this.flightApiService.call();
             })
             .then((apiData => this.recursiveFlightApiCall(apiData)))
+            .then((flightData) => this.flightData = this.flightApiService.mapData(flightData))
     }
 
     recursiveFlightApiCall(flightData) {
@@ -54,7 +44,7 @@ class GetPackageService {
             }
             else {
                 this.flightApiService.to = this.randomizeService.pickDestination();
-                console.log(this.flightApiService.to);
+                // console.log(this.flightApiService.to);
                 return this.flightApiService.call()
                     .then(data => this.recursiveFlightApiCall(data))
             }
@@ -65,24 +55,34 @@ class GetPackageService {
         }
     }
 
-    getHotelData(hotelApiService, options) {
-        return hotelApiService.getLocation(options.destination)
+    getHotelData(criteria) {
+        return this.hotelApiService.getLocation(this.flightApiService.to)
             .then(() => {
-                hotelApiService.update({
-                    radius: options.radius,
-                    check_in: options.check_in,
-                    check_out: options.check_out,
-                    max_rate: 500
+                this.hotelApiService.update({
+                    radius: 9,
+                    check_in: criteria.dDate,
+                    check_out: criteria.rDate,
+                    max_rate: (criteria.budget - this.flightData[this.flightData.length - 1].price) / (criteria.rDate - criteria.dDate)
                 })
-                return hotelApiService.call();
+                return this.hotelApiService.call();
             })
+            .then((hotelData) => this.hotelData = this.hotelApiService.mapData(hotelData))
     }
 
-    combinePackage(flightData, hotelData) {
-        return flightData.map(element => {
+    combinePackage(criteria) {
+        return this.flightData.map(element => {
             let rObj = {};
+            let max = this.hotelData.length;
+            let randomNum = Math.floor(Math.random() * max);
+
+            rObj['effective'] = moment().format('YYYY-MM-DD');
+            rObj['departure_date'] = moment(criteria.dDate).format('YYYY-MM-DD');
+            rObj['return_date'] = moment(criteria.rDate).format('YYYY-MM-DD');
+            rObj['budget'] = criteria.budget;
+            rObj['package_price'] = element.price + this.hotelData[randomNum].price;
             rObj['flight'] = element;
-            rObj['accommodation'] = hotelData[0];
+            rObj['accommodation'] = this.hotelData[randomNum];
+
             return rObj;
         });
     }

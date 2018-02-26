@@ -1,4 +1,5 @@
 const axios = require('axios');
+const moment = require('moment');
 
 class FlightApiService {
 
@@ -14,10 +15,10 @@ class FlightApiService {
     update(options) {
         this.flyFrom = options.flyFrom;
         this.to = options.to;
-        this.dateFrom = options.dateFrom;
-        this.dateTo = options.dateTo;
-        this.returnFrom = options.returnFrom;
-        this.returnTo = options.returnTo;
+        this.dateFrom = moment(options.dateFrom).format('DD/MM/YYYY');
+        this.dateTo = moment(options.dateTo).format('DD/MM/YYYY');
+        this.returnFrom = moment(options.returnFrom).format('DD/MM/YYYY');
+        this.returnTo = moment(options.returnTo).format('DD/MM/YYYY');
         this.price_to = options.price_to;
         this.sort = options.sort;
     }
@@ -33,11 +34,6 @@ class FlightApiService {
     }
 
     getUrl() {
-        // this.dateFrom = this.dateFrom.replace(/\//g, '%2F');
-        // this.dateTo = this.dateTo.replace(/\//g, '%2F');
-        // this.returnFrom = this.returnFrom.replace(/\//g, '%2F');
-        // this.returnTo = this.returnTo.replace(/\//g, '%2F');
-
         if (this.price_to == 0)
             return `https://api.skypicker.com/flights?flyFrom=${this.flyFrom}&to=${this.to}&dateFrom=${this.dateFrom}&dateTo=${this.dateTo}&returnFrom=${this.returnFrom}&returnTo=${this.returnTo}&partner=${this.partner}&partner_market=${this.partner_market}&curr=${this.curr}&maxstopovers=${this.maxstopovers}&limit=${this.limit}&sort=${this.sort}`;
         else

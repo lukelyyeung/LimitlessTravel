@@ -26,7 +26,6 @@ app.use('/',new ViewRouter().router());
 app.use('/api/search', new GetPackageRouter(getPackageService).router());
 // app.use('/api/users',isLoggedIn,new UserRouter(getService, saveService).router());
 
-
 server.listen(8080,()=>{
     console.log("Application started at port:8080");
 });

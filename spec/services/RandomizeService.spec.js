@@ -39,6 +39,10 @@ describe('randomizeService', () => {
         expect(randomizeService.pickDestination()).toBe(false);
     })
 
+    it('should return false if no findAvailableDestination() is called before', () => {
+        expect(randomizeService.pickDestination()).toBe(false);
+    })
+
     it('should remove the given destination', () => {
         randomizeService.availableDestination = ['KIX', 'RGN', 'BLR', 'HAM', 'SFO'];
         randomizeService.removeDestination('RGN');
@@ -52,18 +56,3 @@ describe('randomizeService', () => {
     });
 })
 
-// Integration Test
-// it("should pick a random destination if findAvailableDestination() is called before", (done) => {
-//     randomizeService.findAvailableDestination()
-//         .then(() => {
-//             return randomizeService.findDestination()
-//         })
-//         .then(data => {
-//             console.log(data)
-//             done();
-//         })
-// });
-
-// it ('should return false if no findAvailableDestination() is called before', () => {
-//     expect(randomizeService.pickDestination()).toBe(false);
-// })

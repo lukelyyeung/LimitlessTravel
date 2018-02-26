@@ -1,6 +1,7 @@
 require('dotenv').config({path: '../.env'});
 
 const axios = require('axios');
+const moment = require('moment');
 
 class HotelApiService {
 
@@ -26,8 +27,8 @@ class HotelApiService {
 
     update(options) {
         this.radius = options.radius;
-        this.check_in = options.check_in;
-        this.check_out = options.check_out;
+        this.check_in = moment(options.check_in).format('YYYY-MM-DD');
+        this.check_out = moment(options.check_out).format('YYYY-MM-DD');
         this.max_rate = options.max_rate * 2;
     }
 
@@ -50,7 +51,7 @@ class HotelApiService {
             let rObj = {};
             rObj['property_name'] = obj.property_name;
             rObj['address'] = obj.address;
-            rObj['total_price'] = obj.total_price.amount / 2;
+            rObj['price'] = obj.total_price.amount / 2;
             return rObj;
         })
 
