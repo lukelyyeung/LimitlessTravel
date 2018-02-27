@@ -6,42 +6,37 @@
   <title>Limitless Travel Homepage</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
     rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-          aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-          <span>LIMITLESS</span> TRAVEL</a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="#showcase">Home</a>
-          </li>
-          <li>
-            <a href="#info1">About</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    </div>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="#">
+      <span>LIMITLESS</span> TRAVEL</a>
+
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#info2">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contact">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#login">Login</a>
+      </li>
+    </ul>
   </nav>
+
+
 
   <section id="showcase">
     <div class="container">
@@ -50,11 +45,12 @@
         <div class="col-md-12">
           <div class="showcase-right">
             <h1>
-              <span>LIMITLESS</span> TRAVEL</h1>
+              <span>LIMITLESS</span> TRAVEL
+            </h1>
             <p>Looking for a budget, awesome package click here to book your first flight</p>
           </div>
           <br>
-          <a class="btn btn-default btn-lg showcase-btn">Book Your flight</a>
+          <a href="#" class="btn btn-primary">Book Your Flight Now</a>
         </div>
       </div>
     </div>
@@ -76,7 +72,7 @@
           <h2>LimitLess Travel Pro</h2>
           <p>Looking for more options and more responsive services, starting from $100 per year</p>
           <br>
-          <a class="btn btn-default btn-lg">Subscribe</a>
+          <a href="#" class="btn btn-primary">Subscribe</a>
         </div>
       </div>
     </div>
@@ -89,19 +85,21 @@
       <div class="row no-gutters">
         <div class="col-md-6 ">
           <div class="info-left">
-              <i class="material-icons">flight</i>
+            <i class="material-icons">flight</i>
             <h2>Destination</h2>
 
-            <p>Anywhere you watned to travel in the world, we do up to 190 countries. Life is short, keep it going.</p>
+            <p>Anywhere you watned to travel in the world, we do up to 190 countries.
+              <br>Life is short, keep it going.</p>
           </div>
         </div>
 
         <div class="col-md-6 ">
           <div class="info-right">
-              <i class="material-icons">hotel</i>
-           <h2>Hotels</h2>
+            <i class="material-icons">hotel</i>
+            <h2>Hotels</h2>
 
-            <p>Limitless Travel provide you the best idea and afforable hotel, simply enter where you want to go and your desired travel dates.</p>
+            <p>Limitless Travel provide you the best idea and afforable hotel,
+              <br> simply enter where you want to go and your desired travel dates.</p>
           </div>
         </div>
       </div>
@@ -111,26 +109,28 @@
   <section id="contact">
     <div class="container">
       <div class="row">
-        <div class="col-md-5 ">
+        <div class="col-5 ">
           <form>
             <div class="form-group">
-              <label>Name: </label>
-              <input class="form-control" type="text" name="" value="" placeholder="Enter Name">
+              <label for="formGroupExampleInput">
+                <i class="material-icons">perm_identity</i>Name</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="type your name here">
             </div>
             <div class="form-group">
-              <label>Email: </label>
-              <input class="form-control" type="text" name="" value="" placeholder="Enter Email">
+              <label for="formGroupExampleInput2">
+                <i class="material-icons">email</i>Email</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="type your email here">
             </div>
             <div class="form-group">
-              <label>Message: </label>
-              <textarea class="form-control" name="" value="" placeholder="Enter Message"></textarea>
+              <label for="exampleFormControlTextarea1">
+                <i class="material-icons">message</i>Message</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="type your message here"></textarea>
             </div>
-            <button class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-        </div>
-        <div class="col-md-7 col-sm-7">
 
         </div>
+
       </div>
     </div>
   </section>
@@ -190,26 +190,33 @@
       duration: 1000,
       origin: 'right',
       distance: '300px',
-
     });
+
+    sr.reveal('.material-icons', {
+      duration: 1200,
+      delay: 1300,
+      origin: 'bottom'
+    });
+
+
   </script>
 
   <script>
-        $(function () {
-          // Smooth Scrolling
-          $('a[href*="#"]:not([href="#"])').click(function () {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-              var target = $(this.hash);
-              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-              if (target.length) {
-                $('html, body').animate({
-                  scrollTop: target.offset().top
-                }, 1000);
-                return false;
-              }
-            }
-          });
-        });
+    $(function () {
+      // Smooth Scrolling
+      $('a[href*="#"]:not([href="#"])').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
+    });
   </script>
 </body>
 
