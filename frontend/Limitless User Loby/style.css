@@ -15,10 +15,24 @@ body{
   
 }
 
+.img-circle {
+  border-radius: 100%;
+  vertical-align: middle;
+  border-style: none;
+  background: #f2f2f2;
+  margin: 10px;
+}
+
+.card-block {
+  background: #f2f2f2;
+  color: #485e74;
+  padding: 8px;
+}
+
 
 
 .container{
-  max-width:1500px;
+  max-width:4400px;
   
   margin-left:auto;
   margin-right:auto;
@@ -32,10 +46,11 @@ body{
 
 .brand{
   text-align: center;
+  color: aqua;
 }
 
 .brand span{
-  color:#fff;
+  color:#dadee3;
 }
 
 .wrapper{
@@ -49,6 +64,7 @@ body{
 .personal-info{
   background:#e8d9c5;
   margin: 0 auto;
+ 
 }
 
 h3 {
@@ -82,7 +98,6 @@ height: 200px;
 h4.card-title {
 text-align: center;
 font-family: Poppins;
-color: #485e74;
 
 }
 
@@ -130,10 +145,9 @@ color: white;
 
 }
 
-.card-footer {
 
 
-}
+
 
 footertext {
   color: #f2f2f2;

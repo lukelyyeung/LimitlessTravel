@@ -1,0 +1,166 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url("img/background2.jpg");
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color:#485e74;
+  line-height:1.6;
+  font-family: Poppins;
+  padding:1em;
+  
+}
+
+.card-block {
+  background: #f2f2f2;
+  color: #485e74;
+  padding: 8px;
+}
+
+.card{
+margin: 10px auto;
+}
+
+p.card-text {
+  margin: 5px;
+}
+
+
+
+
+.img-circle {
+  border-radius: 100%;
+  vertical-align: middle;
+  border-style: none;
+  margin: 10px;
+}
+
+.center{
+  background: #f2f2f2;
+}
+
+
+
+.container{
+  max-width:1500px;
+  
+  margin-left:auto;
+  margin-right:auto;
+  padding:1em;
+}
+
+ ul{
+  list-style: none;
+  padding:0;
+}
+
+.brand{
+  text-align: center;
+  color:aqua
+}
+
+.brand span{
+  color:#dadee3
+}
+
+.wrapper{
+  box-shadow: 0 0 20px 0 aqua;
+}
+
+.wrapper > *{
+  padding: 1em;
+}
+
+.personal-info{
+  background:#e8d9c5;
+  margin: 0 auto;
+}
+
+h3 {
+text-align: center;
+}
+
+.personal-info .card-block {
+  background-color: #485e74;
+  color: #f2f2f2;
+  }
+
+
+
+.bottomfade {
+  margin: 20px auto;
+}
+
+img.card-img-top {
+height: 200px;
+
+}
+
+
+.travellist {
+margin: 10px auto
+}
+
+h4.card-title {
+text-align: center;
+font-family: Poppins;
+
+
+}
+
+
+
+
+.btn   {
+background-color: #485e74;
+border-color: #485e74;
+margin: 0 auto;
+display: flex;
+justify-content: center;
+color: #f2f2f2;
+}
+
+.card-block ul {
+text-align: center;
+}
+
+
+
+
+/* LARGE SCREENS */
+@media(min-width:700px){
+  .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .wrapper > *{
+    padding:2em;
+  }
+
+  .company-info h3, .company-info ul, .brand{
+    text-align: left;
+  }
+}
+
+small.text-muted {
+text-align: center;
+color: white;
+
+}
+
+
+
+footertext {
+  color: #f2f2f2;
+}
+
+.card-header {
+background-color: #485e74;
+color: #f2f2f2;
+margin: 0 
+}
