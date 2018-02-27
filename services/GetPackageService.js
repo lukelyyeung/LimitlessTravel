@@ -7,37 +7,41 @@ class GetPackageService {
         this.hotelApiService = hotelApiService;
         this.flightData = [];
         this.hotelData = [];
+        this.packageData = [];
     }
 
     generate(criteria) {
-        return this.getFlightData(criteria)
-            .then(() => this.getHotelData(criteria))
-            .then(() => this.combinePackage(criteria))
+        return this.randomizeService.findAvailableDestination()
+            .then(() => {
+                criteria.destination.forEach(element => this.randomizeService.removeDestination(element));
+                return this.getFlightData(criteria)
+                    .then(() => this.getHotelData(criteria))
+                    .then(() => this.combinePackage(criteria))
+                    .then((combinePackage) => [this.flightApiService.to, combinePackage])
+            })
     }
 
     getFlightData(criteria) {
-        return this.randomizeService.findAvailableDestination()
-            .then(() => {
-                this.flightApiService.update({
-                    flyFrom: 'HKG',
-                    to: this.randomizeService.pickDestination(),
-                    dateFrom: criteria.dDate,
-                    dateTo: criteria.dDate,
-                    returnFrom: criteria.rDate,
-                    returnTo: criteria.rDate,
-                    price_to: criteria.budget * 0.7,
-                    sort: 'quality'
-                })
-                console.log(this.flightApiService.to);
-                return this.flightApiService.call();
-            })
+        this.flightApiService.update({
+            flyFrom: 'HKG',
+            to: this.randomizeService.pickDestination(),
+            dateFrom: criteria.dDate,
+            dateTo: criteria.dDate,
+            returnFrom: criteria.rDate,
+            returnTo: criteria.rDate,
+            price_to: criteria.budget * 0.7,
+            sort: 'quality'
+        })
+        // console.log(this.flightApiService.to);
+        return this.flightApiService.call()
             .then((apiData => this.recursiveFlightApiCall(apiData)))
-            .then((flightData) => this.flightData = this.flightApiService.mapData(flightData))
+            .then((flightData) => {this.flightData = this.flightApiService.mapData(flightData)})
     }
 
     recursiveFlightApiCall(flightData) {
+        this.randomizeService.removeDestination(this.flightApiService.to);
+
         if (flightData.length == 0) {
-            this.randomizeService.removeDestination(this.flightApiService.to);
 
             if (this.randomizeService.availableDestination.length == 0) {
                 return 'No fulfilled destination';
@@ -84,7 +88,7 @@ class GetPackageService {
             rObj['accommodation'] = this.hotelData[randomNum];
 
             return rObj;
-        });
+        })
     }
 
 }

@@ -23,7 +23,7 @@ let getPackageService = new GetPackageService(randomizeService,flightApiService,
 const {app,server} = require('./utils/init-app')();
 
 app.use('/',new ViewRouter().router());
-app.use('/api/search', new GetPackageRouter(getPackageService).router());
+app.use('/users/result', new GetPackageRouter(getPackageService).router());
 // app.use('/api/users',isLoggedIn,new UserRouter(getService, saveService).router());
 
 server.listen(8080,()=>{
