@@ -24,7 +24,7 @@ class GetPackageService {
     getFlightData(criteria) {
         this.flightApiService.update({
             flyFrom: 'HKG',
-            to: this.randomizeService.pickDestination(),
+            to: (typeof criteria.to === 'undefined') ? this.randomizeService.pickDestination() : criteria.to,
             dateFrom: criteria.dDate,
             dateTo: criteria.dDate,
             returnFrom: criteria.rDate,
@@ -32,10 +32,10 @@ class GetPackageService {
             price_to: criteria.budget * 0.7,
             sort: 'quality'
         })
-        // console.log(this.flightApiService.to);
+        console.log(this.flightApiService.to);
         return this.flightApiService.call()
             .then((apiData => this.recursiveFlightApiCall(apiData)))
-            .then((flightData) => {this.flightData = this.flightApiService.mapData(flightData)})
+            .then((flightData) => { this.flightData = this.flightApiService.mapData(flightData) })
     }
 
     recursiveFlightApiCall(flightData) {

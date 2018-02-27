@@ -17,6 +17,7 @@ module.exports = class ViewRouter {
             layout: 'lobby'
         }));
         router.get('/users/search', (req, res) => res.render("search"));
+        router.get('/users/tracking', (req, res) => res.render("tracking", { layout: 'lobby' }));
         return router;
     }
 

@@ -21,8 +21,8 @@ class SaveService {
             let packageId = await this.knex(packages).select('package_id').where({
                 day_from: newPackage.departure_date,
                 day_to: newPackage.return_date,
-                city_from: newPackage.flight.cityFrom,
-                city_to: newPackage.flight.cityTo,
+                city_from: newPackage.flight.flyFrom,
+                city_to: newPackage.flight.flyTo,
                 budget: newPackage.budget
             })
 
@@ -49,8 +49,8 @@ class SaveService {
             let newPackageId = await this.knex(packages).insert({
                 day_from: newPackage.departure_date,
                 day_to: newPackage.return_date,
-                city_from: newPackage.flight.cityFrom,
-                city_to: newPackage.flight.cityTo,
+                city_from: newPackage.flight.flyFrom,
+                city_to: newPackage.flight.flyTo,
                 budget: newPackage.budget
             }).returning('package_id');
 
@@ -77,7 +77,8 @@ class SaveService {
 
     async addTicket(packageId, wholePackage) {
         try {
-            console.log('creating tickets');
+            // console.log('creating tickets');
+            console.log(wholePackage);
             const { package_price, flight } = wholePackage;
             return await this.knex(tickets).insert({
                 package_id: packageId,
