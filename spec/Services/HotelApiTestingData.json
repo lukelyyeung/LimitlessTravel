@@ -1,0 +1,1363 @@
+[
+    {
+        "property_code": "BWKIX536",
+        "property_name": "Best Western Osaka Tsukamoto",
+        "location": {
+            "latitude": 34.71194,
+            "longitude": 135.47025
+        },
+        "address": {
+            "line1": "2-21-9 Tsukamoto",
+            "city": "Osaka",
+            "postal_code": "532-0026",
+            "country": "JP"
+        },
+        "total_price": {
+            "amount": "1767.91",
+            "currency": "HKD"
+        },
+        "min_daily_rate": {
+            "amount": "318.60",
+            "currency": "HKD"
+        },
+        "contacts": [
+            {
+                "type": "PHONE",
+                "detail": "81-66-3906680"
+            },
+            {
+                "type": "FAX",
+                "detail": "81-66-3906689"
+            }
+        ],
+        "amenities": [
+            {
+                "amenity": "ICE_MACHINE",
+                "ota_code": 52,
+                "description": "Ice machine"
+            },
+            {
+                "amenity": "RESTAURANT",
+                "ota_code": 76,
+                "description": "Restaurant"
+            },
+            {
+                "amenity": "CHILDREN_WELCOME",
+                "ota_code": 218,
+                "description": "Children welcome"
+            },
+            {
+                "amenity": "ELEVATORS",
+                "ota_code": 33,
+                "description": "Elevators"
+            },
+            {
+                "amenity": "INTERNET_PUBLIC_AREAS",
+                "ota_code": 178,
+                "description": "Internet access in public areas"
+            },
+            {
+                "amenity": "LAUNDRY_SERVICE",
+                "ota_code": 58,
+                "description": "Laundry/Valet service"
+            },
+            {
+                "amenity": "SAFE_DEPOSIT_BOX",
+                "ota_code": 78,
+                "description": "Safe deposit box"
+            },
+            {
+                "amenity": "FEMALE_TRAVELER_ROOM",
+                "ota_code": 110,
+                "description": "Female traveler room/floor"
+            }
+        ],
+        "awards": [
+            {
+                "provider": "Local Star Rating",
+                "rating": "3"
+            }
+        ],
+        "images": [],
+        "rooms": [
+            {
+                "booking_code": "A1DAAAB",
+                "room_type_code": "A1D",
+                "rate_plan_code": "AAA",
+                "total_amount": {
+                    "amount": "1767.91",
+                    "currency": "HKD"
+                },
+                "rates": [
+                    {
+                        "start_date": "2018-03-04",
+                        "end_date": "2018-03-05",
+                        "currency_code": "HKD",
+                        "price": 318.6
+                    },
+                    {
+                        "start_date": "2018-03-02",
+                        "end_date": "2018-03-03",
+                        "currency_code": "HKD",
+                        "price": 362.33
+                    },
+                    {
+                        "start_date": "2018-03-01",
+                        "end_date": "2018-03-02",
+                        "currency_code": "HKD",
+                        "price": 524.75
+                    },
+                    {
+                        "start_date": "2018-03-03",
+                        "end_date": "2018-03-04",
+                        "currency_code": "HKD",
+                        "price": 562.23
+                    }
+                ],
+                "descriptions": [
+                    "AAA CAA RATE*MEMBERS MUST SHOW ID AT CHECK IN",
+                    "1 DOUBLE BED,SMOK,SEMDBL,HAIR,BTHSWR,COFMKR,",
+                    "WIFI"
+                ],
+                "room_type_info": {
+                    "room_type": "Room with bath - Superior",
+                    "bed_type": "Double",
+                    "number_of_beds": "1"
+                },
+                "rate_type_code": "AAA"
+            }
+        ],
+        "_links": {
+            "more_rooms_at_this_hotel": {
+                "href": "https://api.sandbox.amadeus.com/v1.2/hotels/BWKIX536?apikey=BAQZt7V11pSZdmmYvqVQraYJSoxhspmH&check_in=2018-03-01&check_out=2018-03-05¤cy=HKD&referrer=more_rooms_at_this_hotel"
+            }
+        }
+    },
+    {
+        "property_code": "WVKIX258",
+        "property_name": "Hotel Agora Osaka Moriguchi",
+        "location": {
+            "latitude": 34.70239,
+            "longitude": 135.50297
+        },
+        "address": {
+            "line1": "10-5 Kawahara Cho",
+            "city": "Moriguchi City",
+            "postal_code": "570-0038",
+            "country": "JP"
+        },
+        "total_price": {
+            "amount": "3133.52",
+            "currency": "HKD"
+        },
+        "min_daily_rate": {
+            "amount": "312.35",
+            "currency": "HKD"
+        },
+        "contacts": [
+            {
+                "type": "PHONE",
+                "detail": "81-6-69941111"
+            },
+            {
+                "type": "FAX",
+                "detail": "81-6-69941100"
+            }
+        ],
+        "amenities": [
+            {
+                "amenity": "COFFEE_SHOP",
+                "ota_code": 20,
+                "description": "Coffee shop"
+            },
+            {
+                "amenity": "RESTAURANT",
+                "ota_code": 76,
+                "description": "Restaurant"
+            },
+            {
+                "amenity": "CHILDREN_WELCOME",
+                "ota_code": 218,
+                "description": "Children welcome"
+            },
+            {
+                "amenity": "ELEVATORS",
+                "ota_code": 33,
+                "description": "Elevators"
+            },
+            {
+                "amenity": "PARKING",
+                "ota_code": 68,
+                "description": "Parking"
+            },
+            {
+                "amenity": "PETS_ALLOWED",
+                "ota_code": 224,
+                "description": "Pets allowed"
+            },
+            {
+                "amenity": "ROOM_SERVICE",
+                "ota_code": 77,
+                "description": "Room service"
+            },
+            {
+                "amenity": "SAFE_DEPOSIT_BOX",
+                "ota_code": 78,
+                "description": "Safe deposit box"
+            }
+        ],
+        "awards": [],
+        "images": [],
+        "rooms": [
+            {
+                "booking_code": "F1DCOR",
+                "room_type_code": "F1D",
+                "rate_plan_code": "COR",
+                "total_amount": {
+                    "amount": "3133.52",
+                    "currency": "HKD"
+                },
+                "rates": [
+                    {
+                        "start_date": "2018-03-03",
+                        "end_date": "2018-03-05",
+                        "currency_code": "HKD",
+                        "price": 624.7
+                    },
+                    {
+                        "start_date": "2018-03-01",
+                        "end_date": "2018-03-03",
+                        "currency_code": "HKD",
+                        "price": 694.12
+                    }
+                ],
+                "descriptions": [
+                    "BEST AVAILABLE RATE",
+                    "STANDARD SINGLE BED ROOM WITH MOUNTAIN VIEW",
+                    "17SQ MTR 183 SQ FT W127CM X L195CM BED"
+                ],
+                "room_type_info": {
+                    "room_type": "Room with shower - Moderate",
+                    "bed_type": "Double",
+                    "number_of_beds": "1"
+                },
+                "rate_type_code": "COR"
+            }
+        ],
+        "_links": {
+            "more_rooms_at_this_hotel": {
+                "href": "https://api.sandbox.amadeus.com/v1.2/hotels/WVKIX258?apikey=BAQZt7V11pSZdmmYvqVQraYJSoxhspmH&check_in=2018-03-01&check_out=2018-03-05¤cy=HKD&referrer=more_rooms_at_this_hotel"
+            }
+        }
+    },
+    {
+        "property_code": "YXOSANSI",
+        "property_name": "Rihga Nakanoshima Inn",
+        "location": {
+            "latitude": 34.69196,
+            "longitude": 135.49592
+        },
+        "address": {
+            "line1": "1 13 10 Edobori, Nishi Ku",
+            "city": "Osaka",
+            "postal_code": "550 0002",
+            "country": "JP"
+        },
+        "total_price": {
+            "amount": "3810.70",
+            "currency": "HKD"
+        },
+        "min_daily_rate": {
+            "amount": "694.12",
+            "currency": "HKD"
+        },
+        "contacts": [
+            {
+                "type": "PHONE",
+                "detail": "81-6-64471122"
+            },
+            {
+                "type": "FAX",
+                "detail": "81-6-64471119"
+            },
+            {
+                "type": "URL",
+                "detail": "https://www.rihga.co.jp/nakanoshimainn/"
+            }
+        ],
+        "amenities": [
+            {
+                "amenity": "COFFEE_SHOP",
+                "ota_code": 20,
+                "description": "Coffee shop"
+            },
+            {
+                "amenity": "CHILDREN_WELCOME",
+                "ota_code": 218,
+                "description": "Children welcome"
+            },
+            {
+                "amenity": "ELEVATORS",
+                "ota_code": 33,
+                "description": "Elevators"
+            },
+            {
+                "amenity": "CURRENCY_EXCHANGE",
+                "ota_code": 26,
+                "description": "Currency exchange"
+            },
+            {
+                "amenity": "HOTSPOTS",
+                "ota_code": 221,
+                "description": "Hotspots"
+            },
+            {
+                "amenity": "LAUNDRY_SERVICE",
+                "ota_code": 58,
+                "description": "Laundry/Valet service"
+            },
+            {
+                "amenity": "SAFE_DEPOSIT_BOX",
+                "ota_code": 78,
+                "description": "Safe deposit box"
+            },
+            {
+                "amenity": "FEMALE_TRAVELER_ROOM",
+                "ota_code": 110,
+                "description": "Female traveler room/floor"
+            }
+        ],
+        "awards": [
+            {
+                "provider": "OHG",
+                "rating": "Moderate First Class"
+            },
+            {
+                "provider": "Local Star Rating",
+                "rating": "3"
+            }
+        ],
+        "images": [],
+        "rooms": [
+            {
+                "booking_code": "C1QRA7",
+                "room_type_code": "C1Q",
+                "rate_plan_code": "RA7",
+                "total_amount": {
+                    "amount": "3810.70",
+                    "currency": "HKD"
+                },
+                "rates": [
+                    {
+                        "start_date": "2018-03-01",
+                        "end_date": "2018-03-02",
+                        "currency_code": "HKD",
+                        "price": 694.12
+                    },
+                    {
+                        "start_date": "2018-03-04",
+                        "end_date": "2018-03-05",
+                        "currency_code": "HKD",
+                        "price": 694.12
+                    },
+                    {
+                        "start_date": "2018-03-02",
+                        "end_date": "2018-03-03",
+                        "currency_code": "HKD",
+                        "price": 909.29
+                    },
+                    {
+                        "start_date": "2018-03-03",
+                        "end_date": "2018-03-04",
+                        "currency_code": "HKD",
+                        "price": 1513.17
+                    }
+                ],
+                "descriptions": [
+                    "BEST AVAILABLE RATE ",
+                    "Standard Queen -Free WiFi -City View -No smoking -14.6sqm ",
+                    "157.2sqft Standard Queen -high speed Internet access personal "
+                ],
+                "room_type_info": {
+                    "room_type": "Room with bath - Standard",
+                    "bed_type": "Queen",
+                    "number_of_beds": "1"
+                },
+                "rate_type_code": "RA7"
+            }
+        ],
+        "_links": {
+            "more_rooms_at_this_hotel": {
+                "href": "https://api.sandbox.amadeus.com/v1.2/hotels/YXOSANSI?apikey=BAQZt7V11pSZdmmYvqVQraYJSoxhspmH&check_in=2018-03-01&check_out=2018-03-05¤cy=HKD&referrer=more_rooms_at_this_hotel"
+            }
+        }
+    },
+    {
+        "property_code": "RTOSAIBS",
+        "property_name": "Ibis Styles Osaka",
+        "location": {
+            "latitude": 34.66969,
+            "longitude": 135.50487
+        },
+        "address": {
+            "line1": "2 13 Soemoncho",
+            "city": "Osaka",
+            "postal_code": "542 0084",
+            "country": "JP"
+        },
+        "total_price": {
+            "amount": "4331.28",
+            "currency": "HKD"
+        },
+        "min_daily_rate": {
+            "amount": "860.70",
+            "currency": "HKD"
+        },
+        "contacts": [
+            {
+                "type": "PHONE",
+                "detail": "81/66/2113555"
+            },
+            {
+                "type": "FAX",
+                "detail": "81/66/2113586"
+            },
+            {
+                "type": "EMAIL",
+                "detail": "ha0e7-re1@accor.com"
+            },
+            {
+                "type": "URL",
+                "detail": "www.accorhotels.com/A0E7"
+            }
+        ],
+        "amenities": [
+            {
+                "amenity": "ELEVATORS",
+                "ota_code": 33,
+                "description": "Elevators"
+            },
+            {
+                "amenity": "FRONT_DESK_24_HOURS",
+                "ota_code": 1,
+                "description": "24-hour front desk"
+            },
+            {
+                "amenity": "PARKING",
+                "ota_code": 68,
+                "description": "Parking"
+            },
+            {
+                "amenity": "INTERNET_SERVICES",
+                "ota_code": 223,
+                "description": "Internet services"
+            },
+            {
+                "amenity": "",
+                "ota_code": 113,
+                "description": "120 AC"
+            },
+            {
+                "amenity": "",
+                "ota_code": 179,
+                "description": "Wireless internet connection in public areas"
+            },
+            {
+                "amenity": "",
+                "ota_code": 53,
+                "description": "Indoor parking"
+            },
+            {
+                "amenity": "RESTAURANT",
+                "ota_code": 76,
+                "description": "Restaurant"
+            }
+        ],
+        "awards": [
+            {
+                "provider": "Local Star Rating",
+                "rating": "3"
+            }
+        ],
+        "images": [],
+        "rooms": [
+            {
+                "booking_code": "C2SADV",
+                "room_type_code": "C2S",
+                "rate_plan_code": "ADV",
+                "total_amount": {
+                    "amount": "4331.28",
+                    "currency": "HKD"
+                },
+                "rates": [
+                    {
+                        "start_date": "2018-03-04",
+                        "end_date": "2018-03-05",
+                        "currency_code": "HKD",
+                        "price": 860.7
+                    },
+                    {
+                        "start_date": "2018-03-01",
+                        "end_date": "2018-03-02",
+                        "currency_code": "HKD",
+                        "price": 1027.29
+                    },
+                    {
+                        "start_date": "2018-03-02",
+                        "end_date": "2018-03-03",
+                        "currency_code": "HKD",
+                        "price": 1082.82
+                    },
+                    {
+                        "start_date": "2018-03-03",
+                        "end_date": "2018-03-04",
+                        "currency_code": "HKD",
+                        "price": 1360.47
+                    }
+                ],
+                "descriptions": [
+                    "Advance rate - CCPREPAID-BB/Bed+Brkfast",
+                    "Standard Room with 2 small single beds"
+                ],
+                "room_type_info": {
+                    "room_type": "Room with bath - Standard",
+                    "bed_type": "Single",
+                    "number_of_beds": "2"
+                },
+                "rate_type_code": "ADV"
+            }
+        ],
+        "_links": {
+            "more_rooms_at_this_hotel": {
+                "href": "https://api.sandbox.amadeus.com/v1.2/hotels/RTOSAIBS?apikey=BAQZt7V11pSZdmmYvqVQraYJSoxhspmH&check_in=2018-03-01&check_out=2018-03-05¤cy=HKD&referrer=more_rooms_at_this_hotel"
+            }
+        }
+    },
+    {
+        "property_code": "UIOSA873",
+        "property_name": "Imperial Hotel Osaka",
+        "location": {
+            "latitude": 34.70115,
+            "longitude": 135.51915
+        },
+        "address": {
+            "line1": "8-50 Temmabashi 1 Chome",
+            "city": "Osaka",
+            "postal_code": "530-0042",
+            "country": "JP"
+        },
+        "total_price": {
+            "amount": "4824.11",
+            "currency": "HKD"
+        },
+        "min_daily_rate": {
+            "amount": "520.59",
+            "currency": "HKD"
+        },
+        "contacts": [
+            {
+                "type": "PHONE",
+                "detail": "81-668-811111"
+            },
+            {
+                "type": "FAX",
+                "detail": "81-668-814111"
+            }
+        ],
+        "amenities": [
+            {
+                "amenity": "RESTAURANT",
+                "ota_code": 76,
+                "description": "Restaurant"
+            },
+            {
+                "amenity": "ACCESSIBLE_FACILITIES",
+                "ota_code": 47,
+                "description": "Accessible facilities"
+            },
+            {
+                "amenity": "ELEVATORS",
+                "ota_code": 33,
+                "description": "Elevators"
+            },
+            {
+                "amenity": "EXECUTIVE_FLOOR",
+                "ota_code": 34,
+                "description": "Executive floor"
+            },
+            {
+                "amenity": "GIFT_SHOP",
+                "ota_code": 45,
+                "description": "Gift/News stand"
+            },
+            {
+                "amenity": "LAUNDRY_SERVICE",
+                "ota_code": 58,
+                "description": "Laundry/Valet service"
+            },
+            {
+                "amenity": "LOUNGE_BARS",
+                "ota_code": 165,
+                "description": "Lounges/bars"
+            },
+            {
+                "amenity": "LOUNGE_BARS",
+                "ota_code": 165,
+                "description": "Lounges/bars"
+            },
+            {
+                "amenity": "ROOM_SERVICE",
+                "ota_code": 77,
+                "description": "Room service"
+            },
+            {
+                "amenity": "OUTDOOR_POOL",
+                "ota_code": 66,
+                "description": "Outdoor pool"
+            }
+        ],
+        "awards": [
+            {
+                "provider": "Local Star Rating",
+                "rating": "5"
+            }
+        ],
+        "images": [],
+        "rooms": [
+            {
+                "booking_code": "N2TPRO",
+                "room_type_code": "N2T",
+                "rate_plan_code": "PRO",
+                "total_amount": {
+                    "amount": "4824.11",
+                    "currency": "HKD"
+                },
+                "rates": [
+                    {
+                        "start_date": "2018-03-01",
+                        "end_date": "2018-03-03",
+                        "currency_code": "HKD",
+                        "price": 1041.17
+                    },
+                    {
+                        "start_date": "2018-03-04",
+                        "end_date": "2018-03-05",
+                        "currency_code": "HKD",
+                        "price": 1041.17
+                    },
+                    {
+                        "start_date": "2018-03-03",
+                        "end_date": "2018-03-04",
+                        "currency_code": "HKD",
+                        "price": 1700.58
+                    }
+                ],
+                "descriptions": [
+                    "BEST AVAILABLE RATE",
+                    "Standard Twin Room Regular",
+                    "Floor City view"
+                ],
+                "room_type_info": {
+                    "room_type": "Non-smoking",
+                    "bed_type": "Twin",
+                    "number_of_beds": "2"
+                },
+                "rate_type_code": "PRO"
+            }
+        ],
+        "_links": {
+            "more_rooms_at_this_hotel": {
+                "href": "https://api.sandbox.amadeus.com/v1.2/hotels/UIOSA873?apikey=BAQZt7V11pSZdmmYvqVQraYJSoxhspmH&check_in=2018-03-01&check_out=2018-03-05¤cy=HKD&referrer=more_rooms_at_this_hotel"
+            }
+        }
+    },
+    {
+        "property_code": "RFOSA621",
+        "property_name": "Red Roof  Osaka - Nippombashi",
+        "location": {
+            "latitude": 34.66328,
+            "longitude": 135.50586
+        },
+        "address": {
+            "line1": "2-7-9 Nippombashi",
+            "city": "Osaka",
+            "postal_code": "5420073",
+            "country": "JP"
+        },
+        "total_price": {
+            "amount": "4900.46",
+            "currency": "HKD"
+        },
+        "min_daily_rate": {
+            "amount": "971.76",
+            "currency": "HKD"
+        },
+        "contacts": [
+            {
+                "type": "PHONE",
+                "detail": "-81-66585-7030"
+            },
+            {
+                "type": "FAX",
+                "detail": "81-6-6585-7032"
+            },
+            {
+                "type": "EMAIL",
+                "detail": "i0621@redroof.com"
+            },
+            {
+                "type": "URL",
+                "detail": "www.redroof.com"
+            }
+        ],
+        "amenities": [
+            {
+                "amenity": "ACCESSIBLE_FACILITIES",
+                "ota_code": 47,
+                "description": "Accessible facilities"
+            },
+            {
+                "amenity": "BABY_SITTING",
+                "ota_code": 8,
+                "description": "Baby sitting"
+            },
+            {
+                "amenity": "CHILDREN_WELCOME",
+                "ota_code": 218,
+                "description": "Children welcome"
+            },
+            {
+                "amenity": "ELEVATORS",
+                "ota_code": 33,
+                "description": "Elevators"
+            },
+            {
+                "amenity": "HOTSPOTS",
+                "ota_code": 221,
+                "description": "Hotspots"
+            },
+            {
+                "amenity": "LAUNDRY_SERVICE",
+                "ota_code": 58,
+                "description": "Laundry/Valet service"
+            }
+        ],
+        "awards": [],
+        "images": [],
+        "rooms": [
+            {
+                "booking_code": "C1DRAC",
+                "room_type_code": "C1D",
+                "rate_plan_code": "RAC",
+                "total_amount": {
+                    "amount": "4900.46",
+                    "currency": "HKD"
+                },
+                "rates": [
+                    {
+                        "start_date": "2018-03-04",
+                        "end_date": "2018-03-05",
+                        "currency_code": "HKD",
+                        "price": 971.76
+                    },
+                    {
+                        "start_date": "2018-03-02",
+                        "end_date": "2018-03-03",
+                        "currency_code": "HKD",
+                        "price": 1180
+                    },
+                    {
+                        "start_date": "2018-03-01",
+                        "end_date": "2018-03-02",
+                        "currency_code": "HKD",
+                        "price": 1221.64
+                    },
+                    {
+                        "start_date": "2018-03-03",
+                        "end_date": "2018-03-04",
+                        "currency_code": "HKD",
+                        "price": 1527.06
+                    }
+                ],
+                "descriptions": [
+                    "BEST AVAILABLE RATE ",
+                    "One Full Bed Non-Smoking with Free WiFi-Hair Dryer-Refrigerator-",
+                    "In-Room Safe-Desk This Room also includes Flat-Screen TV "
+                ],
+                "room_type_info": {
+                    "room_type": "Room with bath - Standard",
+                    "bed_type": "Double",
+                    "number_of_beds": "1"
+                },
+                "rate_type_code": "RAC"
+            }
+        ],
+        "_links": {
+            "more_rooms_at_this_hotel": {
+                "href": "https://api.sandbox.amadeus.com/v1.2/hotels/RFOSA621?apikey=BAQZt7V11pSZdmmYvqVQraYJSoxhspmH&check_in=2018-03-01&check_out=2018-03-05¤cy=HKD&referrer=more_rooms_at_this_hotel"
+            }
+        }
+    },
+    {
+        "property_code": "NKOSA001",
+        "property_name": "Hotel Nikko Osaka",
+        "location": {
+            "latitude": 34.67407,
+            "longitude": 135.49974
+        },
+        "address": {
+            "line1": "1 3 3  Nishi Shinsaibashi",
+            "city": "Osaka",
+            "postal_code": "542-0086",
+            "country": "JP"
+        },
+        "total_price": {
+            "amount": "5344.69",
+            "currency": "HKD"
+        },
+        "min_daily_rate": {
+            "amount": "1180.00",
+            "currency": "HKD"
+        },
+        "contacts": [
+            {
+                "type": "PHONE",
+                "detail": "81-6-62441111"
+            },
+            {
+                "type": "FAX",
+                "detail": "81-6-62452432"
+            }
+        ],
+        "amenities": [
+            {
+                "amenity": "COFFEE_SHOP",
+                "ota_code": 20,
+                "description": "Coffee shop"
+            },
+            {
+                "amenity": "RESTAURANT",
+                "ota_code": 76,
+                "description": "Restaurant"
+            },
+            {
+                "amenity": "ACCESSIBLE_FACILITIES",
+                "ota_code": 47,
+                "description": "Accessible facilities"
+            },
+            {
+                "amenity": "BEAUTY_SALON",
+                "ota_code": 107,
+                "description": "Beauty shop/salon"
+            },
+            {
+                "amenity": "CHILDREN_WELCOME",
+                "ota_code": 218,
+                "description": "Children welcome"
+            },
+            {
+                "amenity": "ELEVATORS",
+                "ota_code": 33,
+                "description": "Elevators"
+            },
+            {
+                "amenity": "CURRENCY_EXCHANGE",
+                "ota_code": 26,
+                "description": "Currency exchange"
+            },
+            {
+                "amenity": "HOTSPOTS",
+                "ota_code": 221,
+                "description": "Hotspots"
+            },
+            {
+                "amenity": "FREE_HIGH_SPEED_INTERNET",
+                "ota_code": 222,
+                "description": "Free high speed internet connection"
+            },
+            {
+                "amenity": "INTERNET_PUBLIC_AREAS",
+                "ota_code": 178,
+                "description": "Internet access in public areas"
+            },
+            {
+                "amenity": "LAUNDRY_SERVICE",
+                "ota_code": 58,
+                "description": "Laundry/Valet service"
+            },
+            {
+                "amenity": "MASSAGE_SERVICES",
+                "ota_code": 61,
+                "description": "Massage services"
+            },
+            {
+                "amenity": "PARKING",
+                "ota_code": 68,
+                "description": "Parking"
+            },
+            {
+                "amenity": "LOUNGE_BARS",
+                "ota_code": 165,
+                "description": "Lounges/bars"
+            },
+            {
+                "amenity": "",
+                "ota_code": 46,
+                "description": "Hairdresser/barber"
+            },
+            {
+                "amenity": "LOUNGE_BARS",
+                "ota_code": 165,
+                "description": "Lounges/bars"
+            },
+            {
+                "amenity": "ROOM_SERVICE",
+                "ota_code": 77,
+                "description": "Room service"
+            },
+            {
+                "amenity": "SAFE_DEPOSIT_BOX",
+                "ota_code": 78,
+                "description": "Safe deposit box"
+            },
+            {
+                "amenity": "FEMALE_TRAVELER_ROOM",
+                "ota_code": 110,
+                "description": "Female traveler room/floor"
+            }
+        ],
+        "awards": [],
+        "images": [],
+        "rooms": [
+            {
+                "booking_code": "J1SP23",
+                "room_type_code": "J1S",
+                "rate_plan_code": "P23",
+                "total_amount": {
+                    "amount": "5344.69",
+                    "currency": "HKD"
+                },
+                "rates": [
+                    {
+                        "start_date": "2018-03-02",
+                        "end_date": "2018-03-03",
+                        "currency_code": "HKD",
+                        "price": 1180
+                    },
+                    {
+                        "start_date": "2018-03-04",
+                        "end_date": "2018-03-05",
+                        "currency_code": "HKD",
+                        "price": 1180
+                    },
+                    {
+                        "start_date": "2018-03-03",
+                        "end_date": "2018-03-04",
+                        "currency_code": "HKD",
+                        "price": 1457.64
+                    },
+                    {
+                        "start_date": "2018-03-01",
+                        "end_date": "2018-03-02",
+                        "currency_code": "HKD",
+                        "price": 1527.06
+                    }
+                ],
+                "descriptions": [
+                    "BEST AVAILABLE RATE",
+                    "Superior Grade 18Sqm 195Sqft 1 Double Size Bed Free High Speed ",
+                    "Internet "
+                ],
+                "room_type_info": {
+                    "room_type": "Room with bath/shower - Moderate",
+                    "bed_type": "Single",
+                    "number_of_beds": "1"
+                },
+                "rate_type_code": "P23"
+            }
+        ],
+        "_links": {
+            "more_rooms_at_this_hotel": {
+                "href": "https://api.sandbox.amadeus.com/v1.2/hotels/NKOSA001?apikey=BAQZt7V11pSZdmmYvqVQraYJSoxhspmH&check_in=2018-03-01&check_out=2018-03-05¤cy=HKD&referrer=more_rooms_at_this_hotel"
+            }
+        }
+    },
+    {
+        "property_code": "JROSAGOK",
+        "property_name": "Hotel Granvia Osaka",
+        "location": {
+            "latitude": 34.70186,
+            "longitude": 135.49628
+        },
+        "address": {
+            "line1": "3 1 1 Umeda Kitaku",
+            "city": "Osaka",
+            "postal_code": "530-0001",
+            "country": "JP"
+        },
+        "total_price": {
+            "amount": "5401.19",
+            "currency": "HKD"
+        },
+        "min_daily_rate": {
+            "amount": "555.29",
+            "currency": "HKD"
+        },
+        "contacts": [
+            {
+                "type": "PHONE",
+                "detail": "81-6-63441235"
+            },
+            {
+                "type": "FAX",
+                "detail": "81-6-63441130"
+            }
+        ],
+        "amenities": [
+            {
+                "amenity": "COFFEE_SHOP",
+                "ota_code": 20,
+                "description": "Coffee shop"
+            },
+            {
+                "amenity": "RESTAURANT",
+                "ota_code": 76,
+                "description": "Restaurant"
+            },
+            {
+                "amenity": "ACCESSIBLE_FACILITIES",
+                "ota_code": 47,
+                "description": "Accessible facilities"
+            },
+            {
+                "amenity": "CURRENCY_EXCHANGE",
+                "ota_code": 26,
+                "description": "Currency exchange"
+            },
+            {
+                "amenity": "GIFT_SHOP",
+                "ota_code": 45,
+                "description": "Gift/News stand"
+            },
+            {
+                "amenity": "INTERNET_PUBLIC_AREAS",
+                "ota_code": 178,
+                "description": "Internet access in public areas"
+            },
+            {
+                "amenity": "LAUNDRY_SERVICE",
+                "ota_code": 58,
+                "description": "Laundry/Valet service"
+            },
+            {
+                "amenity": "SPA",
+                "ota_code": 84,
+                "description": "Spa"
+            },
+            {
+                "amenity": "ROOM_SERVICE",
+                "ota_code": 77,
+                "description": "Room service"
+            }
+        ],
+        "awards": [],
+        "images": [],
+        "rooms": [
+            {
+                "booking_code": "N1SBAR",
+                "room_type_code": "N1S",
+                "rate_plan_code": "BAR",
+                "total_amount": {
+                    "amount": "5401.19",
+                    "currency": "HKD"
+                },
+                "rates": [
+                    {
+                        "start_date": "2018-03-01",
+                        "end_date": "2018-03-03",
+                        "currency_code": "HKD",
+                        "price": 1110.59
+                    },
+                    {
+                        "start_date": "2018-03-04",
+                        "end_date": "2018-03-05",
+                        "currency_code": "HKD",
+                        "price": 1145.29
+                    },
+                    {
+                        "start_date": "2018-03-03",
+                        "end_date": "2018-03-04",
+                        "currency_code": "HKD",
+                        "price": 1180
+                    }
+                ],
+                "descriptions": [
+                    "BEST AVAILABLE RATE",
+                    "NON SMOKING FREE WIFI IS AVAILABLE IN ROOM 20SQM WITH BED SIZE ",
+                    "103 X 195 FREE WIFI AND HSIA IN EACH GUEST ROOM NON SMOKING ROOM"
+                ],
+                "room_type_info": {
+                    "room_type": "Non-smoking",
+                    "bed_type": "Single",
+                    "number_of_beds": "1"
+                },
+                "rate_type_code": "BAR"
+            }
+        ],
+        "_links": {
+            "more_rooms_at_this_hotel": {
+                "href": "https://api.sandbox.amadeus.com/v1.2/hotels/JROSAGOK?apikey=BAQZt7V11pSZdmmYvqVQraYJSoxhspmH&check_in=2018-03-01&check_out=2018-03-05¤cy=HKD&referrer=more_rooms_at_this_hotel"
+            }
+        }
+    },
+    {
+        "property_code": "BCOSA843",
+        "property_name": "New Otani Osaka",
+        "location": {
+            "latitude": 34.69103,
+            "longitude": 135.5329
+        },
+        "address": {
+            "line1": "1 4 1 Shiromi Chuo Ku",
+            "city": "Osaka",
+            "postal_code": "540 8578",
+            "country": "JP"
+        },
+        "total_price": {
+            "amount": "5969.40",
+            "currency": "HKD"
+        },
+        "min_daily_rate": {
+            "amount": "1318.82",
+            "currency": "HKD"
+        },
+        "contacts": [
+            {
+                "type": "PHONE",
+                "detail": "81-66-9411111"
+            },
+            {
+                "type": "FAX",
+                "detail": "81-6-69419229"
+            },
+            {
+                "type": "URL",
+                "detail": "http://www.hotelnewotaniosaka.jp/"
+            }
+        ],
+        "amenities": [
+            {
+                "amenity": "FRONT_DESK_24_HOURS",
+                "ota_code": 1,
+                "description": "24-hour front desk"
+            },
+            {
+                "amenity": "",
+                "ota_code": 7,
+                "description": "ATM/Cash machine"
+            },
+            {
+                "amenity": "BABY_SITTING",
+                "ota_code": 8,
+                "description": "Baby sitting"
+            },
+            {
+                "amenity": "CAR_RENTAL",
+                "ota_code": 15,
+                "description": "Car rental desk"
+            },
+            {
+                "amenity": "COFFEE_SHOP",
+                "ota_code": 20,
+                "description": "Coffee shop"
+            },
+            {
+                "amenity": "CONCIERGE_DESK",
+                "ota_code": 22,
+                "description": "Concierge desk"
+            },
+            {
+                "amenity": "CONFERENCE_FACILITIES",
+                "ota_code": 24,
+                "description": "Conference facilities"
+            },
+            {
+                "amenity": "CURRENCY_EXCHANGE",
+                "ota_code": 26,
+                "description": "Currency exchange"
+            },
+            {
+                "amenity": "ELEVATORS",
+                "ota_code": 33,
+                "description": "Elevators"
+            },
+            {
+                "amenity": "EXECUTIVE_FLOOR",
+                "ota_code": 34,
+                "description": "Executive floor"
+            },
+            {
+                "amenity": "FAMILY_PLAN",
+                "ota_code": 38,
+                "description": "Family plan"
+            },
+            {
+                "amenity": "GIFT_SHOP",
+                "ota_code": 45,
+                "description": "Gift/News stand"
+            },
+            {
+                "amenity": "",
+                "ota_code": 56,
+                "description": "Jogging track"
+            },
+            {
+                "amenity": "MASSAGE_SERVICES",
+                "ota_code": 61,
+                "description": "Massage services"
+            },
+            {
+                "amenity": "PARKING",
+                "ota_code": 68,
+                "description": "Parking"
+            },
+            {
+                "amenity": "POOL",
+                "ota_code": 71,
+                "description": "Pool"
+            },
+            {
+                "amenity": "RESTAURANT",
+                "ota_code": 76,
+                "description": "Restaurant"
+            },
+            {
+                "amenity": "ROOM_SERVICE",
+                "ota_code": 77,
+                "description": "Room service"
+            },
+            {
+                "amenity": "SAFE_DEPOSIT_BOX",
+                "ota_code": 78,
+                "description": "Safe deposit box"
+            },
+            {
+                "amenity": "SAUNA",
+                "ota_code": 79,
+                "description": "Sauna"
+            },
+            {
+                "amenity": "",
+                "ota_code": 100,
+                "description": "Wakeup service"
+            },
+            {
+                "amenity": "LOUNGE_BARS",
+                "ota_code": 165,
+                "description": "Lounges/bars"
+            },
+            {
+                "amenity": "INTERNET_PUBLIC_AREAS",
+                "ota_code": 178,
+                "description": "Internet access in public areas"
+            },
+            {
+                "amenity": "",
+                "ota_code": 179,
+                "description": "Wireless internet connection in public areas"
+            },
+            {
+                "amenity": "",
+                "ota_code": 194,
+                "description": "Children's nursery"
+            },
+            {
+                "amenity": "NON_SMOKING_ROOM",
+                "ota_code": 198,
+                "description": "Non-smoking rooms (generic)"
+            },
+            {
+                "amenity": "CHILDREN_WELCOME",
+                "ota_code": 218,
+                "description": "Children welcome"
+            },
+            {
+                "amenity": "ACCESSIBLE_FACILITIES",
+                "ota_code": 47,
+                "description": "Accessible facilities"
+            },
+            {
+                "amenity": "HOTSPOTS",
+                "ota_code": 221,
+                "description": "Hotspots"
+            },
+            {
+                "amenity": "LOUNGE_BARS",
+                "ota_code": 165,
+                "description": "Lounges/bars"
+            }
+        ],
+        "awards": [
+            {
+                "provider": "AA Star Rating",
+                "rating": "4"
+            },
+            {
+                "provider": "OHG",
+                "rating": "4"
+            }
+        ],
+        "images": [],
+        "rooms": [
+            {
+                "booking_code": "E2VB09",
+                "room_type_code": "E2V",
+                "rate_plan_code": "B09",
+                "total_amount": {
+                    "amount": "5969.40",
+                    "currency": "HKD"
+                },
+                "rates": [
+                    {
+                        "start_date": "2018-03-01",
+                        "end_date": "2018-03-02",
+                        "currency_code": "HKD",
+                        "price": 1318.82
+                    },
+                    {
+                        "start_date": "2018-03-04",
+                        "end_date": "2018-03-05",
+                        "currency_code": "HKD",
+                        "price": 1318.82
+                    },
+                    {
+                        "start_date": "2018-03-02",
+                        "end_date": "2018-03-03",
+                        "currency_code": "HKD",
+                        "price": 1388.23
+                    },
+                    {
+                        "start_date": "2018-03-03",
+                        "end_date": "2018-03-04",
+                        "currency_code": "HKD",
+                        "price": 1943.52
+                    }
+                ],
+                "descriptions": [
+                    "BEST AVAILABLE RATE",
+                    "Superior Twin Rm -2 single beds -23 sqft /30 sqm -Free WiFi -"
+                ],
+                "room_type_info": {
+                    "room_type": "Room with shower - Superior",
+                    "number_of_beds": "2"
+                },
+                "rate_type_code": "B09"
+            }
+        ],
+        "_links": {
+            "more_rooms_at_this_hotel": {
+                "href": "https://api.sandbox.amadeus.com/v1.2/hotels/BCOSA843?apikey=BAQZt7V11pSZdmmYvqVQraYJSoxhspmH&check_in=2018-03-01&check_out=2018-03-05¤cy=HKD&referrer=more_rooms_at_this_hotel"
+            }
+        }
+    }
+]

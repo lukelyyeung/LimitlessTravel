@@ -16,6 +16,7 @@ module.exports = class ViewRouter {
             profilePic: this.getPropic(req.session.passport.user.profile),
             layout: 'lobby'
         }));
+        router.get('/users/search', (req, res) => res.render("search"));
         return router;
     }
 

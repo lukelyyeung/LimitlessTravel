@@ -9,18 +9,17 @@ function isArrayEqual(x, y) {
 
 describe('randomizeService', () => {
     let randomizeService;
-    let testingDestination = ['KIX', 'RGN', 'BLR', 'HAM', 'SFO'];
+    let testingDestination = ['KIX', 'NRT', 'TPE', 'SFO'];
 
     beforeEach((done) => {
         randomizeService = new RandomizeService(knex);
         return knex('travel_spots').del().truncate()
             .then(() => {
                 return knex('travel_spots').insert([
-                    { airportCode: 'KIX', city: 'Osaka', country: 'Japan', region: 'East Asia' },
-                    { airportCode: 'RGN', city: 'Yangon', country: 'Myanmar', region: 'South East Asia' },
-                    { airportCode: 'BLR', city: 'Bangalore', country: 'India', region: 'Middle East' },
-                    { airportCode: 'HAM', city: 'Hamburg', country: 'Germany', region: 'Europe' },
-                    { airportCode: 'SFO', city: 'San Francisco', country: 'USA', region: 'North America' },
+                    { airportCode: 'KIX', city: 'Osaka', country: 'Japan', region: 'East Asia', location: { lat: 34.6937398, long: 135.5021820 } },
+                    { airportCode: 'NRT', city: 'Tokyo', country: 'Japan', region: 'East Asia', location: { lat: 35.6895266, long: 139.6916809 } },
+                    { airportCode: 'TPE', city: 'Taipei', country: 'Taiwan', region: 'East Asia', location: { lat: 25.0476904, long: 121.5168507 } },
+                    { airportCode: 'SFO', city: 'San Francisco', country: 'USA', region: 'North America', location: { lat: 37.7749295, long: -122.4194183 } }
                 ])
             })
             .then(() => done());
@@ -35,8 +34,12 @@ describe('randomizeService', () => {
             })
     });
 
-    it ('should return false when if there is no available destination', () => {
+    it('should return false when if there is no available destination', () => {
         randomizeService.availableDestination = [];
+        expect(randomizeService.pickDestination()).toBe(false);
+    })
+
+    it('should return false if no findAvailableDestination() is called before', () => {
         expect(randomizeService.pickDestination()).toBe(false);
     })
 
@@ -53,18 +56,3 @@ describe('randomizeService', () => {
     });
 })
 
-// Integration Test
-// it("should pick a random destination if findAvailableDestination() is called before", (done) => {
-//     randomizeService.findAvailableDestination()
-//         .then(() => {
-//             return randomizeService.findDestination()
-//         })
-//         .then(data => {
-//             console.log(data)
-//             done();
-//         })
-// });
-
-// it ('should return false if no findAvailableDestination() is called before', () => {
-//     expect(randomizeService.pickDestination()).toBe(false);
-// })
