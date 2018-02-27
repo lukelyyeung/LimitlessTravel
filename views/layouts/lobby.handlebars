@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Limitless Travel</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
+        rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/lobby.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="brand">
+            <span>Limitless</span> Travel
+        </h1>
+        <div class="wrapper animated bounceInLeft">
+            <div class="personal-info">
+                <div class="card" style="width: 20rem;">
+                    <div class="d-flex justify-content-center align-items-center" style="height: 15rem; background-color: #E8D9C5;">
+                    <img class="rounded-circle" src="{{profilePic}}" alt="Card image cap" style="width: 12rem;">
+                    </div>
+                    <div class="card-block">
+                        <h3 class="card-title">
+                            <i class="material-icons">face</i>{{userName}}</h4>
+
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="material-icons">email</i>Email:{{email}}</li>
+                        {{!--
+                        <li class="list-group-item">
+                            <i class="material-icons">phone</i>Phone Number:</li>
+                        <li class="list-group-item">
+                            <i class="material-icons">home</i>Home Address:</li> --}}
+                    </ul>
+                    <div class="card-block d-flex justify-content-center">
+
+                        <btn class="current-package btn btn-primary">
+                            <i class="material-icons">airplanemode_active</i>Your current package
+                        </btn>
+                    </div>
+                </div>
+            </div>
+            {{{body}}}
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
+</html>

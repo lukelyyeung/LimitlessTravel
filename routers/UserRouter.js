@@ -1,47 +1,59 @@
 const express = require("express");
 
+class UserRouter {
 
-class UserRouter{
-
-    constructor(saveService, getService){
+    constructor(userService, saveService) {
+        this.userService = userService;
         this.saveService = saveService;
-        this.getService = getService;
     }
 
-    router(){
-        let router = express.Router();
-        router.get("/",this.get.bind(this));
-        router.post("/",this.post.bind(this));
-        router.put("/:id",this.put.bind(this));
-        router.patch("/:id",this.put.bind(this));
-        router.delete("/:id",this.delete.bind(this));
+    router() {
+        let router = express.Router({ mergeParams: true });
+        router.post("/", this.updateUser.bind(this));
+        // router.post("/update", this.updatePackage.bind(this));
+        router.put("/search", this.addUserPackage.bind(this));
+        router.get("/packages", this.getAll.bind(this));
+        router.get("/packages/:packageId", this.getHistory.bind(this));
         return router;
     }
 
-    get(req,res){
-        return this.getService.list()
-            .then((data)=>res.json(data))
-            .catch((err)=>res.status(500).json(err));
+    getHistory(req, res) {
+        return this.userService.checkPackageHistory(req.params.packageId)
+            .then((data) => res.json(data))
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err)
+            });
     }
 
-    post(req,res){
-        return this.saveService.create(req.body)
-            .then((data)=>res.json(data))
-            .catch((err)=>res.status(500).json(err));
+    getAll(req, res) {
+        // console.log(req.session.passport.user.profile.photos[0].value);
+        console.log(req.session.passport.user.profile.provider);
+        return this.userService.checkUserPackage(req.session.passport.user.travellist.id)
+            .then((data) => res.json(data))
+            .catch((err) => res.status(500).json(err));
     }
 
-    put(req,res){
-        return this.saveService.update(req.params.id,req.body)
-            .then((data)=>res.json(data))
-            .catch((err)=> res.status(500).json(err));
+    addUserPackage(req, res) {
+        console.log('adding package')
+        // return this.saveService.findOrCreateUserPackage(req.session.passport.user.travellist.id, req.body)
+        return this.saveService.findOrCreateUserPackage(3, req.body)
+            .then((data) => res.json(data))
+            .catch((err) => res.status(500).json(err));
     }
 
-    delete(req,res){
-        return this.saveService.delete(req.params.id)
-            .then((data)=>res.json(data))
-            .catch((err)=> res.status(500).json(err));
+    // updatePackage(req, res) {
+    //     return this.userService.updatePackage(req.body)
+    //         .then((data) => res.json(data))
+    //         .catch((err) => res.status(500).json(err));
+    // }
+
+    updateUser(req, res) {
+        return this.userService.update(req.params.userId, req.body)
+            .then((data) => res.json(data))
+            .catch((err) => res.status(500).json(err));
     }
 }
 
-module.exports = UserRouter
+module.exports = UserRouter;
 

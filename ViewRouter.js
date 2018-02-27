@@ -1,20 +1,33 @@
 const express = require('express');
 const passport = require('passport');
-// const isLoggedIn = require('./utils/guard').isLoggedIn;
+const isLoggedIn = require('./utils/guard').isLoggedIn;
 
-module.exports = class ViewRouter{
-    
-    router(){
+module.exports = class ViewRouter {
+    constructor() { }
+
+    router() {
         const router = express.Router();
-        router.get('/',(req,res)=>res.render("index"));
-        // router.get('/users',isLoggedIn,(req,res)=>res.render("users"));
-        // router.get('/groups',isLoggedIn,(req,res)=>res.render("groups"));
-        // router.get("/auth/XXXXX",passport.authenticate('XXXXX',{     // passport-strategy to be added...
-        //     scope: ['user_friends', 'manage_pages'] 
-        // }));
-        // router.get("/auth/XXXXX/callback",passport.authenticate('XXXXX',{
-        //     failureRedirect: "/"
-        // }),(req,res)=>res.redirect('/users'));
+        router.get('/', (req, res) => res.render("index"));
+        router.get('/login', (req, res) => res.render("login", { layout: 'login' }));
+        router.get('/contact', (req, res) => res.render("contact", { layout: 'contact' }));
+        router.get('/users', isLoggedIn, (req, res) => res.render("allPackages", {
+            userName: req.session.passport.user.travellist.name,
+            email: req.session.passport.user.travellist.email,
+            profilePic: this.getPropic(req.session.passport.user.profile),
+            layout: 'lobby'
+        }));
         return router;
+    }
+
+    getPropic(socialProfile) {
+        switch (socialProfile.provider) {
+
+            case "facebook":
+                return `//graph.facebook.com/${socialProfile.id}/picture?type=large`;
+                break;
+
+            case "google":
+                return socialProfile.photos[0].value.replace('sz=50', 'sz=300');
+        }
     }
 }

@@ -1,0 +1,71 @@
+<div class="travellist container-fluid">
+    <div id="package-container" class="row no-gutters">
+        <div class="bottomfade">
+            <div class="card card-inverse card-primary p-3 text-center">
+                <blockquote class="card-blockquote">
+                    <p>Want more than 5 options per hour and better perforamnce,
+                        <br>Subscribe Limitess Travel Pro for $99 per year</p>
+
+                    <footer>
+                        <a class="btn btn-primary btn-lg showcase-btn">Subscribe Here</a>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id="template-package-container">
+    <div class="card-container">
+        <div class="frame">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="#" alt="Card image cap">
+                <div class="card-block">
+                    {{!--
+                    <div class="card-title d-flex justify-content-center">
+                        <i class="material-icons">location_city</i>
+                    </div> --}}
+                    <ul class="card-text d-flex flex-column align-items-center">
+                        <li class='d-flex justify-content-center'>
+                            <i class="material-icons">location_city</i>
+                        </li>
+                        <li class='d-flex justify-content-center'>
+                            <i class="material-icons">attach_money</i>
+                        </li>
+                        <li class='d-flex justify-content-center'>
+                            <i class="material-icons">date_range</i>
+                        </li>
+                    </ul>
+                    <div id='' class="more btn btn-primary d-flex justify-content-around">
+                        <i class="material-icons">more</i>
+                        <p>Check today's price!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="template-package-details-container">
+    <div class="row">
+        <div class="col-12 row row-info d-flex align-items-center bottomfade">
+            <div class="col-2 row-head d-flex align-items-center justify-content-center">
+                <img src="" alt="Airline Icon">
+            </div>
+            <div class="col-10 d-flex align-items-center justify-content-space">
+                <div class="col-2 text-center">
+                    <p>Price</p>
+                </div>
+                <div class="col-5 text-center">
+                    <p>Date&Times</p>
+                </div>
+                <div class="col-5 text-center">
+                    <p>Origin to destination</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script type='text/javascript' src="js/lobby.js"></script>

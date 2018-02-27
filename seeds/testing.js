@@ -40,20 +40,23 @@ exports.seed = function (knex, Promise) {
     day_from: '2010-07-10',
     day_to: '2010-07-14',
     city_from: 'HongKong',
-    city_to: 'Japan'
+    city_to: 'Japan',
+    budget: 5000
   }
-
+  
   let package2 = {
     day_from: '2010-10-10',
     day_to: '2010-10-14',
     city_from: 'HongKong',
-    city_to: 'New York'
+    city_to: 'New York',
+    budget: 8900
   }
 
 
   let ticket1 = {
     package_id: 1,
-    id: 'CX',
+    departure_airline: 'CA',
+    return_airline: 'CX',
     flight_code: '789',
     airport_from: 'HKG',
     airport_to: 'KIX',
@@ -64,7 +67,8 @@ exports.seed = function (knex, Promise) {
 
   let ticket2 = {
     package_id: 2,
-    id: 'CX',
+    departure_airline: 'CX',
+    return_airline: 'CA',
     flight_code: '987',
     airport_from: 'HKG',
     airport_to: 'NYC',
@@ -109,22 +113,22 @@ exports.seed = function (knex, Promise) {
     
   return knex('users').insert(user1)
     .then(() => { return knex('users').insert(user2) })
-    .then(() => { return knex('packages').insert(package1) })
-    .then(() => { return knex('packages').insert(package2) })
-    .then(() => {
-      return knex
-        .batchInsert('userpackage', [userpackage1, userpackage2, userpackage3, userpackage4], 30)
-    })
-    .then(() => { return knex('hotels').insert(hotel1) })
-    .then(() => { return knex('hotels').insert(hotel2) })
+    // .then(() => { return knex('packages').insert(package1) })
     .then(() => {
       return knex
         .batchInsert('airlines', airlines, 100);
     })
-    .then(() => { return knex('tickets').insert(ticket1) })
-    .then(() => { return knex('tickets').insert(ticket2) })
-    .then(() => { return knex('rooms').insert(booking1) })
-    .then(() => { return knex('rooms').insert(booking2) })
+    // .then(() => { return knex('packages').insert(package2) })
+    // .then(() => {
+    //   return knex
+    //     .batchInsert('userpackage', [userpackage1, userpackage2, userpackage3, userpackage4], 30)
+    // })
+    // .then(() => { return knex('hotels').insert(hotel1) })
+    // .then(() => { return knex('hotels').insert(hotel2) })
+    // .then(() => { return knex('tickets').insert(ticket1) })
+    // .then(() => { return knex('tickets').insert(ticket2) })
+    // .then(() => { return knex('rooms').insert(booking1) })
+    // .then(() => { return knex('rooms').insert(booking2) })
     .then((data) => console.log(data))
     .catch((err) => console.log(err))
 }

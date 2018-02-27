@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Limitless Travel</title>
-    </head>
-    <body>
-        {{{body}}}
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Limitless Travel</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
+        rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    {{{body}}}
+</body>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{{!-- <script src="js/sr.js"></script> --}}
+<script src="js/index.js"></script>
+<script>
+    window.sr = ScrollReveal();
+    sr.reveal('.navbar', {
+        duration: 1000,
+        origin: 'bottom'
+    });
+
+    sr.reveal('#showcase h1', {
+        duration: 1000,
+        origin: 'right',
+        distance: '300px',
+    });
+
+    sr.reveal('#showcase p', {
+        duration: 1000,
+        origin: 'left',
+        distance: '300px',
+    });
+
+    sr.reveal('.showcase-btn', {
+        duration: 1000,
+        delay: 1000,
+        origin: 'bottom'
+    });
+
+    sr.reveal('#testimonial div', {
+        duration: 1000,
+        origin: 'bottom'
+    });
+
+    sr.reveal('.info-left', {
+        duration: 1000,
+        origin: 'left',
+        distance: '300px',
+        viewFactor: 0.2
+    });
+
+    sr.reveal('.info-right', {
+        duration: 1000,
+        origin: 'right',
+        distance: '300px',
+        viewFactor: 0.2
+    });
+
+    sr.reveal('.form-group', {
+        duration: 1000,
+        origin: 'right',
+        distance: '300px',
+
+    });
+</script>
+
 </html>

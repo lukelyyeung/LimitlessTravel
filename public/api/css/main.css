@@ -1,0 +1,151 @@
+body{
+  margin-top:70px;
+  font-size:16px;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family:Poppins;
+}
+
+p{
+  font-family:Roboto;
+  color: #fff
+}
+
+.navbar-default{
+  background:#fff;
+  border:0;
+  font-family:Poppins;
+}
+
+.navbar-brand{
+  font-size:20px;
+  color:aqua !important;
+  font-weight:bold;
+}
+
+.navbar-brand span {
+  color: #000;
+}
+
+#showcase h1{
+  font-size:50px;
+  margin-bottom:20px;
+  text-align: center;
+  padding-top: 30px;
+  color: aqua;
+  
+ 
+}
+
+#showcase h1 span {
+  color: #000;
+  font-family:Poppins;
+}
+#showcase  {
+  background-image: url(../img/image1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+   width: 100%;
+  height: 60vh;
+  text-align: center;
+  opacity: 0.9;
+ 
+}
+
+#showcase .showcase-right{
+  margin-top:90px;
+  
+}
+
+#testimonial{
+  background: #a5bfb6;
+  opacity: 0.8;
+  padding: 50px 0 30px 0;
+  text-align:center;
+  
+}
+
+#testimonial p{
+  font-size:32px;
+  font-family: 'Josefin Sans';
+  color: #464646;
+}
+
+#testimonial p.customer{
+  font-size:20px;
+  color:#fff
+}
+
+#info1 {
+  background-image: url(../img/image2.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+  text-align: center;
+}
+
+h2 {
+color: #fff;
+text-align: center;
+}
+
+#info1 .info-right{
+  margin: 30px auto;
+  
+}
+
+#info2{
+  padding: 50px 0 30px 0;
+  background:#a5bfb6;
+  color: #464646;
+  text-align: center;
+}
+#info2 h2 {
+  color: #FFC966;
+}
+
+#contact{
+  background:url(../img/image4.jpg);
+  padding:40px;
+  color:#fff;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+   width: 100%;
+  height: 45vh;
+  opacity: 0.8;
+}
+  
+
+footer{
+  padding:30px;
+  background: #464646;
+  color: #fff;
+}
+
+.material-icons {
+  font-size: 60px !important;
+ margin: 0 auto;
+  
+ }
+
+ .material-icons:hover {
+  -moz-transform: scale(2) rotate(0deg);
+  -webkit-transform: scale(2) rotate(0deg);
+  -o-transform: scale(2) rotate(0deg);
+  -ms-transform: scale(2) rotate(0deg);
+  transform: scale(2) rotate(0deg);
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  -o-transition: 0.8s;
+  -ms-transition: 0.8s;
+  transition: 0.8s;
+  
+ }
