@@ -8,6 +8,7 @@ $(document).ready(function () {
         $.post('/users/save', {data: arr[index]})
             .done(()=> {
                 console.log("Sent to DataBase!");
+                alert('Successfully save the package');
             })
             .fail((err)=> {
                 console.log(err);

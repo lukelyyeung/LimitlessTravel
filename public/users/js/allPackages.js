@@ -9,11 +9,14 @@ $(() => {
     })
 
     $("#package-container").on('click', '.delete', (function (e) {
+        let yes = confirm('Want to untrack this package?');
         let id = $(this).closest('.frame').attr('id').replace('Package', '');
-        deletePackage(id)
-            .then(() => {
-                $(this).closest('.card-container').remove();
-            })
+        if (yes) {
+            deletePackage(id)
+                .then(() => {
+                    $(this).closest('.card-container').remove();
+                })
+        }
     }));
 
     $("#package-container").on('click', '.more', (function (e) {
@@ -118,7 +121,7 @@ $(() => {
                         if (typeof (address[prop]) != 'undefined')
                             hotel_address += `${address[prop]}, `;
                     }
-                    
+
                     header.eq(0).append(`<h1>${departure_details.cityTo}</h1>`).append(`Total Package Price: HKD ${total_price}`);
                     img.eq(0).attr('src', `https://images.kiwi.com/airlines/64/${departure_details.airline}.png`);
                     img.eq(1).attr('src', `https://images.kiwi.com/airlines/64/${return_details.airline}.png`);
