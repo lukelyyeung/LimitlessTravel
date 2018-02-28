@@ -1,12 +1,14 @@
 $(() => {
-    $('body').prepend("<div class='fullPage hidden'><div class='loader'></div></div>");
+    $('body').append("<div class='fullPage hidden'><div class='loader'></div></div>");
 
-    $(window).on('ajaxStart', function (e) {
-        $('.loader').removeClass('hidden').addClass('show');
+    $(document).bind('ajaxStart', function (e) {
+        console.log(e);
+        $('.fullPage').removeClass('hidden').addClass('show');
     });
-
-    $(window).on('ajaxComplete', function (e) {
-        $('.loader').removeClass('show').addClass('hidden');
+    
+    $(document).bind('ajaxComplete', function (e) {
+        console.log(e);
+        $('.fullPage').removeClass('show').addClass('hidden');
     });
     
 })
