@@ -54,7 +54,7 @@ class GetPackageService {
         if (flightData.length == 0) {
 
             if (availableDestination.length == 0) {
-                return 'No fulfilled destination';
+                console.log('No fulfilled destination');
             }
             else {
                 this.flightApiService.to = this.randomizeService.pickDestination(availableDestination);

@@ -112,6 +112,10 @@ text-align: center;
   color: #e8d9c5;
 }
 
+.searchLink a{
+  text-decoration: none;
+  color:#fff;
+}
 
 /* LARGE SCREENS */
 @media(min-width:700px){
