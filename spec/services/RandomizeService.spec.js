@@ -25,7 +25,7 @@ describe('randomizeService', () => {
             .then(() => done());
     });
 
-    it("should retrieve all destination from predinfined destination", (done) => {
+    xit("should retrieve all destination from predinfined destination", (done) => {
         randomizeService.findAvailableDestination()
             .then(data => {
                 let availableDestination = data;
@@ -34,22 +34,22 @@ describe('randomizeService', () => {
             })
     });
 
-    it('should return false when if there is no available destination', () => {
+    xit('should return false when if there is no available destination', () => {
         randomizeService.availableDestination = [];
         expect(randomizeService.pickDestination()).toBe(false);
     })
 
-    it('should return false if no findAvailableDestination() is called before', () => {
+    xit('should return false if no findAvailableDestination() is called before', () => {
         expect(randomizeService.pickDestination()).toBe(false);
     })
 
-    it('should remove the given destination', () => {
+    xit('should remove the given destination', () => {
         randomizeService.availableDestination = ['KIX', 'RGN', 'BLR', 'HAM', 'SFO'];
         randomizeService.removeDestination('RGN');
         expect(isArrayEqual(randomizeService.availableDestination, ['KIX', 'BLR', 'HAM', 'SFO'])).toBe(true);
     });
 
-    it('should remove nothing and return false if the given destination is not on the available destination', () => {
+    xit('should remove nothing and return false if the given destination is not on the available destination', () => {
         randomizeService.availableDestination = ['KIX', 'RGN', 'BLR', 'HAM', 'SFO'];
         expect(randomizeService.removeDestination('PEK')).toBe(false);
         expect(isArrayEqual(randomizeService.availableDestination, ['KIX', 'RGN', 'BLR', 'HAM', 'SFO'])).toBe(true);

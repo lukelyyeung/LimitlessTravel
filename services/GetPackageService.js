@@ -5,26 +5,35 @@ class GetPackageService {
         this.randomizeService = randomizeService;
         this.flightApiService = flightApiService;
         this.hotelApiService = hotelApiService;
-        this.flightData = [];
-        this.hotelData = [];
-        this.packageData = [];
     }
 
     generate(criteria) {
+        let flightData, hotelData, availableDestination;
+        let removedDestination = criteria.removed;
+        // console.log(removedDestination);
+
         return this.randomizeService.findAvailableDestination()
-            .then(() => {
-                criteria.destination.forEach(element => this.randomizeService.removeDestination(element));
-                return this.getFlightData(criteria)
-                    .then(() => this.getHotelData(criteria))
-                    .then(() => this.combinePackage(criteria))
-                    .then((combinePackage) => [this.flightApiService.to, combinePackage])
+            .then((data) => {
+                availableDestination = data
+                removedDestination.forEach(element => this.randomizeService.removeDestination(element, availableDestination));
+                return availableDestination;
+            })
+            .then(() => this.getFlightData(criteria, availableDestination, removedDestination))
+            .then((data) => flightData = data)
+            .then(() => this.getHotelData(criteria, flightData))
+            .then((data) => hotelData = data)
+            .then(() => this.combinePackage(flightData, hotelData, criteria))
+            .then((combinePackage) => {
+                // console.log(`All: ${availableDestination}`);
+                // console.log('ok');
+                return [removedDestination, combinePackage]
             })
     }
 
-    getFlightData(criteria) {
+    getFlightData(criteria, availableDestination, removedDestination) {
         this.flightApiService.update({
             flyFrom: 'HKG',
-            to: (typeof criteria.to === 'undefined') ? this.randomizeService.pickDestination() : criteria.to,
+            to: (!criteria.to) ? this.randomizeService.pickDestination(availableDestination) : criteria.to,
             dateFrom: criteria.dDate,
             dateTo: criteria.dDate,
             returnFrom: criteria.rDate,
@@ -32,26 +41,26 @@ class GetPackageService {
             price_to: Math.floor(criteria.budget * 0.7),
             sort: 'quality'
         })
-        console.log(this.flightApiService.to);
+        console.log(`New: ${this.flightApiService.to}`);
         return this.flightApiService.call()
-            .then((apiData => this.recursiveFlightApiCall(apiData)))
-            .then((flightData) => {this.flightData = this.flightApiService.mapData(flightData)})
+            .then((flightData => this.recursiveFlightApiCall(flightData, availableDestination, removedDestination)))
+            .then((flightData) => this.flightApiService.mapData(flightData))
     }
 
-    recursiveFlightApiCall(flightData) {
-        this.randomizeService.removeDestination(this.flightApiService.to);
-        console.log(this.randomizeService.availableDestination);
+    recursiveFlightApiCall(flightData, availableDestination, removedDestination) {
+        removedDestination.push(this.flightApiService.to);
+        this.randomizeService.removeDestination(this.flightApiService.to, availableDestination);
 
         if (flightData.length == 0) {
 
-            if (this.randomizeService.availableDestination.length == 0) {
+            if (availableDestination.length == 0) {
                 return 'No fulfilled destination';
             }
             else {
-                this.flightApiService.to = this.randomizeService.pickDestination();
-                console.log(this.flightApiService.to);
+                this.flightApiService.to = this.randomizeService.pickDestination(availableDestination);
+                console.log(`New: ${this.flightApiService.to}`);
                 return this.flightApiService.call()
-                    .then(data => this.recursiveFlightApiCall(data))
+                    .then(data => this.recursiveFlightApiCall(data, availableDestination, removedDestination))
             }
         }
 
@@ -60,33 +69,33 @@ class GetPackageService {
         }
     }
 
-    getHotelData(criteria) {
+    getHotelData(criteria, flightData) {
         return this.hotelApiService.getLocation(this.flightApiService.to)
             .then(() => {
                 this.hotelApiService.update({
                     radius: 9,
                     check_in: criteria.dDate,
                     check_out: criteria.rDate,
-                    max_rate: (criteria.budget - this.flightData[this.flightData.length - 1].price) / (moment(criteria.rDate).format('YYYYMMDD') - moment(criteria.dDate).format('YYYYMMDD'))
+                    max_rate: (criteria.budget - flightData[flightData.length - 1].price) / (moment(criteria.rDate).format('YYYYMMDD') - moment(criteria.dDate).format('YYYYMMDD'))
                 })
                 return this.hotelApiService.call();
             })
-            .then((hotelData) => this.hotelData = this.hotelApiService.mapData(hotelData))
+            .then((hotelData) => this.hotelApiService.mapData(hotelData))
     }
 
-    combinePackage(criteria) {
-        return this.flightData.map(element => {
+    combinePackage(flightData, hotelData, criteria) {
+        return flightData.map(element => {
             let rObj = {};
-            let max = this.hotelData.length;
+            let max = hotelData.length;
             let randomNum = Math.floor(Math.random() * max);
 
             rObj['effective'] = moment().format('YYYY-MM-DD');
             rObj['departure_date'] = moment(criteria.dDate).format('YYYY-MM-DD');
             rObj['return_date'] = moment(criteria.rDate).format('YYYY-MM-DD');
             rObj['budget'] = criteria.budget;
-            rObj['package_price'] = element.price + this.hotelData[randomNum].price;
+            rObj['package_price'] = element.price + hotelData[randomNum].price;
             rObj['flight'] = element;
-            rObj['accommodation'] = this.hotelData[randomNum];
+            rObj['accommodation'] = hotelData[randomNum];
 
             return rObj;
         })
