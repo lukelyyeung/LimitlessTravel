@@ -51,7 +51,7 @@ class HotelApiService {
             let rObj = {};
             rObj['property_name'] = obj.property_name;
             rObj['address'] = obj.address;
-            rObj['price'] = obj.total_price.amount / 2;
+            rObj['price'] = Math.round(obj.total_price.amount / 2);
             return rObj;
         })
 
