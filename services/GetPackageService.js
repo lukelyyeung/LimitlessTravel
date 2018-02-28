@@ -25,7 +25,7 @@ class GetPackageService {
             .then(() => this.combinePackage(flightData, hotelData, criteria))
             .then((combinePackage) => {
                 // console.log(`All: ${availableDestination}`);
-                // console.log('ok');
+                console.log('ok');
                 return [removedDestination, combinePackage]
             })
     }

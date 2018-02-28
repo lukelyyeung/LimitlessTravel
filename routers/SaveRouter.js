@@ -14,8 +14,7 @@ class SaveRouter {
 
     addUserPackage(req, res) {
         console.log('adding package');
-        // return this.saveService.findOrCreateUserPackage(req.session.passport.user.travellist.id, req.body)
-        return this.saveService.findOrCreateUserPackage(3, req.body)
+        return this.saveService.findOrCreateUserPackage(3, req.body.data)
             .then((data) => res.json(data))
             .catch((err) => res.status(500).json(err));
     }
