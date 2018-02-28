@@ -1,4 +1,7 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script> 
+<link rel="stylesheet" href="css/allPackages.css">
+<link rel="stylesheet" href="css/loader.css">
+<script src="js/loader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
 <div class="travellist container-fluid">
     <div id="package-container" class="row no-gutters">
         <div class="bottomfade">
@@ -6,7 +9,6 @@
                 <blockquote class="card-blockquote">
                     <p>Want more than 5 options per hour and better perforamnce,
                         <br>Subscribe Limitess Travel Pro for $99 per year</p>
-
                     <footer>
                         <a class="btn btn-primary btn-lg showcase-btn">Subscribe Here</a>
                     </footer>
@@ -25,40 +27,21 @@
                 <div class="card-block">
                     <ul class="card-text d-flex flex-column align-items-center">
                         <li class='d-flex justify-content-center'>
-                            <i class="material-icons">location_city</i>
+                            <i class="material-icons">location_city</i>&nbsp;
                         </li>
                         <li class='d-flex justify-content-center'>
-                            <i class="material-icons">attach_money</i>
+                            <i class="material-icons">attach_money</i>&nbsp;
                         </li>
                         <li class='d-flex justify-content-center'>
-                            <i class="material-icons">date_range</i>
+                            <i class="material-icons">date_range</i>&nbsp;
                         </li>
                     </ul>
-                    <div id='' class="more btn btn-primary d-flex justify-content-around">
-                        <i class="material-icons">more</i>
-                        <p>Check today's price!</p>
+                    <div class="more btn btn-primary d-flex justify-content-center align-items-center">
+                        <i class="material-icons">more</i>&nbsp;Check today's price!
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
-<template id="template-package-details-container">
-    <div class="row">
-        <div class="col-12 row row-info d-flex align-items-center bottomfade">
-            <div class="col-2 row-head d-flex align-items-center justify-content-center">
-                <img src="" alt="Airline Icon">
-            </div>
-            <div class="col-10 d-flex align-items-center justify-content-space">
-                <div class="col-2 text-center">
-                    <p>Price</p>
-                </div>
-                <div class="col-5 text-center">
-                    <p>Date&Times</p>
-                </div>
-                <div class="col-5 text-center">
-                    <p>Origin to destination</p>
+                    <a href='' class="track btn btn-primary d-flex justify-content-center align-items-center">
+                        <i class="material-icons">show_chart</i>&nbsp;Price history
+                    </a>
                 </div>
             </div>
         </div>
@@ -87,7 +70,7 @@
                     <i class="material-icons">access_time</i>
                     {{!-- dTime --}}
                 </p>
-                <img src="" alt="" srcset="ailrine alt">
+                <img src="" alt="ailrine alt">
                 <small class="text-muted text-center d-flex justify-content-center">
                     <div class="d-flex justify-content-center align-items-center trip">
                         <i class="material-icons">flight_takeoff</i>

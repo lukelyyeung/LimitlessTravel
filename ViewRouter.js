@@ -4,7 +4,7 @@ const isLoggedIn = require('./utils/guard').isLoggedIn;
 
 module.exports = class ViewRouter {
     constructor() { }
-
+    
     router() {
         const router = express.Router();
         router.get('/', (req, res) => res.render("index"));

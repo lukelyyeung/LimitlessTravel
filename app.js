@@ -25,11 +25,11 @@ const {
 
 const userService = new UserService(knex);
 const saveService = new SaveService(knex);
-let flightApiService = new FlightApiService({});
-let hotelApiService = new HotelApiService(knex);
-let randomizeService = new RandomizeService(knex);
-let dailyUpdateService = new DailyUpdateService(knex, saveService, getPackageService);
-let getPackageService = new GetPackageService(randomizeService, flightApiService, hotelApiService);
+const flightApiService = new FlightApiService({});
+const hotelApiService = new HotelApiService(knex);
+const randomizeService = new RandomizeService(knex);
+const getPackageService = new GetPackageService(randomizeService, flightApiService, hotelApiService);
+const dailyUpdateService = new DailyUpdateService(knex, saveService, getPackageService);
 
 
 const { app, server } = require('./utils/init-app')();

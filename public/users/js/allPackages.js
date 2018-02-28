@@ -71,6 +71,7 @@ $(() => {
                     let frame = packageContainer.contents().find('.frame');
                     let img = packageContainer.contents().find('.card-img-top');
                     let list = packageContainer.contents().find('li');
+                    let track = packageContainer.contents().find('.track');
                     let direction = (index % 2 === 0) ? ['rightfade', 'leftfade'] : ['leftfade', 'rightfade'];
                     frame.eq(0).addClass(direction[0]).removeClass(direction[1])
                         .attr('id', `Package${package.package_id}`);
@@ -78,6 +79,7 @@ $(() => {
                     list.eq(0).append(`<h5>${package.city_from} - ${package.city_to}</h5>`);
                     list.eq(1).append(`<p>Budget: $${package.budget}<p>`);
                     list.eq(2).append(`<p>${new Date(package.day_from).toLocaleDateString()} - ${new Date(package.day_to).toLocaleDateString()}<p>`);
+                    track.eq(0).attr('href', `/users/tracking/${package.package_id}`);
                     $('#package-container').prepend(packageContainer.html());
                 });
                 return;
