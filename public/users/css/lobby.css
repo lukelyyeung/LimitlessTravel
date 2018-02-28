@@ -143,3 +143,17 @@ Package details
 .row-info p {
   margin: 0 0;
 }
+
+.delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1031;
+    background-color: #F2F2F2;
+    border: none;
+    color: #485E74;
+}
+
+.frame {
+  position: relative;
+}

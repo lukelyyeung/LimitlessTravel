@@ -51,11 +51,12 @@ async function asyncUpdate() {
 };
 
 // asyncUpdate();
-// require('./utils/init-dailyUpdate')(dailyUpdateService, '2018-02-27T22:37:00', 10000);
+// require('./utils/init-dailyUpdate')(dailyUpdateService, '2018-02-27T22:37:00', 4320000);
 
 app.use('/', new ViewRouter().router());
 app.use('/auth', new AuthRouter().router());
 app.use('/users/data', isLoggedIn, new UserRouter(userService).router());
+// app.use('/users/data', new UserRouter(userService).router());
 app.use('/users/save', new SaveRouter(saveService).router());
 app.use('/users/result', new GetPackageRouter(getPackageService).router());
 

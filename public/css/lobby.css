@@ -94,9 +94,6 @@ justify-content: center;
 text-align: center;
 }
 
-
-
-
 /* LARGE SCREENS */
 @media(min-width:700px){
   .wrapper{
@@ -133,12 +130,6 @@ Package details
   max-width: initial;
   /* width:50vw; */
 }
-
-/* .row-head {
-  background-color: #f2f2f2;
-  color: #485e74;
-  height:100%;
-} */
 
 .row-info p {
   margin: 0 0;

@@ -11,7 +11,7 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
         rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
     <link rel="stylesheet" href="css/lobby.css">
 </head>
 
@@ -28,23 +28,21 @@
                     </div>
                     <div class="card-block">
                         <h3 class="card-title">
-                            <i class="material-icons">face</i>{{userName}}</h4>
-
+                            <i class="material-icons">face</i>
+                            {{userName}}
+                        </h3>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <i class="material-icons">email</i>Email:{{email}}</li>
-                        {{!--
-                        <li class="list-group-item">
-                            <i class="material-icons">phone</i>Phone Number:</li>
-                        <li class="list-group-item">
-                            <i class="material-icons">home</i>Home Address:</li> --}}
+                            <i class="material-icons">email</i>
+                            Email:{{email}}
+                        </li>
                     </ul>
                     <div class="card-block d-flex justify-content-center">
 
-                        <btn class="current-package btn btn-primary">
+                        <a class="current-package btn btn-primary">
                             <i class="material-icons">airplanemode_active</i>Your current package
-                        </btn>
+                        </a>
                     </div>
                 </div>
             </div>
