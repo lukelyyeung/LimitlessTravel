@@ -8,7 +8,7 @@ class FlightApiService {
         this.partner = 'picky';
         this.partner_market = 'us';
         this.curr = 'HKD';
-        this.maxstopovers = 1;
+        this.maxstopovers = 0;
         this.limit = 5;
     }
 
@@ -61,7 +61,7 @@ class FlightApiService {
                 cityTo: cityTo,
                 flyFrom: flyFrom,
                 flyTo: flyTo,
-                price: price,
+                price: Math.round(price),
                 flightDetails: flightDetails,
                 deep_link: deep_link
             };

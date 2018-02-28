@@ -3,81 +3,100 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Limitless Travel</title>
+    <title>Limitless Travel Homepage</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
         rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Risque" rel="stylesheet">
-    <script src="https://use.fontawesome.com/be707ba40e.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
 </head>
 
 <body>
     {{{body}}}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        window.sr = ScrollReveal();
+        sr.reveal('.navbar', {
+            duration: 1000,
+            origin: 'bottom'
+        });
+
+        sr.reveal('#showcase h1', {
+            duration: 1000,
+            origin: 'right',
+            distance: '300px',
+        });
+
+        sr.reveal('#showcase p', {
+            duration: 1000,
+            origin: 'left',
+            distance: '300px',
+        });
+
+        sr.reveal('.showcase-btn', {
+            duration: 1000,
+            delay: 1000,
+            origin: 'bottom'
+        });
+
+        sr.reveal('#testimonial div', {
+            duration: 1000,
+            origin: 'bottom'
+        });
+
+        sr.reveal('.info-left', {
+            duration: 1000,
+            origin: 'left',
+            distance: '300px',
+            viewFactor: 0.2
+        });
+
+        sr.reveal('.info-right', {
+            duration: 1000,
+            origin: 'right',
+            distance: '300px',
+            viewFactor: 0.2
+        });
+
+        sr.reveal('.form-group', {
+            duration: 1000,
+            origin: 'right',
+            distance: '300px',
+        });
+
+        sr.reveal('.material-icons', {
+            duration: 1200,
+            delay: 1300,
+            origin: 'bottom'
+        });
+
+
+    </script>
+
+    <script>
+        $(function () {
+            // Smooth Scrolling
+            $('a[href*="#"]:not([href="#"])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
 </body>
-
-<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-{{!-- <script src="js/sr.js"></script> --}}
-<script src="js/index.js"></script>
-<script>
-    window.sr = ScrollReveal();
-    sr.reveal('.navbar', {
-        duration: 1000,
-        origin: 'bottom'
-    });
-
-    sr.reveal('#showcase h1', {
-        duration: 1000,
-        origin: 'right',
-        distance: '300px',
-    });
-
-    sr.reveal('#showcase p', {
-        duration: 1000,
-        origin: 'left',
-        distance: '300px',
-    });
-
-    sr.reveal('.showcase-btn', {
-        duration: 1000,
-        delay: 1000,
-        origin: 'bottom'
-    });
-
-    sr.reveal('#testimonial div', {
-        duration: 1000,
-        origin: 'bottom'
-    });
-
-    sr.reveal('.info-left', {
-        duration: 1000,
-        origin: 'left',
-        distance: '300px',
-        viewFactor: 0.2
-    });
-
-    sr.reveal('.info-right', {
-        duration: 1000,
-        origin: 'right',
-        distance: '300px',
-        viewFactor: 0.2
-    });
-
-    sr.reveal('.form-group', {
-        duration: 1000,
-        origin: 'right',
-        distance: '300px',
-
-    });
-</script>
 
 </html>

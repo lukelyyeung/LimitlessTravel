@@ -11,7 +11,7 @@ module.exports = class ViewRouter {
         router.get('/login', (req, res) => res.render("login", { layout: 'login' }));
         router.get('/contact', (req, res) => res.render("contact", { layout: 'contact' }));
         router.get('/users', isLoggedIn, (req, res) => res.render("allPackages", this.getPropic(req.session.passport.user, 'lobby')));
-        router.get('/users/search', (req, res) => res.render("search"));
+        router.get('/users/search', isLoggedIn, (req, res) => res.render("search", this.getPropic(req.session.passport.user, 'lobby')));
         router.get('/users/tracking/:packageId', (req, res) => res.render("tracking", this.getPropic(req.session.passport.user, 'lobby')));
         return router;
     }

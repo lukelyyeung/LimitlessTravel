@@ -29,10 +29,13 @@ body{
 
 .brand{
   text-align: center;
+  color:aqua;
+  font-family: 'Indie Flower', cursive;
 }
 
 .brand span{
-  color:#fff;
+  color:#dadee3;
+  font-family: 'Indie Flower', cursive;
 }
 
 .wrapper{
@@ -94,7 +97,20 @@ justify-content: center;
 text-align: center;
 }
 
+#searchBtn{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
 
+#searchBtn a:hover{
+  text-decoration: none;
+  color:#fff;
+}
+
+#searchBtn a{
+  color: #e8d9c5;
+}
 
 
 /* LARGE SCREENS */
@@ -134,84 +150,6 @@ Package details
   /* width:50vw; */
 }
 
-
 .row-info p {
   margin: 0 0;
-}
-
-.delete {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1031;
-    background-color: #F2F2F2;
-    border: none;
-    color: #485E74;
-}
-
-.frame {
-  position: relative;
-}
-
-h4.card-title {
-text-align: center;
-font-family: Poppins;
-
-
-}
-
-
-
-
-.btn   {
-background-color: #485e74;
-border-color: #485e74;
-margin: 0 auto;
-display: flex;
-justify-content: center;
-color: #f2f2f2;
-}
-
-.card-block ul {
-text-align: center;
-}
-
-
-
-
-/* LARGE SCREENS */
-@media(min-width:700px){
-  .wrapper{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
-
-  .wrapper > *{
-    padding:2em;
-  }
-
-  .company-info h3, .company-info ul, .brand{
-    text-align: left;
-  }
-}
-
-small.text-muted {
-text-align: center;
-color: white;
-
-}
-
-footertext {
-  color: #f2f2f2;
-}
-
-.card-header {
-background-color: #485e74;
-color: #f2f2f2;
-margin: 0 
-}
-
-.ticket-container {
-  width : 300px;
-  margin : 5px;
 }

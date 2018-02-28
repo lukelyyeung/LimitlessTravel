@@ -1,217 +1,27 @@
-*{
-  box-sizing: border-box;
-}
-  
-body {
-  background-image: url("img/background2.jpg");
-  background-position: center;
-  background-size:cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  color:#485e74;
-  line-height:1.6;
-  font-family: Poppins;
-  padding:1em;
-  
+.main.card-header {
+    background: #485e74;
+    color: #f2f2f2;
 }
 
-.card-block {
-  background: #485e74;
-  color: #f2f2f2;
-  padding: 8px;
+.total.card-header {
+    background: #485e74;
+    color: #f2f2f2;
 }
 
-.brand {
-  text-align: center;
-  color: aqua;
+.btn{
+    background-color: #485e74;
+    border-color: #485e74;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    color:  #f2f2f2;
+    width: 30%;
 }
 
-.brand span{
-  color:#dadee3;
+.col-12 a{
+    margin-top: 10px;
 }
 
-center{
-  background: #f2f2f2;
-}
-
-small.card-subtitle {
-  text-align: center;
-}
-
-.img-circle {
-  border-radius: 100%;
-  vertical-align: middle;
-  border-style: none;
-  background: #485e74;
-  margin: 10px;
-}
-
-
-.container{
-  max-width:1500px;
-  margin-left:auto;
-  margin-right:auto;
-  padding:1em;
-}
-
-ul{
-  list-style: none;
-  padding:0;
-  background: #f2f2f2;
-}
-
-li {
-  background: #f2f2f2;
-}
-
-.wrapper{
-  box-shadow: 0 0 20px 0 aqua;
-}
-
-.wrapper > *{
-  padding: 1em;
-}
-
-.personal-info{
-  background:#e8d9c5;
-  margin: 0 auto;
-}
-
-h3 {
-text-align: center;
-}
-
-/* Style the search field */
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: white;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
-
-/* Style the submit button */
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #485e74;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
-
-form.example button:hover {
-  background: #0b7dda;
-}
-
-/* Clear floats */
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-
-
-.secondpart {
-margin: 20px;
-border: 10px;
-}
-
-.card-header {
-  background: #485e74;
-  color: #f2f2f2;
-  
-}
-
-form {
-  background: #f2f2f2
-}
-
-.card-footer {
-  background: #485e74;
-  color: #f2f2f2;
-}
-
-.personal-info .card-block {
-  background-color: #485e74;
-  color: #f2f2f2;
-  }
-
-
-
-.leftfade {
-  margin: 20px auto; 
-}
-
-.rightfade {
-  margin: 20px auto;
-}
-
-.bottomfade {
-  margin: 20px auto;
-}
-
-img.card-img-top {
-  height: 200px;
-}
-
-h4.card-title {
-text-align: center;
-font-family: Poppins;
-}
-
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;   
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  display: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%; 
-  background: #4CAF50;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #4CAF50;
-  cursor: pointer;
-}
-  
-/* LARGE SCREENS */
-@media(min-width:700px){
-  .wrapper{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
-
-  .wrapper > *{
-    padding:2em;
-  }
-
-  .company-info h3, .company-info ul, .brand{
-    text-align: left;
-  }
-}
-
-.rangeslider__handle {
-  width: 42px;
-  height: 42px;
+a:focus{
+    color: #f2f2f2;
 }

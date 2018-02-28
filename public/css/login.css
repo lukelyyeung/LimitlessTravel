@@ -48,7 +48,7 @@
         left: 0;
         background:white;
         z-index: 1;
-        opacity: 0.2;
+        opacity: 0.1;
         
     
     }
@@ -63,10 +63,12 @@
     color: aqua;
     margin-bottom: 0;
     text-align: center;
+    font-family: 'Indie Flower', cursive;
     }
 
     .header-content h1 span {
-    color: #485e74;
+    color: #dadee3;
+    font-family: 'Indie Flower', cursive;
     }
     
     .header-content p{
