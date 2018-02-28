@@ -1,6 +1,18 @@
+let arr = [];
+
 $(document).ready(function () {
     window.sr = ScrollReveal();
     search();
+    $('body').on('click','.secret',(function(e){
+        let index = $('.secret').index(this);
+        $.post('/users/save', {data: arr[index]})
+            .done(()=> {
+                console.log("Sent to DataBase!");
+            })
+            .fail((err)=> {
+                console.log(err);
+            })
+    }))
 })
 
 function search() {
@@ -59,6 +71,7 @@ function sendData(packageHistory) {
         let direction = (i % 2 === 0) ? ['rightfade', 'leftfade'] : ['leftfade', 'rightfade'];
 
         card.eq(0).addClass(direction[0]).removeClass(direction[1]);
+        header.eq(0).append('<button type="button" class="secret btn btn-primary">Save</button>')
         header.eq(0).append(`<h1>${flightDetails[0].cityFrom} - ${flightDetails[0].cityTo}</h1>`).append(`Total Package Price: HKD ${package_price}`);
 
         img.eq(0).attr('src', `https://images.kiwi.com/airlines/64/${flightDetails[0].airline}.png`);
@@ -85,13 +98,22 @@ function sendData(packageHistory) {
     fading()
 }
 
+
+function storeData(data, arr){
+    data.forEach(element => {
+        arr.push(data);
+    })
+}
+
 function postSearch(input, num, contentContainer) {
     if (num) {
         return $.post('/users/result', input)
             .done(function (data) {
                 if (data[1]) {
                     sendData(data[1])
-                    console.log(data[1])
+                    
+                    storeData(data[1], arr)
+                    console.log(arr)
 
                     data[0].forEach(element => {
                         if (input.removed.indexOf(element) < 0)

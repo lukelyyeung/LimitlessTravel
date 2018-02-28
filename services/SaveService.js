@@ -16,6 +16,7 @@ class SaveService {
     async findOrCreateUserPackage(userId, newPackageArray) {
         // finding if the package exist in database
         try {
+            console.log(newPackageArray);
             let newPackage = newPackageArray[0];
             console.log('At findOrCreate, newPackage= ', newPackage);
             let packageId = await this.knex(packages).select('package_id').where({
