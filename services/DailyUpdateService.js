@@ -65,7 +65,6 @@ class DailyUpdateService {
             return await this.getPackageService.getFlightData(criteria)
                 .then(() => this.getPackageService.getHotelData(criteria))
                 .then(() => this.getPackageService.combinePackage(criteria))
-                .then((combinePackage) => [this.getPackageService.flightApiService.to, combinePackage]);
         } catch (error) {
             console.error(error);
         }

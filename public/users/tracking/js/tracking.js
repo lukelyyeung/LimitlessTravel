@@ -2,7 +2,7 @@ $(() => {
     let id = $(location).attr('href').match(/(?!\/users\/tracking)[0-9]+/g).pop();
     let chart;
 
-
+    
     $.ajax({
         type: 'PUT',
         url: `/users/data/packages/${id}`,
@@ -91,7 +91,7 @@ $(() => {
             distance: '300px',
             viewFactor: 0.2,
         });
-        
+
         sr.reveal('.right', {
             duration: 1000,
             origin: 'right',

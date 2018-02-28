@@ -10,6 +10,7 @@ class UserRouter {
         let router = express.Router({ mergeParams: true });
         router.post("/", this.updateUser.bind(this));
         router.get("/packages", this.getAll.bind(this));
+        router.delete("/packages/:packageId", this.deletePackage.bind(this));
         router.put("/packages/:packageId", this.getHistory.bind(this));
         return router;
     }
@@ -32,6 +33,12 @@ class UserRouter {
 
     updateUser(req, res) {
         return this.userService.update(req.params.userId, req.body)
+            .then((data) => res.json(data))
+            .catch((err) => res.status(500).json(err));
+    }
+
+    deletePackage(req, res) {
+        return this.userService.delete(req.session.passport.user.travellist.id, req.params.packageId)
             .then((data) => res.json(data))
             .catch((err) => res.status(500).json(err));
     }

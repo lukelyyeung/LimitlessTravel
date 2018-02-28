@@ -134,11 +134,6 @@ Package details
   /* width:50vw; */
 }
 
-/* .row-head {
-  background-color: #f2f2f2;
-  color: #485e74;
-  height:100%;
-} */
 
 .row-info p {
   margin: 0 0;
@@ -156,4 +151,67 @@ Package details
 
 .frame {
   position: relative;
+}
+
+h4.card-title {
+text-align: center;
+font-family: Poppins;
+
+
+}
+
+
+
+
+.btn   {
+background-color: #485e74;
+border-color: #485e74;
+margin: 0 auto;
+display: flex;
+justify-content: center;
+color: #f2f2f2;
+}
+
+.card-block ul {
+text-align: center;
+}
+
+
+
+
+/* LARGE SCREENS */
+@media(min-width:700px){
+  .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .wrapper > *{
+    padding:2em;
+  }
+
+  .company-info h3, .company-info ul, .brand{
+    text-align: left;
+  }
+}
+
+small.text-muted {
+text-align: center;
+color: white;
+
+}
+
+footertext {
+  color: #f2f2f2;
+}
+
+.card-header {
+background-color: #485e74;
+color: #f2f2f2;
+margin: 0 
+}
+
+.ticket-container {
+  width : 300px;
+  margin : 5px;
 }
