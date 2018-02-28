@@ -48,72 +48,122 @@
 <template id="template-ticket-container">
     <div class="ticket-container rightfade">
         <div class="card text-center">
-            <div class="card-header">
-                {{!-- total_price --}}Total:
+            <div class="total card-header">
+                {{!-- total_price --}}
             </div>
-            <div class="card-block">
-                <h4 class="card-title d-flex justify-content-center">
-                    <i class="material-icons">airplanemode_active</i>Flight Info</h4>
-                <p class="card-text d-flex justify-content-center">
-                    <i class="material-icons">attach_money</i>
-                    {{!-- Hotel_price --}}
-                </p>
-                <hr>
-                <p class="card-text d-flex justify-content-center">
-                    <i class="material-icons">date_range</i>
-                    {{!-- dDate --}}
-                </p>
-                <p class="card-text d-flex justify-content-center">
-                    <i class="material-icons">access_time</i>
-                    {{!-- dTime --}}
-                </p>
-                <img src="" alt="ailrine alt">
-                <small class="text-muted text-center d-flex justify-content-center">
-                    <div class="d-flex justify-content-center align-items-center trip">
-                        <i class="material-icons">flight_takeoff</i>
-                        {{!-- Origin --}}
+
+            <div class="main card-block">
+                <div class="row">
+                    <div class="col-5">
+                        <h4 class="card-title d-flex justify-content-center">
+                            <i class="material-icons">airplanemode_active</i>
+                            &nbspFlight Price
+                        </h4>
+                        <p class="card-text d-flex justify-content-center">
+                            <i class="material-icons">attach_money</i>
+                            {{!-- Flight_price --}}
+                        </p>
                     </div>
-                    <div class="d-flex justify-content-center align-items-center trip">
-                        <i class="material-icons">trending_flat</i>
-                        {{!-- Destination --}}
+
+                    <div class="col-2 d-flex justify-content-center align-items-center">
+                        <i class="material-icons">add</i>
                     </div>
-                </small>
-                <hr>
-                <p class="card-text d-flex justify-content-center">
-                    <i class="material-icons">date_range</i>
-                    {{!-- rDate --}}
-                </p>
-                <p class="card-text d-flex justify-content-center">
-                    <i class="material-icons">access_time</i>
-                    {{!--rTime --}}
-                </p>
-                <img src="" alt="" srcset="ailrine alt">
-                <small class="footertext d-flex justify-content-center">
-                    <div class="d-flex justify-content-center align-items-center trip">
-                        <i class="material-icons">flight_takeoff</i>
-                        {{!-- Origin --}}
+
+                    <div class="col-5">
+                        <h4 class="card-title d-flex justify-content-center">
+                            <i class="material-icons">hotel</i>
+                            &nbspHotel Price
+                        </h4>
+                        <p class="card-text d-flex justify-content-center">
+                            <i class="material-icons">attach_money</i>
+                            {{!-- Hotel_price --}}
+                        </p>
                     </div>
-                    <div class="d-flex justify-content-center align-items-center trip">
-                        <i class="material-icons">trending_flat</i>
-                        {{!-- Destination --}}
-                    </div>
-                </small>
-                <hr>
-                <div class="card-header d-flex justify-content-center" style="padding: 8px; margin-bottom: 10px">
-                    <i class="material-icons">hotel</i>
-                    <div class="hoteltext">HOTEL INFO</div>
                 </div>
-                <p class="card-text d-flex justify-content-center">
-                    <i class="material-icons">assignment</i>
-                    {{!-- porpertyName --}}
-                    <p class="card-text d-flex justify-content-center">
-                        <i class="material-icons">attach_money</i>
-                        {{!-- Hotel_price --}}
-                    </p>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="card-header d-flex justify-content-center" style="padding: 8px; margin-bottom: 10px">
+                            <i class="material-icons">airplanemode_active</i>
+                            &nbspFLIGHT INFO
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <p class="card-text d-flex justify-content-center">
+                            <i class="material-icons">date_range</i>
+                            {{!-- dDate --}}
+                        </p>
+                        <p class="card-text d-flex justify-content-center">
+                            <i class="material-icons">access_time</i>
+                            {{!-- dTime --}}
+                        </p>
+
+                        <img src="" alt="">
+                        <small class="text-muted text-center d-flex justify-content-center">
+                            <div class="d-flex justify-content-center align-items-center trip">
+                                <i class="material-icons">flight_takeoff</i>
+                                {{!-- Origin --}}
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center trip">
+                                <i class="material-icons">trending_flat</i>
+                                {{!-- Destination --}}
+                            </div>
+                        </small>
+
+                    </div>
+
+                    <div class="col-6">
+                        <p class="card-text d-flex justify-content-center">
+                            <i class="material-icons">date_range</i>
+                            {{!-- rDate --}}
+                        </p>
+                        <p class="card-text d-flex justify-content-center">
+                            <i class="material-icons">access_time</i>
+                            {{!--rTime --}}
+                        </p>
+                        <img src="" alt="">
+                        <small class="footertext d-flex justify-content-center">
+                            <div class="d-flex justify-content-center align-items-center trip">
+                                <i class="material-icons">flight_takeoff</i>
+                                {{!-- Origin --}}
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center trip">
+                                <i class="material-icons">trending_flat</i>
+                                {{!-- Destination --}}
+                            </div>
+                        </small>
+                    </div>
+
+                    <div class="col-12">
+                        <a href="" class="btn btn-primary card-text" target="_blank">Book Now</a>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-header d-flex justify-content-center" style="padding: 8px; margin-bottom: 10px">
+                            <i class="material-icons">hotel</i>
+                            &nbspHOTEL INFO
+                        </div>
+
+                        <p class="card-text d-flex justify-content-center">
+                            <i class="material-icons">assignment</i>
+                            {{!-- porpertyName --}}
+                        </p>
+                        <p class="card-text d-flex justify-content-center">
+                            <i class="material-icons">home</i>
+                            {{!-- Hotel_address --}}
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="card-footer text-muted">
-                Last updated 2 days ago
-            </div>
+
+            <div class="card-footer text-muted"></div>
         </div>
     </div>
 </template>

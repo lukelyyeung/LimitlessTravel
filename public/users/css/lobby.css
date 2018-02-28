@@ -128,28 +128,3 @@ text-align: center;
     text-align: left;
   }
 }
-
-
-/* 
-=================================================
-Package details
-=================================================
- */
-
-.row-info{
-  background-color: #f2f2f2;
-  color:  #485e74;
-  border-radius: 3px;
-  padding: 0;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  height:100px;
-  width: 46vw;
-  max-width: initial;
-  /* width:50vw; */
-}
-
-.row-info p {
-  margin: 0 0;
-}

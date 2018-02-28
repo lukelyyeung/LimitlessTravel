@@ -21,7 +21,7 @@ $(() => {
         getTodayPrice(id);
     }));
 
-// Animation
+    // Animation
     function fading() {
 
         sr.reveal('.personal-info .card', {
@@ -63,9 +63,9 @@ $(() => {
 
         $.get('/users/data/packages')
             .done((packages) => {
-                
+
                 $('#package-container').empty();
-                
+
                 packages.forEach((package, index) => {
                     let packageContainer = $('#template-package-container').clone();
                     let frame = packageContainer.contents().find('.frame');
@@ -92,7 +92,7 @@ $(() => {
             });
     }
 
-//  Generate ticket template
+    //  Generate ticket template
     function getTodayPrice(id) {
         $.ajax({
             type: 'PUT',
@@ -108,28 +108,41 @@ $(() => {
                     let card = ticketContainer.contents().find('.card');
                     let header = ticketContainer.contents().find('.card-header');
                     let img = ticketContainer.contents().find('img');
-                    let text= ticketContainer.contents().find('.card-text');
-                    let trip= ticketContainer.contents().find('.trip');
-                    let {total_price, flight_price, hotel_price, property_name, day_from, day_to, departure_details, return_details} = packageHistory[i];
-                    let direction = (i % 2 === 0) ? ['rightfade', 'leftfade'] : ['leftfade', 'rightfade'];
-                    card.eq(0).addClass(direction[0]).removeClass(direction[1]);
-                    header.eq(0).append(` HKD${total_price}`);
+                    let text = ticketContainer.contents().find('.card-text');
+                    let trip = ticketContainer.contents().find('.trip');
+                    let footer = ticketContainer.contents().find('.card-footer');
+                    let { total_price, flight_price, hotel_price, property_name, address, effect_date, day_from, day_to, departure_details, return_details, deep_link } = packageHistory[i];
+                    let hotel_address = '';
+
+                    for (let prop in address) {
+                        if (typeof (address[prop]) != 'undefined')
+                            hotel_address += `${address[prop]}, `;
+                    }
+                    
+                    header.eq(0).append(`<h1>${departure_details.cityTo}</h1>`).append(`Total Package Price: HKD ${total_price}`);
                     img.eq(0).attr('src', `https://images.kiwi.com/airlines/64/${departure_details.airline}.png`);
                     img.eq(1).attr('src', `https://images.kiwi.com/airlines/64/${return_details.airline}.png`);
-                    text.eq(0).append(` HKD ${flight_price }`)
-                    text.eq(1).append(moment(packageHistory[i].day_from).format('YY-MM-DD'));
-                    text.eq(2).append(`${moment(1000 * departure_details.dTimeUTC).format("HH:mm")}-${moment(1000 * departure_details.aTimeUTC).format("HH:mm")}`);
-                    text.eq(3).append(moment(packageHistory[i].day_to).format('YY-MM-DD'));
-                    text.eq(4).append(`${moment(1000 * return_details.dTimeUTC).format("HH:mm")}-${moment(1000 * return_details.aTimeUTC).format("HH:mm")}`);
-                    text.eq(5).append(` ${property_name}`);
-                    text.eq(6).append(` HKD ${hotel_price}`);
-                    trip.eq(0).append(`${departure_details.flyFrom}(${departure_details.cityFrom}) `);
-                    trip.eq(1).append(` ${departure_details.flyTo}(${departure_details.cityTo})`);
-                    trip.eq(2).append(`${return_details.flyFrom}(${return_details.cityFrom}) `);
-                    trip.eq(3).append(` ${return_details.flyTo}(${return_details.cityTo})`);
-                    $('#package-container').prepend(ticketContainer.html());
+
+                    text.eq(0).append(`HKD ${flight_price}`)
+                    text.eq(1).append(`HKD ${hotel_price}`);
+                    text.eq(2).append(moment(day_from).format('MMMM Do YYYY'));
+                    text.eq(3).append(`${moment(1000 * departure_details.dTimeUTC).format("HH:mm")}-${moment(1000 * departure_details.aTimeUTC).format("HH:mm")}`);
+                    text.eq(4).append(moment(day_to).format('MMMM Do YYYY'));
+                    text.eq(5).append(`${moment(1000 * return_details.dTimeUTC).format("HH:mm")}-${moment(1000 * return_details.aTimeUTC).format("HH:mm")}`);
+                    text.eq(6).attr('href', `${deep_link}`);
+                    text.eq(7).append(` ${property_name}`);
+                    text.eq(8).append(` ${hotel_address}`);
+
+                    trip.eq(0).append(` ${departure_details.flyFrom} (${departure_details.cityFrom}) `);
+                    trip.eq(1).append(` ${departure_details.flyTo} (${departure_details.cityTo})`);
+                    trip.eq(2).append(` ${return_details.flyFrom} (${return_details.cityFrom}) `);
+                    trip.eq(3).append(` ${return_details.flyTo} (${return_details.cityTo})`);
+                    // debugger;
+                    footer.eq(0).append(moment(effect_date).format('MMMM Do YYYY'));
+
+                    $("#package-container").append(ticketContainer.html());
                 }
-                
+
                 return;
             })
             .fail(err => {
@@ -141,7 +154,7 @@ $(() => {
     }
 
     function deletePackage(id) {
-       return $.ajax({
+        return $.ajax({
             type: 'DELETE',
             url: `/users/data/packages/${id}`
         })
