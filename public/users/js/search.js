@@ -8,14 +8,21 @@ $(document).ready(function () {
     //     console.log("This GET AJAX function runs no matter success or fail.");
     // });
 
+    datepicker('#departure_date');
+    datepicker('#return_date');
+
+    rangeSlider();
+
     $('form').on('submit', function (e) {
         e.preventDefault();
-        let budget = $('#formGroupExampleInput').val();
-        let dDate = $('#formGroupExampleInput1').val();
-        let rDate = $('#formGroupExampleInput2').val();
-        let input = { budget: budget, dDate: dDate, rDate: rDate, destination: [''] }
+
 
         if (validateForm()) {
+            let budget = $('output').eq(0).val();
+            let dDate = new Date($('#departure_date').val()).toISOString();
+            let rDate = new Date($('#return_date').val()).toISOString();
+            let input = { budget: budget, dDate: dDate, rDate: rDate, destination: [''] }
+
             postSearch(input, 3)
             $('form')[0].reset();
         }
@@ -26,18 +33,23 @@ function postSearch(input, num) {
     if (num) {
         return $.post('/users/result', input)
             .done(function (data) {
-                input.destination.push(data[0])
-                // console.log(data[1])
-                // console.log(input.destination)
-                postSearch(input, num - 1)
+                console.log(data[1])
+                if (data[1]) {
+                    input.destination.push(data[0])
+                    postSearch(input, num - 1)
+                }
+
             })
             .fail(function (data) {
                 console.log("This POST AJAX function will be run if the ajax if failed");
             })
-            .always(function(data){
-                console.log('OK')
-            })
     }
+}
+
+function rangeSlider() {
+    $('input[type="range"]').on('input', function (e) {
+        $('output').eq(0).val(e.currentTarget.value);
+    });
 }
 
 function constructData(data) {
@@ -57,11 +69,9 @@ function constructData(data) {
 }
 
 function validateForm() {
-    if ($('#formGroupExampleInput').val() == null || $('#formGroupExampleInput').val() == '')
+    if ($('#departure_date').val() == null || $('#departure_date').val() == '')
         return false;
-    else if ($('#formGroupExampleInput1').val() == null || $('#formGroupExampleInput1').val() == '')
-        return false;
-    else if ($('#formGroupExampleInput2').val() == null || $('#formGroupExampleInput2').val() == '')
+    else if ($('#return_date').val() == null || $('#return_date').val() == '')
         return false;
     else
         return true;

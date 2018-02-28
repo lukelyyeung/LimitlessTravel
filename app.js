@@ -36,8 +36,8 @@ require('./utils/init-passport')(app, knex);
 
 app.use('/', new ViewRouter().router());
 app.use('/auth', new AuthRouter().router());
-// app.use('/users/data', isLoggedIn, new UserRouter(userService, saveService).router());
-app.use('/users/data', new UserRouter(userService, saveService).router());
+app.use('/users/data', isLoggedIn, new UserRouter(userService, saveService).router());
+// app.use('/users/data', new UserRouter(userService, saveService).router());
 app.use('/users/result', new GetPackageRouter(getPackageService).router());
 
 server.listen(8080, () => {

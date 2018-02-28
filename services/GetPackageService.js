@@ -24,15 +24,15 @@ class GetPackageService {
     getFlightData(criteria) {
         this.flightApiService.update({
             flyFrom: 'HKG',
-            to: this.randomizeService.pickDestination(),
+            to: (typeof criteria.to === 'undefined') ? this.randomizeService.pickDestination() : criteria.to,
             dateFrom: criteria.dDate,
             dateTo: criteria.dDate,
             returnFrom: criteria.rDate,
             returnTo: criteria.rDate,
-            price_to: criteria.budget * 0.7,
+            price_to: Math.floor(criteria.budget * 0.7),
             sort: 'quality'
         })
-        // console.log(this.flightApiService.to);
+        console.log(this.flightApiService.to);
         return this.flightApiService.call()
             .then((apiData => this.recursiveFlightApiCall(apiData)))
             .then((flightData) => {this.flightData = this.flightApiService.mapData(flightData)})
@@ -40,6 +40,7 @@ class GetPackageService {
 
     recursiveFlightApiCall(flightData) {
         this.randomizeService.removeDestination(this.flightApiService.to);
+        console.log(this.randomizeService.availableDestination);
 
         if (flightData.length == 0) {
 
@@ -48,7 +49,7 @@ class GetPackageService {
             }
             else {
                 this.flightApiService.to = this.randomizeService.pickDestination();
-                // console.log(this.flightApiService.to);
+                console.log(this.flightApiService.to);
                 return this.flightApiService.call()
                     .then(data => this.recursiveFlightApiCall(data))
             }
@@ -66,7 +67,7 @@ class GetPackageService {
                     radius: 9,
                     check_in: criteria.dDate,
                     check_out: criteria.rDate,
-                    max_rate: (criteria.budget - this.flightData[this.flightData.length - 1].price) / (criteria.rDate - criteria.dDate)
+                    max_rate: (criteria.budget - this.flightData[this.flightData.length - 1].price) / (moment(criteria.rDate).format('YYYYMMDD') - moment(criteria.dDate).format('YYYYMMDD'))
                 })
                 return this.hotelApiService.call();
             })
