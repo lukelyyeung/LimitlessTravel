@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    window.sr = ScrollReveal();
     search();
 })
 
@@ -51,7 +52,7 @@ function sendData(packageHistory) {
         let hotel_address = '';
 
         for (var prop in accommodation.address) {
-            if (typeof(accommodation.address[prop]) != 'undefined') 
+            if (typeof (accommodation.address[prop]) != 'undefined')
                 hotel_address += `${accommodation.address[prop]}, `;
         }
 
@@ -72,15 +73,16 @@ function sendData(packageHistory) {
         text.eq(7).append(` ${property_name}`);
         text.eq(8).append(` ${hotel_address}`);
 
-        trip.eq(0).append(`${flightDetails[0].flyFrom}(${flightDetails[0].cityFrom}) `);
-        trip.eq(1).append(` ${flightDetails[0].flyTo}(${flightDetails[0].cityTo})`);
-        trip.eq(2).append(`${flightDetails[1].flyFrom}(${flightDetails[1].cityFrom}) `);
-        trip.eq(3).append(` ${flightDetails[1].flyTo}(${flightDetails[1].cityTo})`);
+        trip.eq(0).append(` ${flightDetails[0].flyFrom} (${flightDetails[0].cityFrom}) `);
+        trip.eq(1).append(` ${flightDetails[0].flyTo} (${flightDetails[0].cityTo})`);
+        trip.eq(2).append(` ${flightDetails[1].flyFrom} (${flightDetails[1].cityFrom}) `);
+        trip.eq(3).append(` ${flightDetails[1].flyTo} (${flightDetails[1].cityTo})`);
 
         footer.eq(0).append(`${effective}`);
 
         $("#content-container").append(ticketContainer.html());
     }
+    fading()
 }
 
 function postSearch(input, num, contentContainer) {
@@ -121,4 +123,40 @@ function validateForm(dDate, rDate) {
         return true;
 }
 
+function fading() {
+
+    sr.reveal('.rightfade', {
+        duration: 1000,
+        origin: 'right',
+        distance: '300px',
+        viewFactor: 0.2,
+    });
+
+    sr.reveal('.leftfade', {
+        duration: 1000,
+        origin: 'left',
+        distance: '300px',
+        viewFactor: 0.2,
+    });
+
+    sr.reveal('.bottomfade', {
+        duration: 1000,
+        origin: 'bottom',
+        distance: '300px',
+        viewFactor: 0.2,
+    })
+
+    sr.reveal('.btn', {
+        duration: 1300,
+        delay: 1300,
+        origin: 'bottom'
+    });
+
+    sr.reveal('.material-icons', {
+        duration: 1300,
+        delay: 1300,
+        origin: 'bottom'
+    });
+
+}
 

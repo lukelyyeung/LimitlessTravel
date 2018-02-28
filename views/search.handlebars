@@ -2,7 +2,7 @@
 
     <div class="card text-center">
         <form>
-            <div class="card-header">
+            <div class="main card-header">
                 <h3 class="card-title">
                     <i class="material-icons">filter_list</i>
                     Search
@@ -49,14 +49,14 @@
 </template>
 
 
-<template id="template2">
+ <template id="template2">
     <div class="ticket-container rightfade">
         <div class="card text-center">
-            <div class="card-header">
+            <div class="total card-header">
                 {{!-- total_price --}}
             </div>
 
-            <div class="card-block">
+            <div class="main card-block">
                 <div class="row">
                     <div class="col-5">
                         <h4 class="card-title d-flex justify-content-center">
@@ -142,7 +142,7 @@
                     </div>
 
                     <div class="col-12">
-                        <h3><a class="card-text" href="" target="_blank">Book Now</a></h3>
+                        <a href="" class="btn btn-primary card-text" target="_blank">Book Now</a>
                     </div>
                 </div>
 
@@ -177,6 +177,7 @@
     <a href='/users/search'>Search Page</a>
 </button>
 
+<link rel="stylesheet" href="css/search.css">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
 <script type='text/javascript' src="js/search.js"></script>

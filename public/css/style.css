@@ -1,0 +1,170 @@
+body{
+ 
+  font-size:16px;
+  font-family: Poppins;
+}
+
+h2,h3,h4,h5,h6{
+  font-family:Poppins;
+}
+
+p{
+  font-family:Roboto;
+  color: #fff
+}
+
+.nav-link {
+color: #485e74
+}
+
+
+.navbar-brand{
+  font-size:20px;
+  color:aqua !important;
+  font-weight:bold;
+  font-family: 'Indie Flower', cursive;
+}
+
+
+ul {
+ align-items: flex-start
+}
+
+.navbar-brand span {
+  color: #dadee3;
+  font-family: 'Indie Flower', cursive;
+}
+
+#showcase h1{
+  font-size:50px;
+  margin-bottom:20px;
+  text-align: center;
+  padding-top: 30px;
+  color: aqua;
+  font-family: 'Indie Flower', cursive;
+  
+ 
+}
+
+#showcase h1 span {
+  color: #dadee3;
+  font-family: 'Indie Flower', cursive;
+}
+#showcase  {
+  background-image: url(../img/image1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+   width: 100%;
+  height: 60vh;
+  text-align: center;
+  opacity: 0.8;
+ 
+}
+
+#showcase .showcase-right{
+  margin-top:90px;
+  
+}
+
+.btn {
+  background: #485e74;
+  color: white;
+  border-radius: 1rem;
+  border-color: #f2f2f2;
+  margin: 0 auto;
+  text-align: center;
+  
+}
+
+#testimonial{
+  background: #bba3d0 ;
+  opacity: 0.8;
+  padding: 50px 0 30px 0;
+  text-align:center;
+  
+}
+
+#testimonial p{
+  font-size:32px;
+  font-family: 'Josefin Sans';
+  color: #464646;
+}
+
+#testimonial p.customer{
+  font-size:20px;
+  color:#fff
+}
+
+#info1 {
+  background-image: url(../img/image2.jpg);
+  opacity: 0.8;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+  text-align: center;
+}
+
+h2 {
+color: #fff;
+text-align: center;
+}
+
+#info1 .info-right{
+  margin: 30px auto;
+  
+}
+
+#info2{
+  padding: 50px 0 30px 0;
+  background:#bba3d0;
+  color: #464646;
+  text-align: center;
+}
+#info2 h2 {
+  color: #FFC966;
+}
+
+#contact{
+  background:url(../img/image3.jpg);
+  padding:20px;
+  color:#fff;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+   width: 100%;
+  height: 65vh;
+  opacity: 0.8;
+}
+  
+
+footer{
+  padding:30px;
+  background: #485e74;
+  color: #fff;
+}
+
+.material-icons {
+  font-size: 30px !important;
+ margin: 0 auto;
+  
+ }
+
+ .material-icons:hover {
+  -moz-transform: scale(2) rotate(0deg);
+  -webkit-transform: scale(2) rotate(0deg);
+  -o-transform: scale(2) rotate(0deg);
+  -ms-transform: scale(2) rotate(0deg);
+  transform: scale(2) rotate(0deg);
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  -o-transition: 0.8s;
+  -ms-transition: 0.8s;
+  transition: 0.8s;
+  
+ }

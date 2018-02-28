@@ -1,0 +1,27 @@
+.main.card-header {
+    background: #485e74;
+    color: #f2f2f2;
+}
+
+.total.card-header {
+    background: #485e74;
+    color: #f2f2f2;
+}
+
+.btn{
+    background-color: #485e74;
+    border-color: #485e74;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    color:  #f2f2f2;
+    width: 30%;
+}
+
+.col-12 a{
+    margin-top: 10px;
+}
+
+a:focus{
+    color: #f2f2f2;
+}

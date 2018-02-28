@@ -29,10 +29,13 @@ body{
 
 .brand{
   text-align: center;
+  color:aqua;
+  font-family: 'Indie Flower', cursive;
 }
 
 .brand span{
-  color:#fff;
+  color:#dadee3;
+  font-family: 'Indie Flower', cursive;
 }
 
 .wrapper{
