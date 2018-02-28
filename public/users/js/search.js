@@ -1,67 +1,65 @@
 $(document).ready(function () {
-    // $.get('/users'
-    // ).done(function (data) {
-    //     constructData(data);
-    // }).fail(function (data) {
-    //     console.log("This GET AJAX function will be run if the ajax if failed");
-    // }).always(function (data) {
-    //     console.log("This GET AJAX function runs no matter success or fail.");
-    // });
+    let template1 = $('#template1').clone();
+    let contentContainer = $("#content-container");
+
+    contentContainer.append(template1.html());
+
+    datepicker('#departure_date', { minDate: new Date((new Date()).valueOf() + 1000 * 3600 * 24) });
+    datepicker('#return_date', { minDate: new Date((new Date()).valueOf() + 1000 * 3600 * 24) });
+
+    rangeSlider();
 
     $('form').on('submit', function (e) {
         e.preventDefault();
-        let budget = $('#formGroupExampleInput').val();
-        let dDate = $('#formGroupExampleInput1').val();
-        let rDate = $('#formGroupExampleInput2').val();
-        let input = { budget: budget, dDate: dDate, rDate: rDate, destination: [''] }
 
-        if (validateForm()) {
-            postSearch(input, 3)
+        if (validateForm($('#departure_date'), $('#return_date'))) {
+
+            let budget = $('output').eq(0).val();
+            let dDate = new Date($('#departure_date').val()).toISOString();
+            let rDate = new Date($('#return_date').val()).toISOString();
+            let input = { budget: budget, dDate: dDate, rDate: rDate, removed: [''] }
+
+            
+            postSearch(input, 3, contentContainer)
             $('form')[0].reset();
+        }
+        else {
+            alert('Please select the proper date')
         }
     })
 })
 
-function postSearch(input, num) {
+function postSearch(input, num, contentContainer) {
     if (num) {
         return $.post('/users/result', input)
             .done(function (data) {
-                input.destination.push(data[0])
-                // console.log(data[1])
-                // console.log(input.destination)
-                postSearch(input, num - 1)
+                console.log(data[1])
+                if (data[1]) {
+                    data[0].forEach(element => {
+                        if (input.removed.indexOf(element) < 0)
+                            input.removed.push(element)
+                        });
+                    postSearch(input, num - 1, contentContainer)
+                }
             })
             .fail(function (data) {
                 console.log("This POST AJAX function will be run if the ajax if failed");
             })
-            .always(function(data){
-                console.log('OK')
-            })
     }
 }
 
-function constructData(data) {
-    data.forEach((e) => {
-        // Retrieve template and create a clone
-        let noteTemplate = $('#note-template').clone();
-
-        noteTemplate.contents().find("h2").html(e.title);
-        noteTemplate.contents().find("p").html(e.content);
-
-        // Retrieve the container which will hold all users' info
-        let contentContainer = $("#content-container");
-
-        // Append the clone to the DOM 
-        contentContainer.append(noteTemplate.html());
+function rangeSlider() {
+    $('input[type="range"]').on('input', function (e) {
+        $('output').eq(0).val(e.currentTarget.value);
     });
 }
 
-function validateForm() {
-    if ($('#formGroupExampleInput').val() == null || $('#formGroupExampleInput').val() == '')
+function validateForm(dDate, rDate) {
+    if (dDate.val() == null || dDate.val() == '')
         return false;
-    else if ($('#formGroupExampleInput1').val() == null || $('#formGroupExampleInput1').val() == '')
+    else if (rDate.val() == null || rDate.val() == '')
         return false;
-    else if ($('#formGroupExampleInput2').val() == null || $('#formGroupExampleInput2').val() == '')
+    else if (new Date(rDate.val()) <= new Date(dDate.val()))
         return false;
     else
         return true;
