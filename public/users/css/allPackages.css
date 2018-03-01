@@ -1,3 +1,22 @@
+.frame {
+    position: relative;
+}
+
+.delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    color: #f2f2f2;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1031;
+}
+
+.delete:hover {
+     color: rgba(0, 0, 0, 0.6);
+    background: #f2f2f2; 
+}
+
 .btn {
     margin: 5px 0;
 }

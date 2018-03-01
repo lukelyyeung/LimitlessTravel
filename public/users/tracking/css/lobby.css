@@ -29,10 +29,13 @@ body{
 
 .brand{
   text-align: center;
+  color:aqua;
+  font-family: 'Indie Flower', cursive;
 }
 
 .brand span{
-  color:#fff;
+  color:#dadee3;
+  font-family: 'Indie Flower', cursive;
 }
 
 .wrapper{
@@ -94,8 +97,25 @@ justify-content: center;
 text-align: center;
 }
 
+#searchBtn{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
 
+#searchBtn a:hover{
+  text-decoration: none;
+  color:#fff;
+}
 
+#searchBtn a{
+  color: #e8d9c5;
+}
+
+.searchLink a{
+  text-decoration: none;
+  color:#fff;
+}
 
 /* LARGE SCREENS */
 @media(min-width:700px){
@@ -112,96 +132,3 @@ text-align: center;
     text-align: left;
   }
 }
-
-
-/* 
-=================================================
-Package details
-=================================================
-*/
-
-.chart-white {
-  background-color: #E7D8C2;
-}
-
-.ct-axis-title {
-  z-index: 1031;
-}
-
-.row-info{
-  background-color: #f2f2f2;
-  color:  #485e74;
-  border-radius: 3px;
-  padding: 0;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  height:100px;
-  width: 46vw;
-  max-width: initial;
-  /* width:50vw; */
-}
-
-/* .row-head {
-  background-color: #f2f2f2;
-  color: #485e74;
-  height:100%;
-} */
-
-.row-info p {
-  margin: 0 0;
-}
-
-.ct-line.ct-threshold-above, .ct-point.ct-threshold-above, .ct-bar.ct-threshold-above {
-  stroke: #f05b4f;
-}
-
-.ct-line.ct-threshold-below, .ct-point.ct-threshold-below, .ct-bar.ct-threshold-below {
-  stroke: #59922b;
-}
-
-.ct-area.ct-threshold-above {
-  fill: #f05b4f;
-}
-
-.ct-area.ct-threshold-below {
-  fill: #59922b;
-}
-
-.ct-series-a .ct-line {
-    fill: none;
-    stroke-width: 4px;
-}
-
-.chartist-tooltip {
-  position: absolute;
-  display: inline-block;
-  opacity: 0;
-  min-width: 5em;
-  padding: .5em;
-  background: #F4C63D;
-  color: #453D3F;
-  font-family: Oxygen,Helvetica,Arial,sans-serif;
-  font-weight: 700;
-  text-align: center;
-  pointer-events: none;
-  z-index: 1;
-  -webkit-transition: opacity .2s linear;
-  -moz-transition: opacity .2s linear;
-  -o-transition: opacity .2s linear;
-  transition: opacity .2s linear; }
-  .chartist-tooltip:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    margin-left: -15px;
-    border: 15px solid transparent;
-    border-top-color: #F4C63D; }
-  .chartist-tooltip.tooltip-show {
-    opacity: 1; }
-
-.ct-area, .ct-line {
-  pointer-events: none; }
