@@ -29,7 +29,8 @@ class GetPackageService {
                 return [removedDestination, combinePackage]
             })
     }
-
+    // Added one more parameter to this function to allow non-recursive use by Luke, 
+    // default value set to 'recursive' so your other code is still clean from my change.
     getFlightData(criteria, availableDestination, removedDestination, recursivity='recursive') {
         this.flightApiService.update({
             flyFrom: 'HKG',
