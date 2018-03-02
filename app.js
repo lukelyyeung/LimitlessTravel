@@ -34,7 +34,7 @@ const dailyUpdateService = new DailyUpdateService(knex, saveService, getPackageS
 
 const { app, server } = require('./utils/init-app')();
 require('./utils/init-passport')(app, knex);
-// require('./utils/init-dailyUpdate')(dailyUpdateService, '2018-02-27T22:37:00', 4320000);
+require('./utils/init-dailyUpdate')(dailyUpdateService, '2018-03-03T00:00:00', 4320000);
 
 app.use('/', new ViewRouter().router());
 app.use('/auth', new AuthRouter().router());

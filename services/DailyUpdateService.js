@@ -62,9 +62,9 @@ class DailyUpdateService {
             };
 
             // Call on API to generate 5 results based on the package
-            return await this.getPackageService.getFlightData(criteria)
-                .then(() => this.getPackageService.getHotelData(criteria))
-                .then(() => this.getPackageService.combinePackage(criteria))
+            let flightData = await this.getPackageService.getFlightData(criteria, null, null, 'non-recursive');
+            let hotelData = await this.getPackageService.getHotelData(criteria, flightData);
+            return await this.getPackageService.combinePackage(flightData, hotelData, criteria);
         } catch (error) {
             console.error(error);
         }

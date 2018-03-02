@@ -30,7 +30,7 @@ class GetPackageService {
             })
     }
 
-    getFlightData(criteria, availableDestination, removedDestination) {
+    getFlightData(criteria, availableDestination, removedDestination, recursivity='recursive') {
         this.flightApiService.update({
             flyFrom: 'HKG',
             to: (!criteria.to) ? this.randomizeService.pickDestination(availableDestination) : criteria.to,
@@ -42,9 +42,14 @@ class GetPackageService {
             sort: 'quality'
         })
         console.log(`New: ${this.flightApiService.to}`);
-        return this.flightApiService.call()
-            .then((flightData => this.recursiveFlightApiCall(flightData, availableDestination, removedDestination)))
-            .then((flightData) => this.flightApiService.mapData(flightData))
+        if (recursivity === 'recursive') {
+            return this.flightApiService.call()
+            .then((flightData => this.recursiveFlightApiCall(flightData, availableDestination, removedDestination))) // This part not need
+            .then((flightData) => this.flightApiService.mapData(flightData));
+        } else if (recursivity === 'non-recursive') {
+            return this.flightApiService.call()
+            .then((flightData) => this.flightApiService.mapData(flightData));            
+        }
     }
 
     recursiveFlightApiCall(flightData, availableDestination, removedDestination) {
