@@ -40,7 +40,6 @@ class SaveService {
                 let msg = `Package ${packageId[0].package_id} exists!`;
                 console.log(msg);
                 return msg;
-                // return await this.updatePackage(packageId[0].package_id, newPackageArray);
             }
         } catch (err) { console.log(err); }
     }
