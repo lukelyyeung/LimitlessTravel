@@ -1,6 +1,6 @@
 module.exports = {
     users: 'users',
-    userPackage: 'user_package',
+    userPackage: 'userpackage',
     packages: 'packages',
     tickets: 'tickets',
     rooms: 'rooms',

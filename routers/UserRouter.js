@@ -20,7 +20,6 @@ class UserRouter {
         return this.userService.checkPackageHistory(req.params.packageId, req.body.operater)
             .then((data) => res.json(data))
             .catch((err) => {
-                console.log(err);
                 res.status(500).json(err)
             });
     }

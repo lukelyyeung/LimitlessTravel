@@ -18,6 +18,7 @@ class UserService {
     async checkPackageHistory(packageId, trend) {
         try {
             let activePackage;
+            console.log(moment().format('YYYY-MM-DD'))
             if (trend === '=') {
                 activePackage = await this.getHistory(packageId, '=', moment().format('YYYY-MM-DD'));
 
@@ -29,6 +30,7 @@ class UserService {
                 activePackage = await this.getHistory(packageId, '<', moment().add(1, 'days').format('YYYY-MM-DD'));
             }
 
+            console.log(activePackage);
             return activePackage;
 
         } catch (error) {
@@ -70,7 +72,9 @@ class UserService {
         return await this.knex(userPackage).select('*').where({
             user_id: userId,
             package_id: packageId
-        }).del();
+        })
+        .del()
+        .catch(console.log);
     }
 
     update(id, userProfile) {

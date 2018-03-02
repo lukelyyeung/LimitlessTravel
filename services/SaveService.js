@@ -31,9 +31,11 @@ class SaveService {
                 // Case for no exisiting package
                 console.log('creating new package');
                 return await this.createPackage(userId, newPackageArray);
+
             } else {
-                await this.knex.raw(`INSERT INTO userpackage (user_id, package_id) SELECT ?, ? WHERE NOT EXISTS(SELECT 1 FROM userpackage WHERE user_id = ? AND package_id = ?)`
-                    , [userId, packageId[0].package_id, userId, packageId[0].package_id]);
+
+                await this.knex.raw(`INSERT INTO userpackage (user_id, package_id) SELECT ?, ? WHERE NOT EXISTS(SELECT 1 FROM userpackage WHERE user_id = ? AND package_id = ?)`,
+                    [userId, packageId[0].package_id, userId, packageId[0].package_id]);
 
                 let msg = `Package ${packageId[0].package_id} exists!`;
                 console.log(msg);
@@ -78,8 +80,7 @@ class SaveService {
 
     async addTicket(packageId, wholePackage) {
         try {
-            // console.log('creating tickets');
-            console.log(wholePackage);
+            console.log('creating tickets');
             const { package_price, flight } = wholePackage;
             return await this.knex(tickets).insert({
                 package_id: packageId,
@@ -135,11 +136,11 @@ class SaveService {
             if (newPackageArray.length > 0) {
                 try {
                     let newPackage = newPackageArray.shift();
-                    // console.log('package id: ', packageId);
+                    console.log('package id: ', packageId);
                     let ticketId = await this.addTicket(packageId, newPackage);
-                    // console.log('ticket id: ', ticketId[0]);
+                    console.log('ticket id: ', ticketId[0]);
                     let roomId = await this.addRooms(ticketId[0], newPackage);
-                    // console.log('room id: ', roomId[0]);
+                    console.log('room id: ', roomId[0]);
                     return await this.updatePackage(packageId, newPackageArray);
                 } catch (error) {
                     console.error(error);

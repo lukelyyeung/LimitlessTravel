@@ -1,0 +1,1772 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.5.10
+-- Dumped by pg_dump version 9.5.10
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'SQL_ASCII';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: airlines; Type: TABLE; Schema: public; Owner: developer
+--
+
+CREATE TABLE airlines (
+    primary_id integer NOT NULL,
+    id character varying(2),
+    lcc integer,
+    name character varying(255)
+);
+
+
+ALTER TABLE airlines OWNER TO developer;
+
+--
+-- Name: airlines_primary_id_seq; Type: SEQUENCE; Schema: public; Owner: developer
+--
+
+CREATE SEQUENCE airlines_primary_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE airlines_primary_id_seq OWNER TO developer;
+
+--
+-- Name: airlines_primary_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: developer
+--
+
+ALTER SEQUENCE airlines_primary_id_seq OWNED BY airlines.primary_id;
+
+
+--
+-- Name: hotels; Type: TABLE; Schema: public; Owner: developer
+--
+
+CREATE TABLE hotels (
+    hotel_id integer NOT NULL,
+    property_name character varying(255),
+    address jsonb
+);
+
+
+ALTER TABLE hotels OWNER TO developer;
+
+--
+-- Name: hotels_hotel_id_seq; Type: SEQUENCE; Schema: public; Owner: developer
+--
+
+CREATE SEQUENCE hotels_hotel_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE hotels_hotel_id_seq OWNER TO developer;
+
+--
+-- Name: hotels_hotel_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: developer
+--
+
+ALTER SEQUENCE hotels_hotel_id_seq OWNED BY hotels.hotel_id;
+
+
+--
+-- Name: knex_migrations; Type: TABLE; Schema: public; Owner: developer
+--
+
+CREATE TABLE knex_migrations (
+    id integer NOT NULL,
+    name character varying(255),
+    batch integer,
+    migration_time timestamp with time zone
+);
+
+
+ALTER TABLE knex_migrations OWNER TO developer;
+
+--
+-- Name: knex_migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: developer
+--
+
+CREATE SEQUENCE knex_migrations_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE knex_migrations_id_seq OWNER TO developer;
+
+--
+-- Name: knex_migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: developer
+--
+
+ALTER SEQUENCE knex_migrations_id_seq OWNED BY knex_migrations.id;
+
+
+--
+-- Name: knex_migrations_lock; Type: TABLE; Schema: public; Owner: developer
+--
+
+CREATE TABLE knex_migrations_lock (
+    is_locked integer
+);
+
+
+ALTER TABLE knex_migrations_lock OWNER TO developer;
+
+--
+-- Name: packages; Type: TABLE; Schema: public; Owner: developer
+--
+
+CREATE TABLE packages (
+    package_id integer NOT NULL,
+    budget real,
+    day_from date,
+    day_to date,
+    city_from character varying(255),
+    city_to character varying(255),
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE packages OWNER TO developer;
+
+--
+-- Name: packages_package_id_seq; Type: SEQUENCE; Schema: public; Owner: developer
+--
+
+CREATE SEQUENCE packages_package_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE packages_package_id_seq OWNER TO developer;
+
+--
+-- Name: packages_package_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: developer
+--
+
+ALTER SEQUENCE packages_package_id_seq OWNED BY packages.package_id;
+
+
+--
+-- Name: rooms; Type: TABLE; Schema: public; Owner: developer
+--
+
+CREATE TABLE rooms (
+    room_id integer NOT NULL,
+    ticket_id integer,
+    hotel_id integer,
+    hotel_price real,
+    effect_date date,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE rooms OWNER TO developer;
+
+--
+-- Name: rooms_room_id_seq; Type: SEQUENCE; Schema: public; Owner: developer
+--
+
+CREATE SEQUENCE rooms_room_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rooms_room_id_seq OWNER TO developer;
+
+--
+-- Name: rooms_room_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: developer
+--
+
+ALTER SEQUENCE rooms_room_id_seq OWNED BY rooms.room_id;
+
+
+--
+-- Name: tickets; Type: TABLE; Schema: public; Owner: developer
+--
+
+CREATE TABLE tickets (
+    departure_airline character varying(2),
+    return_airline character varying(2),
+    ticket_id integer NOT NULL,
+    package_id integer,
+    departure_details jsonb,
+    return_details jsonb,
+    total_price real,
+    flight_price real,
+    deep_link text,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE tickets OWNER TO developer;
+
+--
+-- Name: tickets_ticket_id_seq; Type: SEQUENCE; Schema: public; Owner: developer
+--
+
+CREATE SEQUENCE tickets_ticket_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE tickets_ticket_id_seq OWNER TO developer;
+
+--
+-- Name: tickets_ticket_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: developer
+--
+
+ALTER SEQUENCE tickets_ticket_id_seq OWNED BY tickets.ticket_id;
+
+
+--
+-- Name: travel_spots; Type: TABLE; Schema: public; Owner: developer
+--
+
+CREATE TABLE travel_spots (
+    "spotId" integer NOT NULL,
+    "airportCode" character varying(3),
+    city character varying(255),
+    country character varying(255),
+    region character varying(255),
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    location jsonb
+);
+
+
+ALTER TABLE travel_spots OWNER TO developer;
+
+--
+-- Name: travel_spots_spotId_seq; Type: SEQUENCE; Schema: public; Owner: developer
+--
+
+CREATE SEQUENCE "travel_spots_spotId_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "travel_spots_spotId_seq" OWNER TO developer;
+
+--
+-- Name: travel_spots_spotId_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: developer
+--
+
+ALTER SEQUENCE "travel_spots_spotId_seq" OWNED BY travel_spots."spotId";
+
+
+--
+-- Name: userpackage; Type: TABLE; Schema: public; Owner: developer
+--
+
+CREATE TABLE userpackage (
+    id integer NOT NULL,
+    package_id integer,
+    user_id integer,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE userpackage OWNER TO developer;
+
+--
+-- Name: userpackage_id_seq; Type: SEQUENCE; Schema: public; Owner: developer
+--
+
+CREATE SEQUENCE userpackage_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE userpackage_id_seq OWNER TO developer;
+
+--
+-- Name: userpackage_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: developer
+--
+
+ALTER SEQUENCE userpackage_id_seq OWNED BY userpackage.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: developer
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    name character varying(255),
+    email character varying(255),
+    facebook character varying(255),
+    google character varying(255),
+    instagram character varying(255),
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE users OWNER TO developer;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: developer
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE users_id_seq OWNER TO developer;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: developer
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: primary_id; Type: DEFAULT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY airlines ALTER COLUMN primary_id SET DEFAULT nextval('airlines_primary_id_seq'::regclass);
+
+
+--
+-- Name: hotel_id; Type: DEFAULT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY hotels ALTER COLUMN hotel_id SET DEFAULT nextval('hotels_hotel_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY knex_migrations ALTER COLUMN id SET DEFAULT nextval('knex_migrations_id_seq'::regclass);
+
+
+--
+-- Name: package_id; Type: DEFAULT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY packages ALTER COLUMN package_id SET DEFAULT nextval('packages_package_id_seq'::regclass);
+
+
+--
+-- Name: room_id; Type: DEFAULT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY rooms ALTER COLUMN room_id SET DEFAULT nextval('rooms_room_id_seq'::regclass);
+
+
+--
+-- Name: ticket_id; Type: DEFAULT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY tickets ALTER COLUMN ticket_id SET DEFAULT nextval('tickets_ticket_id_seq'::regclass);
+
+
+--
+-- Name: spotId; Type: DEFAULT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY travel_spots ALTER COLUMN "spotId" SET DEFAULT nextval('"travel_spots_spotId_seq"'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY userpackage ALTER COLUMN id SET DEFAULT nextval('userpackage_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Data for Name: airlines; Type: TABLE DATA; Schema: public; Owner: developer
+--
+
+COPY airlines (primary_id, id, lcc, name) FROM stdin;
+1	Y4	1	Volaris
+2	2N	1	NextJet
+3	SE	1	XL Airways France
+4	QD	0	JC International Airlines
+5	X4	0	Alaska Seaplanes X4
+6	JU	0	Air Serbia
+7	V0	1	Conviasa
+8	AG	0	Aruba Airlines
+9	UJ	0	AlMasria Universal Airlines
+10	2A	0	Deutsche Bahn
+11	LP	0	LATAM Peru
+12	W3	0	Arik Air
+13	JI	0	Meraj Air
+14	DI	0	Norwegian Air UK
+15	VE	0	EasyFly
+16	NY	1	Air Iceland Connect
+17	ET	0	Ethiopian Airlines
+18	5T	0	Canadian North
+19	F3	0	Flyadeal
+20	NT	1	Binter Canarias
+21	CY	0	Cyprus Airways
+22	6I	0	Alsie Express
+23	PR	0	Philippine Airlines
+24	2P	1	PAL Express
+25	9J	0	Dana Airlines Limited
+26	SX	0	SkyWork Airlines
+27	8G	0	Mid Africa Aviation
+28	SF	0	Tassili Airlines
+29	RT	0	JSC UVT Aero
+30	BJ	0	NouvelAir
+31	MV	0	Air Mediterranean
+32	LH	0	Lufthansa
+33	D4	0	Aerodart
+34	OV	1	SalamAir
+35	LA	0	LATAM Chile
+36	LQ	1	Lanmei Airlines
+37	PE	0	People's Viennaline PE
+38	S9	0	Starbow Airlines
+39	9P	1	Air Arabia Jordan
+40	SV	0	Saudi Arabian Airlines
+41	KS	0	Peninsula Airways
+42	6D	0	Pelita
+43	99	0	Ciao Air
+44	BA	0	British Airways
+45	J2	0	Azerbaijan Airlines
+46	Z7	1	Amaszonas Uruguay
+47	ZP	0	Amaszonas del Paraguay S.A. Lineas Aereas
+48	VT	0	Air Tahiti
+49	EK	0	Emirates
+50	XW	1	NokScoot
+51	WE	1	Thai Smile
+52	A1	0	Atifly
+53	VL	0	Med-View Airline
+54	9U	0	Air Moldova
+55	HM	0	Air Seychelles
+56	LI	0	Leeward Islands Air Transport
+57	TQ	0	Tandem Aero
+58	9I	0	Thai Sky Airlines
+59	XQ	1	SunExpress
+60	L7	0	Lugansk Airlines
+61	UG	0	TunisAir Express
+62	T0	0	TACA Peru
+63	J5	0	Alaska Seaplane Service
+64	E2	0	Eagle Atlantic Airlines
+65	NP	0	Nile Air
+66	CD	0	Corendon Dutch Airlines B.V.
+67	WF	0	Widerøe
+68	3I	0	Air Comet Chile
+69	HN	0	Hankook Airline
+70	II	0	LSM International 
+71	W7	0	Austral Brasil
+72	FL	0	AirTran Airways
+73	OO	0	SkyWest
+74	ZM	0	Air Manas
+75	00	1	Anadolujet
+76	S1	0	Serbian Airlines
+77	MI	0	SilkAir
+78	B4	0	ZanAir
+79	HG	0	Niki
+80	M2	0	MHS Aviation GmbH
+81	M1	0	Maryland Air
+82	LT	0	Air Lituanica
+83	TE	0	FlyLal
+84	11	0	TUIfly (X3)
+85	7C	1	Jeju Air
+86	AY	0	Finnair
+87	AV	0	Avianca
+88	Y7	1	NordStar Airlines
+89	PM	0	Canary Fly
+90	RJ	0	Royal Jordanian
+91	KK	1	AtlasGlobal
+92	7F	0	First Air
+93	A7	0	Air Plus Comet
+94	ZH	0	Shenzhen Airlines
+95	QR	0	Qatar Airways
+96	GG	0	Air Guyane
+97	2U	0	Air Guinee Express
+98	IN	0	Nam Air
+99	4C	0	LATAM Colombia
+100	FK	0	Africa West
+101	FZ	1	Fly Dubai
+102	4D	0	Air Sinai
+103	XM	0	Alitalia Express
+104	YW	0	Air Nostrum
+105	6S	0	SaudiGulf Airlines
+106	LG	0	Luxair
+107	N7	0	Neptune Air Sdn Bhd
+108	ZT	0	Titan Airways
+109	QT	0	TAMPA
+110	4Z	0	Airlink (SAA)
+111	VD	0	Air Libert
+112	ZW	0	Air Wisconsin
+113	HP	0	America West Airlines
+114	4A	0	Air Kiribati
+115	SQ	0	Singapore Airlines
+116	SZ	0	Somon Air
+117	NN	1	VIM Airlines
+118	7P	1	AirPanama
+119	5D	0	Aerolitoral
+120	SB	0	Aircalin
+121	2O	0	Air Salone
+122	QQ	0	Alliance Airlines
+123	I9	0	Air Italy
+124	WY	0	Oman Air
+125	U6	1	Ural Airlines
+126	K2	0	EuroLot
+127	4T	0	Belair
+128	AP	0	AlbaStar
+129	QH	0	Air Kyrgyzstan
+130	KO	0	Komiaviatrans
+131	WI	0	White Airways
+132	EI	1	Aer Lingus
+133	QF	0	Qantas
+134	KJ	0	British Mediterranean Airways
+135	I8	0	Izhavia
+136	GK	0	Jetstar Japan
+137	GL	0	Air Greenland
+138	2I	1	Star Peru
+139	A5	1	HOP!
+140	PX	0	Air Niugini
+141	UI	0	Auric Air
+142	H1	0	Hahn Air
+143	E5	0	Air Arabia Egypt
+144	HA	0	Hawaiian Airlines
+145	IQ	0	Qazaq Air
+146	WZ	1	Red Wings
+147	BN	0	Horizon Airlines
+148	W8	0	Cargojet Airways
+149	PT	0	Red Jet Andes
+150	6E	1	IndiGo Airlines
+151	PP	0	Air Indus
+152	TC	0	Air Tanzania
+153	PJ	0	Air Saint Pierre
+154	Z4	0	Zoom Airlines
+155	JY	0	interCaribbean Airways
+156	JM	0	Air Jamaica
+157	GQ	0	Sky Express
+158	NE	0	Nesma Air
+159	DF	0	Michael Airlines
+160	U1	0	Aviabus
+161	0X	0	Copenhagen Express
+162	CT	0	Alitalia Cityliner
+163	AC	0	Air Canada
+164	8Q	1	Onur Air
+165	LR	0	LACSA
+166	B9	0	Air Bangladesh
+167	7E	0	Aeroline GmbH
+168	6G	0	Air Wales
+169	LU	0	LAN Express
+170	5Y	0	Atlas Air
+171	R7	0	Aserca Airlines
+172	AS	0	Alaska Airlines
+173	VU	0	Air Ivoire
+174	WX	0	CityJet
+175	IT	0	Tigerair Taiwan
+176	EH	0	ANA Wings
+177	0B	1	Blue Air
+178	ZL	1	Regional Express
+179	3E	0	Air Choice One
+180	FN	1	Fastjet
+181	CV	0	Air Chathams
+182	MU	0	China Eastern Airlines
+183	SY	1	Sun Country Airlines
+184	MD	0	Air Madagascar
+185	U8	0	TUS Airways
+186	FV	0	Rossiya-Russian Airlines
+187	D9	0	Aeroflot-Don
+188	NM	0	Air Madrid
+189	OF	0	Air Finland
+190	W9	0	Air Bagan
+191	JS	0	Air Koryo
+192	P0	0	Proflight Zambia
+193	LK	0	Air Luxor
+194	MK	0	Air Mauritius
+195	XG	0	SunExpress
+196	RE	0	Aer Arann
+197	PD	1	Porter Airlines
+198	FJ	0	Fiji Airways
+199	BD	0	Cambodia Bayon Airlines
+200	8D	0	Astair
+201	OT	0	Aeropelican Air Services
+202	6K	0	Asian Spirit
+203	IO	1	IrAero
+204	UU	0	Air Austral
+205	PS	0	Ukraine International Airlines
+206	MS	0	Egyptair
+207	5L	0	Aerosur
+208	J8	0	Berjaya Air
+209	Z3	0	Avient Aviation
+210	EC	0	Avialeasing Aviation Company
+211	2K	0	Aerolineas Galapagos (Aerogal)
+212	TX	0	Air Caraïbes
+213	RC	0	Atlantic Airways
+214	7G	1	Star Flyer
+215	4R	0	Renfe
+216	LV	0	MEGA Maledives Airline
+217	P7	0	Small Planet Airline
+218	BS	0	British International Helicopters
+219	KF	0	Blue1
+220	JJ	0	LATAM Brasil
+221	CH	0	Bemidji Airlines
+222	8E	0	Bering Air
+223	B2	0	Belavia Belarusian Airlines
+224	FB	0	Bulgaria Air
+225	GS	0	Tianjin Airlines
+226	BF	0	French Blue
+227	KC	0	Air Astana
+228	OI	0	Orchid Airlines
+229	AJ	0	Aero Contractors
+230	EN	0	Air Dolomiti
+231	YK	0	Avia Traffic Airline
+232	TY	0	Air Caledonie
+233	VX	1	Virgin America
+234	NF	0	Air Vanuatu
+235	C9	1	SkyWise
+236	8N	0	Regional Air Services
+237	HR	0	China United Airlines
+238	QI	0	Cimber Air
+239	DQ	0	Coastal Air
+240	KR	0	Comores Airlines
+241	6A	0	Consorcio Aviaxsa
+242	OU	0	Croatia Airlines
+243	TA	0	Grupo TACA
+244	2L	0	Helvetic Airways
+245	2T	0	TruJet
+246	GF	0	Gulf Air Bahrain
+247	XK	0	Air Corsica
+248	KB	0	Druk Air
+249	HU	0	Hainan Airlines
+250	SS	0	Corsairfly
+251	CZ	0	China Southern Airlines
+252	ZK	0	Great Lakes Airlines
+253	DO	0	Dominicana de Aviaci
+254	E3	0	Domodedovo Airlines
+255	H7	0	Eagle Air
+256	QU	0	East African
+257	T3	0	Eastern Airways
+258	UZ	0	El-Buraq Air Transport
+259	EU	0	Empresa Ecuatoriana De Aviacion
+260	B8	0	Eritrean Airlines
+261	EA	0	European Air Express
+262	JN	0	Excel Airways
+263	EO	0	Express One International
+264	FP	0	Freedom Air
+265	CU	0	Cubana de Aviación
+266	CX	0	Cathay Pacific
+267	ZE	1	Eastar Jet
+268	PY	0	Surinam Airways
+269	OA	0	Olympic Air
+270	GP	0	APG Airlines
+271	I7	0	Paramount Airways
+272	4G	0	Gazpromavia
+273	A9	0	Georgian Airways
+274	QB	0	Georgian National Airlines
+275	G0	0	Ghana International Airlines
+276	G7	0	GoJet Airlines
+277	TS	0	Air Transat
+278	UD	0	Hex'Air
+279	FW	0	Ibex Airlines
+280	EY	0	Etihad Airways
+281	RZ	0	Sansa Air
+282	D2	1	Severstal Air Company
+283	LO	0	LOT Polish Airlines
+284	IC	0	Indian Airlines
+285	D6	0	Interair South Africa
+286	IR	0	Iran Air
+287	EP	0	Iran Aseman Airlines
+288	H8	0	Latin American Wings
+289	ID	1	Batik Air
+290	WC	0	Islena De Inversiones
+291	GI	0	Itek Air
+292	JC	0	JAL Express
+293	JO	0	JALways
+294	6H	0	Israir
+295	2M	0	Maya Island Air
+296	RQ	0	Kam Air
+297	KV	0	Kavminvodyavia
+298	M5	0	Kenmore Air
+299	Y9	0	Kish Air
+300	7K	0	Kogalymavia Air Company
+301	GW	0	Kuban Airlines
+302	EG	0	Ernest Airlines
+303	NG	0	Lauda Air
+304	LN	0	Libyan Arab Airlines
+305	AT	0	Royal Air Maroc
+306	MP	0	Martinair
+307	MZ	0	Merpati Nusantara Airlines
+308	YV	0	Mesa Airlines
+309	MX	0	Mexicana de Aviaci
+310	YX	0	Midwest Airlines
+311	MY	0	Midwest Airlines (Egypt)
+312	8I	0	Myway Airlines
+313	YM	0	Montenegro Airlines
+314	3R	0	Moskovia Airlines
+315	M9	0	Motor Sich
+316	8P	0	Pacific Coastal Airline
+317	NC	0	National Jet Systems
+318	ON	0	Nauru Air Corporation
+319	MT	1	Thomas Cook Airlines
+320	V7	1	Volotea
+321	HK	0	Yangon Airways
+322	RA	0	Nepal Airlines
+323	EJ	0	New England Airlines
+324	U7	0	Northern Dene Airways
+325	J3	0	Northwestern Air
+326	9B	0	AccesRail
+327	NU	0	Japan Transocean Air
+328	KE	0	Korean Air
+329	O2	0	Oceanic Airlines
+330	OY	0	Omni Air International
+331	OL	0	Ostfriesische Lufttransport
+332	VR	0	TACV
+333	PV	0	PAN Air
+334	PI	0	Polar Airlines
+335	O6	0	Avianca Brazil
+336	PU	0	Plus Ultra Lineas Aereas
+337	QV	0	Lao Airlines
+338	U4	0	Buddha Air
+339	8J	0	Eco Jet
+340	9E	0	Pinnacle Airlines
+341	PH	0	Polynesian Airlines
+342	BK	0	Potomac Air
+343	IK	0	Pegas Fly
+344	O7	0	Orenburzhye Airline
+345	7B	0	Fly Blue Crane
+346	CG	0	Airlines PNG
+347	LM	0	LoganAir LM
+348	RH	0	Republic Express Airlines
+349	GZ	0	Air Rarotonga
+350	FQ	0	Thomas Cook Airlines
+351	6O	0	Orbest
+352	S4	0	SATA International
+353	MQ	0	American Eagle Airlines
+354	5M	0	Sibaviatrans
+355	ZS	0	Sama Airlines
+356	FT	0	Siem Reap Airways
+357	5G	0	Skyservice Airlines
+358	FS	0	Servicios de Transportes A
+359	SD	0	Sudan Airways
+360	SJ	0	Sriwijaya Air
+361	RB	0	Syrian Arab Airlines
+362	SC	0	Shandong Airlines
+363	S5	0	Shuttle America
+364	BU	0	Baikotovitchestrian Airlines 
+365	3P	0	Tiara Air
+366	YB	1	BoraJet
+367	Q8	0	Trans Air Congo
+368	GE	0	TransAsia Airways
+369	RL	0	Royal Falcon
+370	T5	0	Turkmenistan Airlines
+371	LW	0	Latin American Wings
+372	NO	1	Neos Air
+373	5F	1	Fly One
+374	47	0	88
+375	DT	0	TAAG Angola Airlines
+376	AX	0	Trans States Airlines
+377	JD	0	Beijing Capital Airlines
+378	A4	0	Azimuth
+379	3T	0	Turan Air
+380	U5	0	USA3000 Airlines
+381	UF	0	UM Airlines
+382	US	0	US Airways
+383	2W	0	Welcome Air
+384	8O	0	West Coast Air
+385	IV	0	Wind Jet
+386	MF	0	Xiamen Airlines
+387	IY	0	Yemenia
+388	9Y	0	Air Kazakhstan
+389	HZ	0	Aurora Airlines
+390	VS	0	Virgin Atlantic Airways
+391	S7	0	S7 Airlines
+392	KW	0	Carnival Air Lines
+393	B7	0	Uni Air
+394	YD	0	Gomelavia
+395	TM	0	Air Mozambique
+396	GM	0	Germania Flug
+397	VH	0	Virgin Pacific
+398	CN	0	Canadian National Airways
+399	L8	0	Line Blue
+400	DH	0	Dennis Sky
+401	ZZ	0	Zz
+402	PZ	0	LATAM Paraguay
+403	EQ	0	TAME
+404	J4	0	ALAK
+405	S6	0	Salmon Air
+406	WD	0	Amsterdam Airlines
+407	8F	0	STP Airways
+408	7Y	0	Med Airways
+409	UQ	0	Skyjet Airlines
+410	G6	0	Air Volga
+411	4L	0	Euroline
+412	ZF	0	Athens Airways
+413	DZ	0	Starline.kz
+414	6P	0	Gryphon Airlines
+415	JR	0	Joy Air
+416	9H	0	MDLR Airlines
+417	TI	0	Tailwind Airlines
+418	Q2	0	Maldivian
+419	JH	0	Fuji Dream Airlines
+420	LZ	0	belleair
+421	XZ	0	Congo Express
+422	HY	0	Uzbekistan Airways
+423	TV	0	Tibet Airlines
+424	UR	0	UTair-Express
+425	G4	1	Allegiant Air
+426	BB	0	Seaborne Airlines
+427	MN	1	Kulula
+428	H5	0	I-Fly
+429	R8	0	AirRussia
+430	D1	0	Domenican Airlines
+431	C4	0	LionXpress
+432	69	0	Royal European Airlines
+433	XO	0	LTE International Airways
+434	G5	0	Huaxia
+435	3B	0	JobAir
+436	P8	0	Air Mekong
+437	HH	0	Air Hamburg (AHO)
+438	NS	0	Caucasus Airlines
+439	VO	0	FlyVLM
+440	KT	0	VickJet
+441	XV	0	BVI Airways
+442	ZJ	0	Zambezi Airlines (ZMA)
+443	YQ	0	Polet Airlines (Priv)
+444	12	0	12 North
+445	L6	0	Mauritania Airlines International
+446	GY	0	Colorful Guizhou Airlines
+447	CE	0	Chalair
+448	7L	0	Sun D'Or
+449	U3	0	Avies
+450	ZA	0	Access Air
+451	TD	0	Atlantis European Airways
+452	VC	0	Via Air
+453	DX	0	DAT Danish Air Transport
+454	D3	0	Daallo Airlines
+455	IA	0	Iraqi Airways
+456	1T	0	1Time Airline
+457	FM	0	Shanghai Airlines
+458	UH	0	AtlasGlobal Ukraine
+459	JK	0	Spanair
+460	S3	0	Santa Barbara Airlines
+461	JZ	0	Skyways Express
+462	K5	0	SeaPort Airlines
+463	NB	0	Sterling Airlines
+464	VI	0	Volga-Dnepr Airlines
+465	VK	0	Virgin Nigeria Airways
+466	VG	0	VLM Airlines
+467	2Q	0	Air Cargo Carriers
+468	OK	0	Czech Airlines
+469	5P	0	Small Planet Airlines
+470	IE	0	Solomon Airlines
+471	6J	0	Solaseed Air
+472	4Q	0	Safi Airlines
+473	7Q	0	Pan Am World Airways Dominicana
+474	V6	0	VIP Ecuador
+475	OC	0	Catovair
+476	7Z	0	Halcyonair
+477	4P	0	Business Aviation
+478	UM	0	Air Zimbabwe
+479	6Y	0	SmartLynx Airlines
+480	AH	0	Air Algerie
+481	E4	0	Elysian Airlines
+482	7T	0	Trenitalia
+483	M4	0	Mistral Air
+484	FI	0	Icelandair
+485	ZN	0	Zenith International Airline
+486	HT	0	Hellenic Imperial Airways
+487	Q9	0	Arik Niger
+488	YO	0	TransHolding System
+489	3F	0	Fly Colombia ( Interliging Flights )
+490	HC	0	Himalayan Airlines
+491	V9	0	Star1 Airlines
+492	ZG	0	Grozny Avia
+493	AU	0	Austral Lineas Aereas
+494	EV	0	ExpressJet
+495	2F	0	Frontier Flying Service
+496	9S	0	Spring Airlines
+497	K1	0	Kostromskie avialinii
+498	B1	0	Baltic Air lines
+499	XX	0	Greenfly
+500	FU	0	Felix Airways
+501	DS	0	EasyJet (DS)
+502	YL	0	Yamal Airlines
+503	WO	0	World Airways
+504	8Z	0	Wizz Air Hungary
+505	R5	0	Jordan Aviation
+506	HF	0	Air Cote d'Ivoire
+507	6B	0	TUIfly Nordic
+508	9T	0	Transwest Air
+509	AL	0	Skywalk Airlines
+510	SR	0	Swissair
+511	SP	0	SATA Air Acores
+512	RD	0	Ryan International Airlines
+513	R4	0	Rossiya
+514	NI	0	Portugalia
+515	9Q	0	PB Air
+516	OJ	0	Overland Airways
+517	QO	0	Origin Pacific Airways
+518	NW	0	Northwest Airlines
+519	1I	0	NetJets
+520	DM	0	Maersk
+521	MB	0	MNG Airlines
+522	VV	0	Viva Air Peru
+523	CL	0	Lufthansa CityLine
+524	HE	0	Luftfahrtgesellschaft Walter
+525	L3	0	LTU Austria
+526	WJ	0	Air Labrador
+527	3O	0	Air Arabia Maroc
+528	1B	0	Abacus International
+529	H6	0	Bulgarian Air Charter
+530	WA	0	KLM Cityhopper
+531	JF	0	Jetairfly
+532	QJ	0	Jet Airways
+533	QX	0	Horizon Air
+534	YS	0	Régional
+535	GO	0	Kuzu Airlines Cargo
+536	GH	0	Globus
+537	PL	0	Aeroper
+538	8A	0	Atlas Blue
+539	NH	0	All Nippon Airways
+540	O8	0	Siam Air
+541	NQ	0	Air Japan
+542	XR	0	Corendon Airlines Europe
+543	U9	0	Tatarstan Airlines
+544	QM	0	Air Malawi
+545	NX	0	Air Macau
+546	4N	0	Air North Charter - Canada
+547	2B	0	Aerocondor
+548	3G	0	Atlant-Soyuz Airlines
+549	V3	0	Carpatair
+550	L5	0	Atlas Atlantique Airlines
+551	BW	0	Caribbean Airlines
+552	QC	0	Camair-co
+553	3U	0	Sichuan Airlines
+554	WU	0	Wizz Air Ukraine
+555	BQ	0	Buquebus Líneas Aéreas
+556	YY	0	Virginwings
+557	MR	0	Homer Air
+558	8U	0	Afriqiyah Airways
+559	LF	0	FlyNordic
+560	BH	0	Hawkair
+561	8H	0	Heli France
+562	JB	0	Helijet
+563	T4	0	Hellas Jet
+564	HW	0	Hello
+565	M7	0	MasAir
+566	OM	0	MIAT Mongolian Airlines
+567	PO	0	Polar Airlines
+568	78	0	Southjet cargo
+569	4H	0	United Airways
+570	W2	0	Flexflight
+571	MA	0	Malév
+572	AE	0	Mandarin Airlines
+573	GV	0	Grant Aviation
+574	N5	0	Skagway Air Service
+575	5E	0	SGA Airlines
+576	AO	0	Avianova (Russia)
+577	P4	0	Aerolineas Sosa
+578	WQ	0	PanAm World Airways
+579	KY	0	KSY
+580	CQ	0	SOCHI AIR
+581	DN	0	Senegal Airlines
+582	8B	0	BusinessAir
+583	YR	0	SENIC AIRLINES
+584	W5	0	Mahan Air
+585	G8	1	Go Air
+586	OG	0	AirOnix
+587	WH	0	China Northwest Airlines (WH)
+588	JA	0	JetSmart
+589	5Q	0	BQB Lineas Aereas
+590	KG	0	Royal Airways
+591	YH	0	Yangon Airways Ltd.
+592	FG	0	Ariana Afghan Airlines
+593	LB	1	Air Costa
+594	4M	0	LATAM Argentina
+595	I2	0	Iberia Express
+596	ZC	0	Korongo Airlines
+597	Q3	0	SOCHI AIR CHATER
+598	AN	0	Ansett Australia
+599	4K	0	Askari Aviation
+600	ZX	0	Japan Regio
+601	L4	0	Luchsh Airlines 
+602	HI	0	Papillon Grand Canyon Helicopters
+603	SO	0	Salsa d\\\\'Haiti
+604	VP	0	VASP
+605	B5	0	Fly-SAX
+606	TJ	0	Tradewind Aviation
+607	SW	0	Air Namibia
+608	VA	1	Virgin Australia Airlines
+609	RG	0	Rotana Jet
+610	TU	0	Tunisair
+611	GB	0	BRAZIL AIR
+612	ES	0	EuropeSky
+613	1C	0	OneChina
+614	OQ	0	Chongqing Airlines
+615	1X	0	Branson Air Express
+616	ZY	0	Ada Air
+617	C5	0	CommutAir
+618	C3	0	Contact Air
+619	CS	0	Continental Micronesia
+620	0D	0	Darwin Airline
+621	SU	0	Aeroflot Russian Airlines
+622	DK	0	Eastland Air
+623	WK	0	Edelweiss Air
+624	GJ	0	Eurofly Service
+625	EZ	0	Evergreen International Airlines
+626	XE	0	ExpressJet
+627	M3	0	Air Norway
+628	RF	0	Florida West International Airways
+629	FH	0	Freebird Airlines
+630	C1	0	CanXpress
+631	QA	0	Click (Mexicana)
+632	W1	0	World Experience Airline
+633	ZQ	0	Locair
+634	PA	1	Airblue
+635	N1	0	N1
+636	3J	0	Jubba Airways
+637	H9	0	Himalaya Airlines
+638	EM	0	Empire Airlines
+639	Y8	0	Marusya Airways
+640	4X	0	Red Jet Mexico
+641	QY	0	Red Jet Canada
+642	E1	0	Usa Sky Cargo
+643	GN	0	GNB Linhas Aereas
+644	XB	0	NEXT Brasil
+645	6U	0	Air Cargo Germany
+646	N0	0	Norte Lineas Aereas
+647	G1	0	Indya Airline Group
+648	T6	0	Trans Pas Air
+649	1F	0	CB Airways UK ( Interliging Flights )
+650	F1	0	Fly Brasil
+651	CB	0	CCML Airlines
+652	24	0	Euro Jet
+653	2D	0	Aero VIP (2D)
+654	Y1	0	Yellowstone Club Private Shuttle
+655	H3	0	Harbour Air (Priv)
+656	TH	0	TransBrasil Airlines
+657	T7	0	Twin Jet
+658	A6	0	Air Alps Aviation (A6)
+659	BZ	0	Black Stallion Airways
+660	RI	0	Mandala Airlines
+661	HQ	0	Thomas Cook Belgium
+662	KN	0	China United
+663	4B	0	BoutiqueAir
+664	I6	0	Air indus
+665	__	0	FakeAirline
+666	NA	0	Nesma Air
+667	IZ	1	Arkia
+668	KA	0	Cathay Dragon
+669	QG	1	Citilink
+670	E9	0	Compagnie Africaine d\\\\'Aviation
+671	RS	0	Air Seoul
+672	DG	0	CebGo
+673	Q6	0	Volaris Costa Rica
+674	IW	0	Wings Air
+675	HD	1	Air Do
+676	CI	0	China Airlines
+677	VB	1	VivaAerobus
+678	5H	1	Fly540
+679	F8	0	Flair Airlines
+680	K6	0	Cambodia Angkor Air
+681	DA	0	Dana Air
+682	JE	1	Mango
+683	YT	0	Yeti Airways
+684	OB	1	Boliviana de Aviación
+685	TG	0	Thai Airways International
+686	K8	0	Kan Air
+687	RO	0	Tarom
+688	WW	1	WOW air
+689	77	0	Southjet connect
+690	9X	1	Southern Airways Express
+691	CC	0	CM Airlines
+692	OH	0	Comair
+693	9L	0	Colgan Air
+694	CJ	0	BA CityFlyer
+695	O1	0	Orbit Airlines Azerbaijan
+696	5K	0	Hi Fly (5K)
+697	NJ	0	Nordic Global Airlines
+698	20	0	Air Salone
+699	EE	0	RegionalJet
+700	QL	1	Laser Air
+701	RK	0	Air Afrique
+702	76	0	Southjet
+703	OS	0	Austrian Airlines
+704	FR	1	Ryanair
+705	SA	0	South African Airways
+706	GR	0	Aurigny Air Services
+707	UX	0	Air Europa
+708	VN	0	Vietnam Airlines
+709	WN	1	Southwest Airlines
+710	TK	0	Turkish Airlines
+711	9K	1	Cape Air
+712	KM	0	Air Malta
+713	AA	0	American Airlines
+714	YE	0	Yan Air
+715	Z9	0	Bek Air
+716	XC	1	Corendon
+717	P6	0	Pascan Aviation
+718	YU	0	EuroAtlantic Airways
+719	9M	0	Central Mountain Air
+720	EF	1	EasyFly
+721	KI	1	KrasAvia
+722	7N	0	Pawa Dominicana
+723	6T	1	Air Mandalay
+724	SM	1	Air Cairo
+725	XL	0	LATAM Ecuador
+726	P5	0	Wingo airlines
+727	2C	0	SNCF
+728	A3	1	Aegean
+729	NK	1	Spirit Airlines
+730	2J	0	Air Burkina
+731	BP	0	Air Botswana
+732	V8	0	ATRAN Cargo Airlines
+733	6F	1	Primera Air Nordic
+734	CW	0	Air Marshall Islands
+735	IG	1	Meridiana
+736	MW	0	Mokulele Flight Service
+737	DL	0	Delta Air Lines
+738	RV	0	Caspian Airlines
+739	C0	0	Centralwings
+740	VZ	0	Thai Vietjet
+741	IS	0	Island Airlines
+742	IF	0	Islas Airways
+743	R6	0	RACSA
+744	RW	0	Republic Airlines
+745	C2	0	CanXplorer
+746	T2	0	Thai Air Cargo
+747	Q5	0	40-Mile Air
+748	V5	0	Danube Wings (V5)
+749	SH	0	Sharp Airlines
+750	LC	0	Varig Log
+751	XF	0	Vladivostok Air
+752	7W	0	Wayraper
+753	F7	0	Etihad Regional
+754	S2	0	Air Sahara
+755	V2	0	Vision Airlines
+756	8V	0	Astral Aviation
+757	8T	0	Air Tindi
+758	UB	0	Myanmar National Airlines
+759	YN	0	Air Creebec
+760	PB	0	Provincial Airlines
+761	7V	0	Federai Airlines
+762	V4	0	Vieques Air Link
+763	P1	0	Publiccharters.com
+764	0V	0	VASCO
+765	ZD	0	EWA Air
+766	4W	0	Allied Air
+767	7J	1	Tajik Air
+768	N6	0	Nomad Aviation
+769	F2	0	Safarilink Aviation
+770	WG	1	Sunwing
+771	WV	0	Aero VIP
+772	J1	0	One Jet
+773	ST	1	Germania
+774	UL	0	SriLankan Airlines
+775	ML	1	Air Mediterranee
+776	JT	1	Lion Air
+777	DB	0	Brit Air
+778	R3	1	Yakutia Airlines
+779	VJ	1	VietJet Air
+780	DR	1	Ruili Airlines
+781	DV	1	Scat Air
+782	FA	1	Fly Safair
+783	PN	1	West Air China
+784	JX	1	Jambojet
+785	8L	1	Lucky air
+786	LX	0	Swiss International Air Lines
+787	K9	1	KrasAvia (old iata)
+788	5U	0	Transportes Aéreos Guatemaltecos
+789	XY	1	flynas
+790	J7	1	Greenland Express
+791	SG	1	Spicejet
+792	5W	0	WESTBahn
+793	3K	0	Jetstar Asia Airways
+794	Z6	1	Dniproavia
+795	EL	1	Ellinair
+796	MJ	1	Mihin Lanka
+797	5C	1	Nature Air
+798	9N	0	Tropic Air Limited
+799	HX	1	Hong Kong Airlines
+800	AW	1	RAVSA Venezolana
+801	9C	1	Spring Airlines
+802	G9	1	Air Arabia
+803	YZ	0	Alas Uruguay
+804	5Z	1	Cem Air
+805	BR	1	EVA Air
+806	NL	1	Shaheen Air International
+807	ZB	1	Monarch
+808	6R	1	Alrosa
+809	AB	1	Air Berlin
+810	9V	0	Avior Airlines
+811	5O	0	ASL Airlines France
+812	EB	1	Wamos Air
+813	CA	0	Air China
+814	WS	1	WestJet
+815	OR	1	TUI Airlines Netherlands
+816	GT	1	Flyvista
+817	7I	1	Insel Air
+818	DP	1	Pobeda
+819	BC	1	Skymark Airlines
+820	BL	0	Jetstar Pacific
+821	5N	1	NordAvia
+822	S8	1	SkyWise
+823	VF	0	Valuair
+824	W4	1	LC Perú
+825	KL	0	KLM Royal Dutch Airlines
+826	JW	1	Vanilla Air
+827	2G	1	Angara airlines
+828	Y5	1	Golden Myanmar Airlines
+829	7R	1	Rusline
+830	LJ	1	Jin Air
+831	DC	1	Sverigeflyg
+832	WB	0	Rwandair Express
+833	8R	1	Sol Líneas Aéreas
+834	I4	0	I-Fly
+835	8M	0	Myanmar Airways
+836	G3	1	Gol Transportes Aéreos
+837	PG	1	Bangkok Airways
+838	OX	1	Orient Thai Airlines
+839	NZ	1	Air New Zealand
+840	VQ	1	Novoair
+841	X9	0	Fake Airline
+842	BI	0	Royal Brunei Airlines
+843	BT	1	airBaltic
+844	BE	1	flybe
+845	XN	0	Xpressair
+846	K7	0	Air KBZ
+847	MO	1	Calm Air
+848	SI	0	Blue Islands
+849	MM	1	Peach Aviation
+850	C7	1	Cinnamon Air
+851	YJ	1	Asian Wings Air
+852	OZ	0	Asiana Airlines
+853	OD	1	Malindo Air
+854	ED	1	Airblue
+855	KX	0	Cayman Airways
+856	7H	1	Ravn Alaska
+857	CO	0	Cobalt Air
+858	RX	1	Regent Airways
+859	BX	1	Air Busan
+860	KQ	0	Kenya Airways
+861	ME	0	Middle East Airlines
+862	CM	0	Copa Airlines
+863	9W	0	Jet Airways
+864	IX	1	Air India Express
+865	BY	1	TUI Airways
+866	Z8	1	Amaszonas
+867	KU	0	Kuwait Airways
+868	3S	0	Air Antilles Express
+869	6W	1	Saratov Aviation Division
+870	PW	0	Precision Air
+871	TP	0	TAP Portugal
+872	ZV	1	V Air
+873	YC	1	Yamal Air
+874	JL	0	Japan Airlines
+875	HO	1	Juneyao Airlines
+876	SN	0	Brussels Airlines
+877	PF	1	Primera Air
+878	QS	1	SmartWings
+879	IB	0	Iberia Airlines
+880	B0	0	Aws express
+881	TF	0	Braathens Regional Airlines
+882	BM	0	BMI regional
+883	SK	0	SAS
+884	AQ	1	9 Air
+885	P9	1	Peruvian Airlines
+886	DD	1	Nok Air
+887	PK	0	Pakistan International Airlines
+888	TN	0	Air Tahiti Nui
+889	JP	0	Adria Airways
+890	9R	1	SATENA
+891	VW	0	Aeromar
+892	GA	0	Garuda Indonesia
+893	JV	0	Bearskin Lake Air Service
+894	A2	0	Astra Airlines
+895	AF	0	Air France
+896	7M	0	MAYAir
+897	WP	0	Island Air
+898	3M	1	Silver Airways
+899	KD	0	Kalstar Aviation
+900	CF	0	City Airline
+901	3Q	0	Yunnan Airlines
+902	CP	0	Canadian Airlines
+903	MH	1	Malaysia Airlines
+904	ZI	0	Aigle Azur
+905	TR	1	Scoot
+906	D8	0	Norwegian International
+907	QW	0	Blue Wings
+908	B3	0	Bellview Airlines
+909	TL	1	Airnorth
+910	B6	1	JetBlue Airways
+911	TO	0	Transavia France
+912	N4	0	Nordwind Airlines
+913	KP	0	ASKY Airlines
+914	QK	0	Air Canada Jazz
+915	Q7	0	SkyBahamas Air
+916	BG	1	Biman Bangladesh Airlines
+917	AI	0	Air India Limited
+918	HV	1	Transavia
+919	UE	0	Nasair
+920	AM	0	AeroMéxico
+921	UO	1	Hong Kong Express Airways
+922	RP	0	Chautauqua Airlines
+923	Z2	0	Philippines AirAsia
+924	AD	1	Azul
+925	IP	0	Island Spirit
+926	UK	0	Air Vistara
+927	LY	1	El Al Israel Airlines
+928	3H	1	AirInuit
+929	R2	1	Orenburg Airlines
+930	UA	0	United Airlines
+931	3L	1	Intersky
+932	2Z	1	Passaredo
+933	UT	1	UTair
+934	X3	1	TUIfly
+935	UP	1	Bahamasair
+936	J9	1	Jazeera Airways
+937	U2	1	easyJet
+938	UN	1	Transaero Airlines
+939	I5	0	AirAsia India
+940	TW	1	Tway Airlines
+941	FY	1	Firefly
+942	XJ	0	Thai AirAsia X
+943	XT	0	Indonesia AirAsia X
+944	AZ	0	Alitalia
+945	TZ	1	Scoot - old
+946	EW	1	Eurowings
+947	WM	0	Windward Islands Airways
+948	4U	1	germanwings
+949	JQ	1	Jetstar Airways
+950	SL	1	Thai Lion Air
+951	H2	1	Sky Airline
+952	TB	1	tuifly.be
+953	AR	0	Aerolineas Argentinas
+954	DE	1	Condor
+955	TT	1	Tiger Airways Australia
+956	W6	1	Wizzair
+957	FC	1	VivaColombia
+958	5J	1	Cebu Pacific
+959	PC	1	Pegasus
+960	F9	1	Frontier Airlines
+961	FD	0	Thai AirAsia
+962	QZ	0	Indonesia AirAsia
+963	D7	0	AirAsia X
+964	PQ	0	Philippines AirAsia
+965	VY	1	Vueling
+966	DY	1	Norwegian
+967	\N	\N	VivaColombia
+968	5J	1	Cebu Pacific
+969	PC	1	Pegasus
+970	F9	1	Frontier Airlines
+971	FD	0	Thai AirAsia
+972	QZ	0	Indonesia AirAsia
+973	D7	0	AirAsia X
+974	PQ	0	Philippines AirAsia
+975	VY	1	Vueling
+976	DY	1	Norwegian
+977	LS	1	Jet2
+978	BV	1	Blue Panorama
+979	AK	1	AirAsia
+980	4O	1	Interjet (ABC Aerolineas)
+981	1D	1	Aerolinea de Antioquia
+982	FO	1	Flybondi
+\.
+
+
+--
+-- Name: airlines_primary_id_seq; Type: SEQUENCE SET; Schema: public; Owner: developer
+--
+
+SELECT pg_catalog.setval('airlines_primary_id_seq', 982, true);
+
+
+--
+-- Data for Name: hotels; Type: TABLE DATA; Schema: public; Owner: developer
+--
+
+COPY hotels (hotel_id, property_name, address) FROM stdin;
+1	Home Hotel Daan	{"city": "Taipei", "line1": "No.219-2, Section 1, Fuxing South Rd.,", "country": "TW", "postal_code": "10666"}
+2	Just Sleep-taipei-lin Sen	{"city": "Taipei", "line1": "3f 117 Lin Sen North Rd", "country": "TW", "postal_code": "104"}
+3	Aloft Taipei Beitou	{"city": "Taipei", "line1": "300 Daye Road", "country": "TW"}
+4	Evergreen Laurel Hotel Taipei	{"city": "Taipei", "line1": "No. 63 Sung Chiang Road", "country": "TW", "postal_code": "10455"}
+5	Amba Taipei Ximending	{"city": "Taipei", "line1": "77 Wuchang Street", "country": "TW", "postal_code": "00108"}
+6	The Tango Hotel Taipei Changan	{"city": "Taipei", "line1": "80 Linsen North Rd", "country": "TW", "postal_code": "10441"}
+7	Amba Taipei Zhongshan	{"city": "Taipei", "line1": "57 Unit 1 Section 2", "country": "TW", "postal_code": "10412"}
+8	Hotel Cozzi Minsheng Taipei	{"city": "Taipei", "line1": "No 178 Sec 2", "country": "TW", "postal_code": "00104"}
+\.
+
+
+--
+-- Name: hotels_hotel_id_seq; Type: SEQUENCE SET; Schema: public; Owner: developer
+--
+
+SELECT pg_catalog.setval('hotels_hotel_id_seq', 8, true);
+
+
+--
+-- Data for Name: knex_migrations; Type: TABLE DATA; Schema: public; Owner: developer
+--
+
+COPY knex_migrations (id, name, batch, migration_time) FROM stdin;
+528	20180213172629_UserTable.js	1	2018-02-28 03:10:31.74+08
+529	20180213173337_createPackageTable.js	1	2018-02-28 03:10:31.775+08
+530	20180213173355_UserPackageTable.js	1	2018-02-28 03:10:31.871+08
+531	20180215101929_createTravelSpotTable.js	1	2018-02-28 03:10:31.929+08
+532	20180215144024_airlineTable.js	1	2018-02-28 03:10:31.955+08
+533	20180215144038_hotelTable.js	1	2018-02-28 03:10:32.042+08
+534	20180221155057_ticketTable.js	1	2018-02-28 03:10:32.136+08
+535	20180221155115_roomTable.js	1	2018-02-28 03:10:32.239+08
+536	20180223212151_addColumnsInTravelSpotTable.js	1	2018-02-28 03:10:32.278+08
+\.
+
+
+--
+-- Name: knex_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: developer
+--
+
+SELECT pg_catalog.setval('knex_migrations_id_seq', 536, true);
+
+
+--
+-- Data for Name: knex_migrations_lock; Type: TABLE DATA; Schema: public; Owner: developer
+--
+
+COPY knex_migrations_lock (is_locked) FROM stdin;
+0
+\.
+
+
+--
+-- Data for Name: packages; Type: TABLE DATA; Schema: public; Owner: developer
+--
+
+COPY packages (package_id, budget, day_from, day_to, city_from, city_to, created_at, updated_at) FROM stdin;
+1	8000	2018-03-01	2018-03-07	HKG	TPE	2018-02-28 03:12:29.765143+08	2018-02-28 03:12:29.765143+08
+2	8000	2018-03-03	2018-03-07	HKG	TPE	2018-02-28 13:50:38.893734+08	2018-02-28 13:50:38.893734+08
+\.
+
+
+--
+-- Name: packages_package_id_seq; Type: SEQUENCE SET; Schema: public; Owner: developer
+--
+
+SELECT pg_catalog.setval('packages_package_id_seq', 2, true);
+
+
+--
+-- Data for Name: rooms; Type: TABLE DATA; Schema: public; Owner: developer
+--
+
+COPY rooms (room_id, ticket_id, hotel_id, hotel_price, effect_date, created_at, updated_at) FROM stdin;
+1	1	1	3887.0249	2018-02-26	2018-02-28 03:12:29.899009+08	2018-02-28 03:12:29.899009+08
+2	2	2	2318.39502	2018-02-26	2018-02-28 03:12:30.008573+08	2018-02-28 03:12:30.008573+08
+3	3	3	3164.1001	2018-02-26	2018-02-28 03:12:30.086232+08	2018-02-28 03:12:30.086232+08
+4	4	3	3164.1001	2018-02-26	2018-02-28 03:12:30.133215+08	2018-02-28 03:12:30.133215+08
+5	5	4	2852.40991	2018-02-26	2018-02-28 03:12:30.229987+08	2018-02-28 03:12:30.229987+08
+6	6	2	2318.39502	2018-02-28	2018-02-28 03:12:59.996569+08	2018-02-28 03:12:59.996569+08
+7	7	3	3164.1001	2018-02-28	2018-02-28 03:13:00.085898+08	2018-02-28 03:13:00.085898+08
+8	8	5	2787.28491	2018-02-28	2018-02-28 03:13:00.215288+08	2018-02-28 03:13:00.215288+08
+9	9	6	3243.1499	2018-02-28	2018-02-28 03:13:00.383107+08	2018-02-28 03:13:00.383107+08
+10	10	1	3887.0249	2018-02-27	2018-02-28 05:50:04.069102+08	2018-02-28 05:50:04.069102+08
+11	11	2	2318.39502	2018-02-27	2018-02-28 05:50:04.145337+08	2018-02-28 05:50:04.145337+08
+12	12	3	3164.1001	2018-02-27	2018-02-28 05:50:04.205598+08	2018-02-28 05:50:04.205598+08
+13	13	3	3164.1001	2018-02-27	2018-02-28 05:50:04.254842+08	2018-02-28 05:50:04.254842+08
+14	14	4	2852.40991	2018-02-27	2018-02-28 05:50:04.309299+08	2018-02-28 05:50:04.309299+08
+34	34	1	3887.0249	2018-02-27	2018-02-28 14:05:53.961857+08	2018-02-28 14:05:53.961857+08
+35	35	2	2318.39502	2018-02-27	2018-02-28 14:05:54.004997+08	2018-02-28 14:05:54.004997+08
+36	36	3	3164.1001	2018-02-27	2018-02-28 14:05:54.049623+08	2018-02-28 14:05:54.049623+08
+37	37	3	3164.1001	2018-02-27	2018-02-28 14:05:54.088553+08	2018-02-28 14:05:54.088553+08
+38	38	4	2852.40991	2018-02-27	2018-02-28 14:05:54.125107+08	2018-02-28 14:05:54.125107+08
+\.
+
+
+--
+-- Name: rooms_room_id_seq; Type: SEQUENCE SET; Schema: public; Owner: developer
+--
+
+SELECT pg_catalog.setval('rooms_room_id_seq', 38, true);
+
+
+--
+-- Data for Name: tickets; Type: TABLE DATA; Schema: public; Owner: developer
+--
+
+COPY tickets (departure_airline, return_airline, ticket_id, package_id, departure_details, return_details, total_price, flight_price, deep_link, created_at, updated_at) FROM stdin;
+CI	CI	1	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519886700, "cityFrom": "Hong Kong", "dTimeUTC": 1519881000, "flight_no": 680}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520438700, "cityFrom": "Taipei", "dTimeUTC": 1520432400, "flight_no": 921}	5919.0249	2032	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=2647624300373682_0%7C2647624300373682_1&price=210&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMElzEFgGM/Gr2tMEFuCCtiwaL2NEOohBN5zmcjKDD5Ggx8V9lU4ugcTqBESCqq9ivwqbUT60hzi7PJg2I3fMLE6SMW7VAQZ7dMZE/GHsZlypQZLRy5KXi1FW4+mb1VjT0paosZXYlIKtL4fPcwBXubbbyLMqmb3YO04WwFwg59e/ioNoRoWLYpjwv8M5VzyycqG2xKr2gbeMl8TpAcUi6ZywizhROQv7GwwIgYDi2QEuogYgdgfxjHBsu2AZwpWpD1I9UQJ9/yRTnXp/CrAT+mPWWsTO6BELMBzYzuVCUVckRLWI3CxP1JAt49b2WKB9XMN1WlW/QB+wR+c9fXM83Fpy3gHxM8gPvO6AGW0YDL5EiI6SW1Xz78mD5PdaY9oNZcmGcjphhvqz8mdkJ2pccoE61BNo+laZYHomYrW9L1qE1+QVxlsIT+qggpAh3rWjtQ75V31H/Q9K+tW9/lJW1DVyBb5e9NX61WLK8WRRzvkHmIRxynp02bL74OrKe60OjQQ8kuBVl+8jLnPdF04heOqWAn8gcc+D5qrn43TE1A0ea0jCXOqOmkehGl40Rut3ke969xcTeCaGUSHv6RkfkhkLI/mwKyTPsdUZ1nT0epYRcakgYwDHU8JkCCNuXg95rsA=	2018-02-28 03:12:29.837904+08	2018-02-28 03:12:29.837904+08
+CI	CI	2	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519886700, "cityFrom": "Hong Kong", "dTimeUTC": 1519881000, "flight_no": 680}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520407500, "cityFrom": "Taipei", "dTimeUTC": 1520401200, "flight_no": 679}	4904.39502	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=2697102320142272_0%7C2671813557551028_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEn2RB4q2rmhY06pVnLqaap7yyqAMCNz4C+zrH5h0UaG/RfTk335HM/fUEyCzh0U7V9t9AblIyGqv70AsOJsbcio2elqeEJmTXphG1E8XpZhMOhehi7JKE0HqM21ewaVKO+6P9DTFB1TmElstUyUbC6pVFnj24z7AyYrtHXJkO6N2yNE1emkpw1xH0ePa7G5ltQ0z+far+zvGdxy8QQ57XhhtJBmIyoqMDWqaXE1MN9j/cJ1O3CVAvv+FQLRhUmBg3HQk2RPXBYnODsZglKM3VcTm0iLnYsuqVlkXtOgW5pkGqUN7JaJQCFAFEtno7GdmtLkDykXwoBfeDnz0Y1GhZ9Nnq7m2LCAXiJL+qeXsz0y5fXkECnlfz4Qwta2R+t0ZSA2OldXy2JS4XX7a+qQrMNCRRp7HFflwW3LLP+xyLlBCrrpS9e1e4mLWJvPZN7C6RCM3S+F5CjJTw48/eIE5Pkjf5LxbtLx0Yq7/APsm0H0H6t2aDg5GO9Y7NR+Go6EuAAb/ncF7p76Z/LUhiMyayG758GQnI6MsmH7/71f15VFpaGtBoWQc5vvTSbb2EF0KIEjfbZ3wVlk6wKFyfKDeHnX9uTzx6rEhLPNwleiWbl9Ihy4KqevdE96Vlf7j5rwNqKqirZwUl7aQH1lsYtDOAlC	2018-02-28 03:12:29.950061+08	2018-02-28 03:12:29.950061+08
+CI	CI	3	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519867800, "cityFrom": "Hong Kong", "dTimeUTC": 1519862100, "flight_no": 922}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520438700, "cityFrom": "Taipei", "dTimeUTC": 1520432400, "flight_no": 921}	5750.1001	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3461263592423542_0%7C2671813557551027_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEk82lew3Rj3iTnwSkDQCGo8CFJ4f/Qrd2+3IfWHog7uoPkxanvFXlRRPXjvgZfXNkALSOnZdB3nI0inb+r4HxrKQWtSsvLz34+i+La0Jr4JQe0bHZ5KszGZj5scg38HQ51CdhWgfKBB9fK/BuQ91JsGTi18Nk4vJqTKn68bFwChRhdUBzXGWuU/KKexPYPkb9imtaf7iRKPl1ut06ajzzqfk2ZfHs6jjCsc/7HqiuDwtVnUITfLDrjNQD4kuYZkWeIgbgt/Lvw7FijL4IOt7xaXp8V9B3uFKuE/g40xwRZI5zC00MjwGPek1SfkbdiHv3Zwi+ypTWfcZ8N7GokLA+NnjvIvTBQpkjT6TdTXw9RSq9KzFCT99+v7qLYq0pSYttmYDkQ/UMClODUH9vEB3/n5OmruZO64Ci9apcVbdmfjTtXj+3T58cceOo3usUzhas4JwPzTkbeL/9gzoewG9TIiopK7ir79oDQocnZlnmuhkipCTTaGkTIQ0V6iQG+rbCWTVoC5GGIvbCFvON+qVWQVmS59Moto8etIR/2R0IujL/kkeMScOXCL1w2XsNZJmgaAaAjo9MkttOxKAIDkA6oOjiAGDKzh4a7k8ZtwKt9E3za2zqeXSxAme7EdXe3cW1LK8Mhck9A/B2Hgid7Geyhr	2018-02-28 03:12:30.029128+08	2018-02-28 03:12:30.029128+08
+CI	CI	4	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519867800, "cityFrom": "Hong Kong", "dTimeUTC": 1519862100, "flight_no": 922}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520407500, "cityFrom": "Taipei", "dTimeUTC": 1520401200, "flight_no": 679}	5750.1001	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3461263592423542_0%7C2671813557551028_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEk82lew3Rj3iTnwSkDQCGo8CFJ4f/Qrd2+3IfWHog7uoBORn4b/ux14Tdw9MZC1ryBKQDPQiaZaGkbBJPWoHDdJ0prXOGDKx6HLN23UDtfy4cLYnFQkozN9hZoiXeR8y2r7APAk3gi3me/xtyESdhs3zUQsVgw2rPeDvx3e37fiQp8QHEB2VDdQpE88RDteX+YMeDhPotJJuB5qHphUIdNpWEdj0a+ZBQGcT0Vd6v0PTMTPDKwau5xVHWldeeL7sxZFtC3fjXVtYur9PVlUUKeWrY0yoSPzjtOu8IOhTh74zTEhuoWauf48Uazj+dfJDVejQWfxzI+cItXwXVh7MFQmnnpiDxI/aeEo50AbSNffejwlJ0WQ11fUxrMe1Lt2rL+ZL84eVfb3zwsm/0fyIPfEb3I7aEcSS93yLbIgzb4W7g0i9GwlFh1KecCO6fUjXNWt43ZlNZbTu3TE2ADnaexKh5wf2DHwjWxnHviQ3kpm6a8xWz3FLGAdZNQd5lZJNp2ZXR4hVQvqZKlW29MvnocQckp45ngZGGYnojxQqQMOUYav0qWNHt4P3ni5jaj5EPy6Eglcv4LBVPN3e5e8qfAZIt2UFL4VTM8ysZ4u/js8nMSpSU759/yHTX6B1kPxvwytjSF2K2msM/Jcyzbn70c/	2018-02-28 03:12:30.104682+08	2018-02-28 03:12:30.104682+08
+CI	CI	5	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519867800, "cityFrom": "Hong Kong", "dTimeUTC": 1519862100, "flight_no": 922}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520384700, "cityFrom": "Taipei", "dTimeUTC": 1520378100, "flight_no": 601}	5438.41016	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3461263592423542_0%7C3444770936310314_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEk82lew3Rj3iTnwSkDQCGo8blYlhqiGV1XAC07F/7ktWRSo/+QorSch/kYX1Tr1rQ0OFnAV47Ebn0uWVUWPKyoQhPHYpSVoT6wdIyPPxPI6ej86KgOnVe3yP5jAEWHqUNJrAoP51oO63c58GUC32n+C/JLTAPYKCjaFi/EYdcZzgNvu662JnkiOnqGi0LNJ7uOtxIkhc0MTxPtTpJfOnAkHkOhkcypZ8iDMSgDIUIh7x6SRQ2Sio9sLjlZTEfaF7NH5vEsRemTy7ReuGyOx18YZlrarfYQd8K1qeMt5lpv0luq/whW2z5WE9H5ZgKIcuZXJDP9fnXjv446h7xiPCvcK5GsDtrjWVeGEBTMUcesKumH7fhBfLVoFH5GpnRE1znuxA1scloiWN1FKJf1ZMVmrceiKhKxjfqksJpovVrlnX0nve/EGLUhSLyBTOW+JaUP1iN4a1JonpI5U/ggiMT2psWDyiFruWJyqAxI5X1qoQ2k2xV8ba2k7lRPqMQQ7nmXY1ElnbESIOtj2LY9QSCcYzuqg0jbHtqj13soYosYuhOMIo663JjzRUvDk68DRPuy5hBV/VOAc3SwIn+5DJlMHRnocOFIQw763wbYQqfCZKTADJwstdHcYnVaBwVKIieSCROvzdS7jcwW2yAb8Xq46	2018-02-28 03:12:30.175869+08	2018-02-28 03:12:30.175869+08
+CI	CI	6	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519886700, "cityFrom": "Hong Kong", "dTimeUTC": 1519881000, "flight_no": 680}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520407500, "cityFrom": "Taipei", "dTimeUTC": 1520401200, "flight_no": 679}	4381.39502	2063	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=2647624300373680_0%7C2647624300373680_1&price=212&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEnEWbzlhSjbNsd/nFumVodMPvuWEzbGL8TyFmjaD2YnWAHDAlbJpTE+vZTGWiCIbwJAxBYTkynxd1K7yxjolE7ry7yrA3C5LPDgQe+YeJ4fsagRGMurpO5p+9fYNietqvTcnauwwp8B8MwgKdQbnOOe9QSp2sadKGV7qZb2hABcpavKEWOxoygWjQszBhyboKH9ZoIJ8ZvJMM1mBW8RaQx3nBeNr+7WvX9QVGEXYUg9OxItRdYQENkkPoI+uBanqd+Vvgf2pGdNE+6lQh6zT0Chv4U0hVkRaEAiN9MHyjyiyOpOzwvj6HKomw3VIwTxXsfw79Q48nsx+bXdlHZp0OZY7inc7AM+Aobryvimr4JOITGt5T2rHClN77BLrzR9XZLUpOxht76SdRNui2wtFCJDelS49iH3hVC7JMan6tVp0jBK6zDPBrm/haFdbSu0aRmHTKLlVMqj4On9Bx1gtD/2gR3JCWqIjZwKb1ydeJZolWSFApSM5t/auGqXMEWBEcwoW+gjWtVACWUm0bSx8m0epkY+xIYIeKShOkfZlh03dxs3FZCDucFsrimNsJlHN5LtjA/86v3CTemodmGLfZRNsroKgmtZG3eSbxV5+zzZwoEo0L9CsOvPOMxqDLyCWEE=	2018-02-28 03:12:59.850922+08	2018-02-28 03:12:59.850922+08
+CI	CI	7	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519886700, "cityFrom": "Hong Kong", "dTimeUTC": 1519881000, "flight_no": 680}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520384700, "cityFrom": "Taipei", "dTimeUTC": 1520378100, "flight_no": 601}	5227.1001	2063	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3514039177862421_0%7C3514039177862421_1&price=212&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEkn0qPUgaZmQvADcHY7Ga/UfrX/YZYoVN9/tsO43vGubjRWbtey2DODXBXUE7FaLRJYTBffYRDxoR2kO0zuDdzwK02qdqIsCKiHKagmHgbiPlSnRaxeCLI124Mzcj26xSokFMfC6T/RSf0382klzCaA8UIpq2M75NJdHYXQ6vXNeg8lmAQZRdb0UUFN4wXeQDY5yw7HwFQJ/HsM1Cojr3lFtiuCULj7ds+t0YMgZZJ6x7NL+V1PdPhkUjt4sgOGL0D+w94M6LdW8zEkp5A+mfTayuMKvdCAy8KsoC/ghcPDsdJk1vL57UBoEqx2b0OPGULyrD/yd280NTrAQgmRRJbWOlek1/0QZvai9Uk9pvPqs2zfn/s6qVE9O90lKd0s9ybnY/WmmJaHKTyglI8x+X3PlEAdJaxRBW5i8DohYVnw83FhtrJgJFhFdwdIRGXPn62VAinzaaR4mbr+G7RIWJ601mT6jc52mXYszvRwGbKdI+qmTkUnZFs5STbwBzISSTqGuJ6jaCFFkTuIFdCg2NuiwIgCmsmD8JiDBUqAMhJs2CHjh/0MxonMGDJ4C96qJLA2bWc3Kr+gYGeKB8uVRLAXZRyL+ENKNpfPyEtG1CAULOVae/oKLQn+bfoLCF2fnmk=	2018-02-28 03:13:00.041214+08	2018-02-28 03:13:00.041214+08
+CI	CI	8	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519886700, "cityFrom": "Hong Kong", "dTimeUTC": 1519881000, "flight_no": 680}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520438700, "cityFrom": "Taipei", "dTimeUTC": 1520432400, "flight_no": 921}	5413.28516	2626	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=2697102320142272_0%7C2671813557551027_0&price=270&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEn2RB4q2rmhY06pVnLqaap7yyqAMCNz4C+zrH5h0UaG/V31Y64z+cGG9H+PbIMlBvROIzc1Skf1iJNSOjsCVWRaDlKKZhUmKhb8muY+RE5sKr0/u7lyVbKqu1PE4TVoAJQE8O9SfvLWYswvg4NXic1A1bfr1ZEg9QqBTecj8q+K25l5tD8sKvC6AjkzAUVv53giXTwdBGleu2tjtt8GO2xzgIGv1i4Oibf9CInTNNtc+vDDvLj76PgNfeB0Rr0Nj4afSQfTUS8/eMFgj6UzHgLSVJ11Gsz/XH3WM2hjQwNBzHZsDrz6Yce9zRT3FMLIWdowJbQkw9oIDOhrlsxBzA9XMDmHey/VW5JDUofywoiyyRU7uo9Qb0201XycIazNM4G9alNip8rxm94AaPJRNylwBxLtYoInjXQwWunSEJFwqGxQfDT6eGYZrrovfABKexqL75Pu9Let4gs0u4StnJEE7/BPMxIp5U+vQvrdj5hOODAr3hp7YOoGap0b5ZZfT30jDvIF19Hy3GJ/wyAt2cZ21SbYxHVOogY17BZUWnNfGIrnNqwC4ljOUnV+PQ611ECegotUhnMPBA6ZfQB//W68M/A0SUn7PiJT9my3VnYlyKEIr/E+VbvSPd4jWURXNmA=	2018-02-28 03:13:00.136009+08	2018-02-28 03:13:00.136009+08
+CI	CI	9	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519867800, "cityFrom": "Hong Kong", "dTimeUTC": 1519862100, "flight_no": 922}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520438700, "cityFrom": "Taipei", "dTimeUTC": 1520432400, "flight_no": 921}	5869.1499	2626	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3461263592423542_0%7C2671813557551027_0&price=270&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEk82lew3Rj3iTnwSkDQCGo8CFJ4f/Qrd2+3IfWHog7uoPkxanvFXlRRPXjvgZfXNkALSOnZdB3nI0inb+r4HxrKHbKfPqTYmE2WJ7zZVkRJ7sP7su64EktI+LfGxQfFIu1wcqsyiMzaW+V31giADDVnMkACz7GYsmRBQwiJF2ZVAtoMce+/ag/VlEXowTxu80tjgYsQc0sa87ydqsjHUcp5rNUufsng5EY7Q1NnkCOAqjSqV5rRN22zDJsM5kv+lJaTt0VPkDf+qfJX+7l3gI/MJeCz0/92HiakJYjgotINJpq9m3+CDPMsQtAZehzgzGxIa+R/OlAy9dNHi6fT1hIdx/tF7PatliEpZd50szVvAlQMX8A5Zr3RNMigoJkVWBQ/R4fWJ+nbYPJ7vbZvbE/BJWM3LYIexGoBUbLNzaPOcBICbtmvJDXDYXGNmpdJFV0WgsaNGZ1MLfFJvFzJ2hE6R9NViKgBr+xUxaQg2+trd5uW+A+g33+aj8sAtB5KXPoPpB0CKWiN2WKQTETfb/hDzqoRQK9zfw7UNX+C5xf6WRk/P8wD4e7DKwEQ3LPi98GsOZg6J421N33+rVnkXHyncs73P7QafdrUo8th+u46+Ie4p5G9XImQToasm5Ska/Q=	2018-02-28 03:13:00.282477+08	2018-02-28 03:13:00.282477+08
+CI	CI	10	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519886700, "cityFrom": "Hong Kong", "dTimeUTC": 1519881000, "flight_no": 680}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520438700, "cityFrom": "Taipei", "dTimeUTC": 1520432400, "flight_no": 921}	4919.0249	2032	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=2647624300373682_0%7C2647624300373682_1&price=210&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMElzEFgGM/Gr2tMEFuCCtiwaL2NEOohBN5zmcjKDD5Ggx8V9lU4ugcTqBESCqq9ivwqbUT60hzi7PJg2I3fMLE6SMW7VAQZ7dMZE/GHsZlypQZLRy5KXi1FW4+mb1VjT0paosZXYlIKtL4fPcwBXubbbyLMqmb3YO04WwFwg59e/ioNoRoWLYpjwv8M5VzyycqG2xKr2gbeMl8TpAcUi6ZywizhROQv7GwwIgYDi2QEuogYgdgfxjHBsu2AZwpWpD1I9UQJ9/yRTnXp/CrAT+mPWWsTO6BELMBzYzuVCUVckRLWI3CxP1JAt49b2WKB9XMN1WlW/QB+wR+c9fXM83Fpy3gHxM8gPvO6AGW0YDL5EiI6SW1Xz78mD5PdaY9oNZcmGcjphhvqz8mdkJ2pccoE61BNo+laZYHomYrW9L1qE1+QVxlsIT+qggpAh3rWjtQ75V31H/Q9K+tW9/lJW1DVyBb5e9NX61WLK8WRRzvkHmIRxynp02bL74OrKe60OjQQ8kuBVl+8jLnPdF04heOqWAn8gcc+D5qrn43TE1A0ea0jCXOqOmkehGl40Rut3ke969xcTeCaGUSHv6RkfkhkLI/mwKyTPsdUZ1nT0epYRcakgYwDHU8JkCCNuXg95rsA=	2018-02-28 05:50:04.044952+08	2018-02-28 05:50:04.044952+08
+CI	CI	11	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519886700, "cityFrom": "Hong Kong", "dTimeUTC": 1519881000, "flight_no": 680}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520407500, "cityFrom": "Taipei", "dTimeUTC": 1520401200, "flight_no": 679}	4504.39502	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=2697102320142272_0%7C2671813557551028_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEn2RB4q2rmhY06pVnLqaap7yyqAMCNz4C+zrH5h0UaG/RfTk335HM/fUEyCzh0U7V9t9AblIyGqv70AsOJsbcio2elqeEJmTXphG1E8XpZhMOhehi7JKE0HqM21ewaVKO+6P9DTFB1TmElstUyUbC6pVFnj24z7AyYrtHXJkO6N2yNE1emkpw1xH0ePa7G5ltQ0z+far+zvGdxy8QQ57XhhtJBmIyoqMDWqaXE1MN9j/cJ1O3CVAvv+FQLRhUmBg3HQk2RPXBYnODsZglKM3VcTm0iLnYsuqVlkXtOgW5pkGqUN7JaJQCFAFEtno7GdmtLkDykXwoBfeDnz0Y1GhZ9Nnq7m2LCAXiJL+qeXsz0y5fXkECnlfz4Qwta2R+t0ZSA2OldXy2JS4XX7a+qQrMNCRRp7HFflwW3LLP+xyLlBCrrpS9e1e4mLWJvPZN7C6RCM3S+F5CjJTw48/eIE5Pkjf5LxbtLx0Yq7/APsm0H0H6t2aDg5GO9Y7NR+Go6EuAAb/ncF7p76Z/LUhiMyayG758GQnI6MsmH7/71f15VFpaGtBoWQc5vvTSbb2EF0KIEjfbZ3wVlk6wKFyfKDeHnX9uTzx6rEhLPNwleiWbl9Ihy4KqevdE96Vlf7j5rwNqKqirZwUl7aQH1lsYtDOAlC	2018-02-28 05:50:04.101213+08	2018-02-28 05:50:04.101213+08
+CI	CI	12	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519867800, "cityFrom": "Hong Kong", "dTimeUTC": 1519862100, "flight_no": 922}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520438700, "cityFrom": "Taipei", "dTimeUTC": 1520432400, "flight_no": 921}	6000.1001	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3461263592423542_0%7C2671813557551027_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEk82lew3Rj3iTnwSkDQCGo8CFJ4f/Qrd2+3IfWHog7uoPkxanvFXlRRPXjvgZfXNkALSOnZdB3nI0inb+r4HxrKQWtSsvLz34+i+La0Jr4JQe0bHZ5KszGZj5scg38HQ51CdhWgfKBB9fK/BuQ91JsGTi18Nk4vJqTKn68bFwChRhdUBzXGWuU/KKexPYPkb9imtaf7iRKPl1ut06ajzzqfk2ZfHs6jjCsc/7HqiuDwtVnUITfLDrjNQD4kuYZkWeIgbgt/Lvw7FijL4IOt7xaXp8V9B3uFKuE/g40xwRZI5zC00MjwGPek1SfkbdiHv3Zwi+ypTWfcZ8N7GokLA+NnjvIvTBQpkjT6TdTXw9RSq9KzFCT99+v7qLYq0pSYttmYDkQ/UMClODUH9vEB3/n5OmruZO64Ci9apcVbdmfjTtXj+3T58cceOo3usUzhas4JwPzTkbeL/9gzoewG9TIiopK7ir79oDQocnZlnmuhkipCTTaGkTIQ0V6iQG+rbCWTVoC5GGIvbCFvON+qVWQVmS59Moto8etIR/2R0IujL/kkeMScOXCL1w2XsNZJmgaAaAjo9MkttOxKAIDkA6oOjiAGDKzh4a7k8ZtwKt9E3za2zqeXSxAme7EdXe3cW1LK8Mhck9A/B2Hgid7Geyhr	2018-02-28 05:50:04.183877+08	2018-02-28 05:50:04.183877+08
+CI	CI	13	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519867800, "cityFrom": "Hong Kong", "dTimeUTC": 1519862100, "flight_no": 922}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520407500, "cityFrom": "Taipei", "dTimeUTC": 1520401200, "flight_no": 679}	4950.1001	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3461263592423542_0%7C2671813557551028_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEk82lew3Rj3iTnwSkDQCGo8CFJ4f/Qrd2+3IfWHog7uoBORn4b/ux14Tdw9MZC1ryBKQDPQiaZaGkbBJPWoHDdJ0prXOGDKx6HLN23UDtfy4cLYnFQkozN9hZoiXeR8y2r7APAk3gi3me/xtyESdhs3zUQsVgw2rPeDvx3e37fiQp8QHEB2VDdQpE88RDteX+YMeDhPotJJuB5qHphUIdNpWEdj0a+ZBQGcT0Vd6v0PTMTPDKwau5xVHWldeeL7sxZFtC3fjXVtYur9PVlUUKeWrY0yoSPzjtOu8IOhTh74zTEhuoWauf48Uazj+dfJDVejQWfxzI+cItXwXVh7MFQmnnpiDxI/aeEo50AbSNffejwlJ0WQ11fUxrMe1Lt2rL+ZL84eVfb3zwsm/0fyIPfEb3I7aEcSS93yLbIgzb4W7g0i9GwlFh1KecCO6fUjXNWt43ZlNZbTu3TE2ADnaexKh5wf2DHwjWxnHviQ3kpm6a8xWz3FLGAdZNQd5lZJNp2ZXR4hVQvqZKlW29MvnocQckp45ngZGGYnojxQqQMOUYav0qWNHt4P3ni5jaj5EPy6Eglcv4LBVPN3e5e8qfAZIt2UFL4VTM8ysZ4u/js8nMSpSU759/yHTX6B1kPxvwytjSF2K2msM/Jcyzbn70c/	2018-02-28 05:50:04.234527+08	2018-02-28 05:50:04.234527+08
+CI	CI	14	1	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519867800, "cityFrom": "Hong Kong", "dTimeUTC": 1519862100, "flight_no": 922}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520384700, "cityFrom": "Taipei", "dTimeUTC": 1520378100, "flight_no": 601}	4438.41016	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3461263592423542_0%7C3444770936310314_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEk82lew3Rj3iTnwSkDQCGo8blYlhqiGV1XAC07F/7ktWRSo/+QorSch/kYX1Tr1rQ0OFnAV47Ebn0uWVUWPKyoQhPHYpSVoT6wdIyPPxPI6ej86KgOnVe3yP5jAEWHqUNJrAoP51oO63c58GUC32n+C/JLTAPYKCjaFi/EYdcZzgNvu662JnkiOnqGi0LNJ7uOtxIkhc0MTxPtTpJfOnAkHkOhkcypZ8iDMSgDIUIh7x6SRQ2Sio9sLjlZTEfaF7NH5vEsRemTy7ReuGyOx18YZlrarfYQd8K1qeMt5lpv0luq/whW2z5WE9H5ZgKIcuZXJDP9fnXjv446h7xiPCvcK5GsDtrjWVeGEBTMUcesKumH7fhBfLVoFH5GpnRE1znuxA1scloiWN1FKJf1ZMVmrceiKhKxjfqksJpovVrlnX0nve/EGLUhSLyBTOW+JaUP1iN4a1JonpI5U/ggiMT2psWDyiFruWJyqAxI5X1qoQ2k2xV8ba2k7lRPqMQQ7nmXY1ElnbESIOtj2LY9QSCcYzuqg0jbHtqj13soYosYuhOMIo663JjzRUvDk68DRPuy5hBV/VOAc3SwIn+5DJlMHRnocOFIQw763wbYQqfCZKTADJwstdHcYnVaBwVKIieSCROvzdS7jcwW2yAb8Xq46	2018-02-28 05:50:04.273638+08	2018-02-28 05:50:04.273638+08
+CI	CI	34	2	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519886700, "cityFrom": "Hong Kong", "dTimeUTC": 1519881000, "flight_no": 680}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520438700, "cityFrom": "Taipei", "dTimeUTC": 1520432400, "flight_no": 921}	4919.0249	2032	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=2647624300373682_0%7C2647624300373682_1&price=210&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMElzEFgGM/Gr2tMEFuCCtiwaL2NEOohBN5zmcjKDD5Ggx8V9lU4ugcTqBESCqq9ivwqbUT60hzi7PJg2I3fMLE6SMW7VAQZ7dMZE/GHsZlypQZLRy5KXi1FW4+mb1VjT0paosZXYlIKtL4fPcwBXubbbyLMqmb3YO04WwFwg59e/ioNoRoWLYpjwv8M5VzyycqG2xKr2gbeMl8TpAcUi6ZywizhROQv7GwwIgYDi2QEuogYgdgfxjHBsu2AZwpWpD1I9UQJ9/yRTnXp/CrAT+mPWWsTO6BELMBzYzuVCUVckRLWI3CxP1JAt49b2WKB9XMN1WlW/QB+wR+c9fXM83Fpy3gHxM8gPvO6AGW0YDL5EiI6SW1Xz78mD5PdaY9oNZcmGcjphhvqz8mdkJ2pccoE61BNo+laZYHomYrW9L1qE1+QVxlsIT+qggpAh3rWjtQ75V31H/Q9K+tW9/lJW1DVyBb5e9NX61WLK8WRRzvkHmIRxynp02bL74OrKe60OjQQ8kuBVl+8jLnPdF04heOqWAn8gcc+D5qrn43TE1A0ea0jCXOqOmkehGl40Rut3ke969xcTeCaGUSHv6RkfkhkLI/mwKyTPsdUZ1nT0epYRcakgYwDHU8JkCCNuXg95rsA=	2018-02-28 14:05:53.933504+08	2018-02-28 14:05:53.933504+08
+CI	CI	35	2	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519886700, "cityFrom": "Hong Kong", "dTimeUTC": 1519881000, "flight_no": 680}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520407500, "cityFrom": "Taipei", "dTimeUTC": 1520401200, "flight_no": 679}	4504.39502	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=2697102320142272_0%7C2671813557551028_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEn2RB4q2rmhY06pVnLqaap7yyqAMCNz4C+zrH5h0UaG/RfTk335HM/fUEyCzh0U7V9t9AblIyGqv70AsOJsbcio2elqeEJmTXphG1E8XpZhMOhehi7JKE0HqM21ewaVKO+6P9DTFB1TmElstUyUbC6pVFnj24z7AyYrtHXJkO6N2yNE1emkpw1xH0ePa7G5ltQ0z+far+zvGdxy8QQ57XhhtJBmIyoqMDWqaXE1MN9j/cJ1O3CVAvv+FQLRhUmBg3HQk2RPXBYnODsZglKM3VcTm0iLnYsuqVlkXtOgW5pkGqUN7JaJQCFAFEtno7GdmtLkDykXwoBfeDnz0Y1GhZ9Nnq7m2LCAXiJL+qeXsz0y5fXkECnlfz4Qwta2R+t0ZSA2OldXy2JS4XX7a+qQrMNCRRp7HFflwW3LLP+xyLlBCrrpS9e1e4mLWJvPZN7C6RCM3S+F5CjJTw48/eIE5Pkjf5LxbtLx0Yq7/APsm0H0H6t2aDg5GO9Y7NR+Go6EuAAb/ncF7p76Z/LUhiMyayG758GQnI6MsmH7/71f15VFpaGtBoWQc5vvTSbb2EF0KIEjfbZ3wVlk6wKFyfKDeHnX9uTzx6rEhLPNwleiWbl9Ihy4KqevdE96Vlf7j5rwNqKqirZwUl7aQH1lsYtDOAlC	2018-02-28 14:05:53.983063+08	2018-02-28 14:05:53.983063+08
+CI	CI	36	2	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519867800, "cityFrom": "Hong Kong", "dTimeUTC": 1519862100, "flight_no": 922}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520438700, "cityFrom": "Taipei", "dTimeUTC": 1520432400, "flight_no": 921}	6000.1001	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3461263592423542_0%7C2671813557551027_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEk82lew3Rj3iTnwSkDQCGo8CFJ4f/Qrd2+3IfWHog7uoPkxanvFXlRRPXjvgZfXNkALSOnZdB3nI0inb+r4HxrKQWtSsvLz34+i+La0Jr4JQe0bHZ5KszGZj5scg38HQ51CdhWgfKBB9fK/BuQ91JsGTi18Nk4vJqTKn68bFwChRhdUBzXGWuU/KKexPYPkb9imtaf7iRKPl1ut06ajzzqfk2ZfHs6jjCsc/7HqiuDwtVnUITfLDrjNQD4kuYZkWeIgbgt/Lvw7FijL4IOt7xaXp8V9B3uFKuE/g40xwRZI5zC00MjwGPek1SfkbdiHv3Zwi+ypTWfcZ8N7GokLA+NnjvIvTBQpkjT6TdTXw9RSq9KzFCT99+v7qLYq0pSYttmYDkQ/UMClODUH9vEB3/n5OmruZO64Ci9apcVbdmfjTtXj+3T58cceOo3usUzhas4JwPzTkbeL/9gzoewG9TIiopK7ir79oDQocnZlnmuhkipCTTaGkTIQ0V6iQG+rbCWTVoC5GGIvbCFvON+qVWQVmS59Moto8etIR/2R0IujL/kkeMScOXCL1w2XsNZJmgaAaAjo9MkttOxKAIDkA6oOjiAGDKzh4a7k8ZtwKt9E3za2zqeXSxAme7EdXe3cW1LK8Mhck9A/B2Hgid7Geyhr	2018-02-28 14:05:54.029026+08	2018-02-28 14:05:54.029026+08
+CI	CI	37	2	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519867800, "cityFrom": "Hong Kong", "dTimeUTC": 1519862100, "flight_no": 922}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520407500, "cityFrom": "Taipei", "dTimeUTC": 1520401200, "flight_no": 679}	4950.1001	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3461263592423542_0%7C2671813557551028_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEk82lew3Rj3iTnwSkDQCGo8CFJ4f/Qrd2+3IfWHog7uoBORn4b/ux14Tdw9MZC1ryBKQDPQiaZaGkbBJPWoHDdJ0prXOGDKx6HLN23UDtfy4cLYnFQkozN9hZoiXeR8y2r7APAk3gi3me/xtyESdhs3zUQsVgw2rPeDvx3e37fiQp8QHEB2VDdQpE88RDteX+YMeDhPotJJuB5qHphUIdNpWEdj0a+ZBQGcT0Vd6v0PTMTPDKwau5xVHWldeeL7sxZFtC3fjXVtYur9PVlUUKeWrY0yoSPzjtOu8IOhTh74zTEhuoWauf48Uazj+dfJDVejQWfxzI+cItXwXVh7MFQmnnpiDxI/aeEo50AbSNffejwlJ0WQ11fUxrMe1Lt2rL+ZL84eVfb3zwsm/0fyIPfEb3I7aEcSS93yLbIgzb4W7g0i9GwlFh1KecCO6fUjXNWt43ZlNZbTu3TE2ADnaexKh5wf2DHwjWxnHviQ3kpm6a8xWz3FLGAdZNQd5lZJNp2ZXR4hVQvqZKlW29MvnocQckp45ngZGGYnojxQqQMOUYav0qWNHt4P3ni5jaj5EPy6Eglcv4LBVPN3e5e8qfAZIt2UFL4VTM8ysZ4u/js8nMSpSU759/yHTX6B1kPxvwytjSF2K2msM/Jcyzbn70c/	2018-02-28 14:05:54.069677+08	2018-02-28 14:05:54.069677+08
+CI	CI	38	2	{"flyTo": "TPE", "cityTo": "Taipei", "airline": "CI", "flyFrom": "HKG", "aTimeUTC": 1519867800, "cityFrom": "Hong Kong", "dTimeUTC": 1519862100, "flight_no": 922}	{"flyTo": "HKG", "cityTo": "Hong Kong", "airline": "CI", "flyFrom": "TPE", "aTimeUTC": 1520384700, "cityFrom": "Taipei", "dTimeUTC": 1520378100, "flight_no": 601}	4438.41016	2586	https://www.kiwi.com/deep?from=HKG&to=TPE&departure=01-03-2018&return=07-03-2018&flightsId=3461263592423542_0%7C3444770936310314_0&price=267&passengers=1&affilid=picky&lang=en&currency=HKD&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5agPkteAl4L6a57gbdcinCx+MkC8FwATg8ppA+N6Ghv7lJTZezYydu6OFUOPzZVXMEk82lew3Rj3iTnwSkDQCGo8blYlhqiGV1XAC07F/7ktWRSo/+QorSch/kYX1Tr1rQ0OFnAV47Ebn0uWVUWPKyoQhPHYpSVoT6wdIyPPxPI6ej86KgOnVe3yP5jAEWHqUNJrAoP51oO63c58GUC32n+C/JLTAPYKCjaFi/EYdcZzgNvu662JnkiOnqGi0LNJ7uOtxIkhc0MTxPtTpJfOnAkHkOhkcypZ8iDMSgDIUIh7x6SRQ2Sio9sLjlZTEfaF7NH5vEsRemTy7ReuGyOx18YZlrarfYQd8K1qeMt5lpv0luq/whW2z5WE9H5ZgKIcuZXJDP9fnXjv446h7xiPCvcK5GsDtrjWVeGEBTMUcesKumH7fhBfLVoFH5GpnRE1znuxA1scloiWN1FKJf1ZMVmrceiKhKxjfqksJpovVrlnX0nve/EGLUhSLyBTOW+JaUP1iN4a1JonpI5U/ggiMT2psWDyiFruWJyqAxI5X1qoQ2k2xV8ba2k7lRPqMQQ7nmXY1ElnbESIOtj2LY9QSCcYzuqg0jbHtqj13soYosYuhOMIo663JjzRUvDk68DRPuy5hBV/VOAc3SwIn+5DJlMHRnocOFIQw763wbYQqfCZKTADJwstdHcYnVaBwVKIieSCROvzdS7jcwW2yAb8Xq46	2018-02-28 14:05:54.108873+08	2018-02-28 14:05:54.108873+08
+\.
+
+
+--
+-- Name: tickets_ticket_id_seq; Type: SEQUENCE SET; Schema: public; Owner: developer
+--
+
+SELECT pg_catalog.setval('tickets_ticket_id_seq', 38, true);
+
+
+--
+-- Data for Name: travel_spots; Type: TABLE DATA; Schema: public; Owner: developer
+--
+
+COPY travel_spots ("spotId", "airportCode", city, country, region, created_at, updated_at, location) FROM stdin;
+1	KIX	Osaka	Japan	East Asia	2018-02-28 03:10:41.42394+08	2018-02-28 03:10:41.42394+08	{"lat": 34.6937398, "long": 135.502182}
+2	NRT	Tokyo	Japan	East Asia	2018-02-28 03:10:41.42394+08	2018-02-28 03:10:41.42394+08	{"lat": 35.6895266, "long": 139.6916809}
+3	TPE	Taipei	Taiwan	East Asia	2018-02-28 03:10:41.42394+08	2018-02-28 03:10:41.42394+08	{"lat": 25.0476904, "long": 121.5168507}
+4	SFO	San Francisco	USA	North America	2018-02-28 03:10:41.42394+08	2018-02-28 03:10:41.42394+08	{"lat": 37.7749295, "long": -122.4194183}
+\.
+
+
+--
+-- Name: travel_spots_spotId_seq; Type: SEQUENCE SET; Schema: public; Owner: developer
+--
+
+SELECT pg_catalog.setval('"travel_spots_spotId_seq"', 4, true);
+
+
+--
+-- Data for Name: userpackage; Type: TABLE DATA; Schema: public; Owner: developer
+--
+
+COPY userpackage (id, package_id, user_id, created_at, updated_at) FROM stdin;
+1	1	3	2018-02-28 03:12:29.798791+08	2018-02-28 03:12:29.798791+08
+6	2	3	2018-02-28 14:05:53.79492+08	2018-02-28 14:05:53.79492+08
+\.
+
+
+--
+-- Name: userpackage_id_seq; Type: SEQUENCE SET; Schema: public; Owner: developer
+--
+
+SELECT pg_catalog.setval('userpackage_id_seq', 6, true);
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: developer
+--
+
+COPY users (id, name, email, facebook, google, instagram, created_at, updated_at) FROM stdin;
+1	user1	user1@gmail.com	facebook1	google1	instagram1	2018-02-28 03:10:41.460899+08	2018-02-28 03:10:41.460899+08
+2	user2	user2@gmail.com	facebook2	google2	instagram2	2018-02-28 03:10:41.488972+08	2018-02-28 03:10:41.488972+08
+3	lokyiu Yeung	lukelyyeung@gmail.com	1586437584785784	116776102932072610692	\N	2018-02-28 03:11:11.622413+08	2018-02-28 03:11:11.622413+08
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: developer
+--
+
+SELECT pg_catalog.setval('users_id_seq', 3, true);
+
+
+--
+-- Name: airlines_pkey; Type: CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY airlines
+    ADD CONSTRAINT airlines_pkey PRIMARY KEY (primary_id);
+
+
+--
+-- Name: hotels_pkey; Type: CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY hotels
+    ADD CONSTRAINT hotels_pkey PRIMARY KEY (hotel_id);
+
+
+--
+-- Name: knex_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY knex_migrations
+    ADD CONSTRAINT knex_migrations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: packages_pkey; Type: CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY packages
+    ADD CONSTRAINT packages_pkey PRIMARY KEY (package_id);
+
+
+--
+-- Name: rooms_pkey; Type: CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY rooms
+    ADD CONSTRAINT rooms_pkey PRIMARY KEY (room_id);
+
+
+--
+-- Name: tickets_pkey; Type: CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY tickets
+    ADD CONSTRAINT tickets_pkey PRIMARY KEY (ticket_id);
+
+
+--
+-- Name: travel_spots_airportcode_unique; Type: CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY travel_spots
+    ADD CONSTRAINT travel_spots_airportcode_unique UNIQUE ("airportCode");
+
+
+--
+-- Name: travel_spots_pkey; Type: CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY travel_spots
+    ADD CONSTRAINT travel_spots_pkey PRIMARY KEY ("spotId");
+
+
+--
+-- Name: userpackage_pkey; Type: CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY userpackage
+    ADD CONSTRAINT userpackage_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rooms_hotel_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY rooms
+    ADD CONSTRAINT rooms_hotel_id_foreign FOREIGN KEY (hotel_id) REFERENCES hotels(hotel_id);
+
+
+--
+-- Name: rooms_ticket_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY rooms
+    ADD CONSTRAINT rooms_ticket_id_foreign FOREIGN KEY (ticket_id) REFERENCES tickets(ticket_id);
+
+
+--
+-- Name: tickets_package_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY tickets
+    ADD CONSTRAINT tickets_package_id_foreign FOREIGN KEY (package_id) REFERENCES packages(package_id);
+
+
+--
+-- Name: userpackage_package_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY userpackage
+    ADD CONSTRAINT userpackage_package_id_foreign FOREIGN KEY (package_id) REFERENCES packages(package_id);
+
+
+--
+-- Name: userpackage_user_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: developer
+--
+
+ALTER TABLE ONLY userpackage
+    ADD CONSTRAINT userpackage_user_id_foreign FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

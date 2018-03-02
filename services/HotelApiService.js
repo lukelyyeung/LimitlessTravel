@@ -29,7 +29,7 @@ class HotelApiService {
         this.radius = options.radius;
         this.check_in = moment(options.check_in).format('YYYY-MM-DD');
         this.check_out = moment(options.check_out).format('YYYY-MM-DD');
-        this.max_rate = options.max_rate * 2;
+        this.max_rate = options.max_rate * 3;
     }
 
     call() {
@@ -51,7 +51,7 @@ class HotelApiService {
             let rObj = {};
             rObj['property_name'] = obj.property_name;
             rObj['address'] = obj.address;
-            rObj['price'] = Math.round(obj.total_price.amount / 2);
+            rObj['price'] = Math.round(obj.total_price.amount / 3);
             return rObj;
         })
 
