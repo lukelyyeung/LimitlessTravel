@@ -6,9 +6,9 @@ $(document).ready(function () {
     $('body').on('click','.secret',(function(e){
         let index = $('.secret').index(this);
         $.post('/users/save', {data: arr[index]})
-            .done(()=> {
+            .done((msg)=> {
                 console.log("Sent to DataBase!");
-                alert('Successfully save the package');
+                alert(msg);
             })
             .fail((err)=> {
                 console.log(err);

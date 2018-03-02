@@ -32,13 +32,13 @@ class SaveService {
                 console.log('creating new package');
                 return await this.createPackage(userId, newPackageArray);
             } else {
-                // Case for exisiting package
-                await this.knex(userPackage).insert({
-                    user_id: userId,
-                    package_id: packageId[0].package_id
-                });
-                console.log(`Package ${packageId[0].package_id} exists!`);
-                return await this.updatePackage(packageId[0].package_id, newPackageArray);
+                await this.knex.raw(`INSERT INTO userpackage (user_id, package_id) SELECT ?, ? WHERE NOT EXISTS(SELECT 1 FROM userpackage WHERE user_id = ? AND package_id = ?)`
+                    , [userId, packageId[0].package_id, userId, packageId[0].package_id]);
+
+                let msg = `Package ${packageId[0].package_id} exists!`;
+                console.log(msg);
+                return msg;
+                // return await this.updatePackage(packageId[0].package_id, newPackageArray);
             }
         } catch (err) { console.log(err); }
     }
@@ -92,9 +92,9 @@ class SaveService {
                 deep_link: flight.deep_link
             })
                 .returning('ticket_id');
-            } catch (err) { console.log(err); }
+        } catch (err) { console.log(err); }
     }
-    
+
     async findOrCreateHotel(wholePackage) {
         console.log('creating hotels');
         try {
@@ -103,7 +103,7 @@ class SaveService {
                 property_name: accommodation.property_name,
                 address: accommodation.address,
             }
-            
+
             let hotel = await this.knex(hotels).select('hotel_id').where(hotelProfile)
             // .then((hotel) => {
             if (hotel.length === 0) {
@@ -111,12 +111,12 @@ class SaveService {
                 return hotelId[0];
 
             } else {
-                
+
                 return hotel[0].hotel_id;
             }
         } catch (err) { console.log(err); }
     }
-    
+
     async addRooms(ticketId, wholePackage) {
         console.log('creating rooms');
         try {
